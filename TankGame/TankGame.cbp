@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="TankGame" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/PruebaSFML" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="../PruebaSFML" />
+					<Add directory="../TankGame" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/PruebaSFML" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+					<Add directory="../PruebaSFML" />
+					<Add directory="../TankGame" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+			<Add option="-fexceptions" />
+			<Add directory="External/SFML-2.6.1/include" />
+		</Compiler>
+		<Linker>
+			<Add library="sfml-graphics" />
+			<Add library="sfml-window" />
+			<Add library="sfml-system" />
+			<Add directory="External/SFML-2.6.1/lib" />
+		</Linker>
+		<Unit filename="External/img/pxfuel.jpg" />
+		<Unit filename="clsCollider.cpp" />
+		<Unit filename="clsCollider.h" />
+		<Unit filename="clsEntity.cpp" />
+		<Unit filename="clsEntity.h" />
+		<Unit filename="clsFondo.cpp" />
+		<Unit filename="clsFondo.h" />
+		<Unit filename="clsPlayer.cpp" />
+		<Unit filename="clsPlayer.h" />
+		<Unit filename="clsStaticEnemy.cpp" />
+		<Unit filename="clsStaticEnemy.h" />
+		<Unit filename="main.cpp" />
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
