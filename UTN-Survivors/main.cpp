@@ -2,6 +2,7 @@
 #include <SFML/Graphics.hpp>
 #include "clsCamera.h"
 #include "clsAnimation.h"
+#include "clsPlayer.h"
 
 
 
@@ -31,15 +32,14 @@ int main()
 
     ///inicializar entidades
 
-    sf::Texture playerTexture;
-    playerTexture.loadFromFile("./Assets/Sprites/testCharacter.png");
+    
+    sf::Texture chadsterTexture;
+    chadsterTexture.loadFromFile("./Assets/Sprites/chadsterSprite.png");
 
-    Animation playerAnimation(&playerTexture,sf::Vector2u(4,6), 0.3f);
+    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 10.0f, window);
+
 
     sf::RectangleShape testCube(sf::Vector2f(5.0f, 7.5));
-
-    testCube.setOrigin(testCube.getSize() / 2.0f);
-    testCube.setTexture(&playerTexture);
     
 
 
@@ -73,14 +73,13 @@ int main()
 
         window.setView(currentView);
 
-        playerAnimation.Update(5, deltaTime, true);
-        testCube.setTextureRect(playerAnimation.uvRect);
+        chadster.Update(deltaTime);
 
         window.clear();
         
         // dibujar cosas aca
 
-        window.draw(testCube);
+        chadster.Draw();
 
 
         window.display();

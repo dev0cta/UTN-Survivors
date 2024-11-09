@@ -136,11 +136,13 @@
   <ItemGroup>
     <ClCompile Include="clsAnimation.cpp" />
     <ClCompile Include="clsCamera.cpp" />
+    <ClCompile Include="clsPlayer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsAnimation.h" />
     <ClInclude Include="clsCamera.h" />
+    <ClInclude Include="clsPlayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
