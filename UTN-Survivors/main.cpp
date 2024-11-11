@@ -3,14 +3,19 @@
 #include "clsCamera.h"
 #include "clsAnimation.h"
 #include "clsPlayer.h"
+#include "clsEnemy.h"
+#include "clsSlime.h"
 
-
+struct Textures
+{
+    
+};
 
 int main()
 {
     ///precalculos
 
-
+    srand(time(NULL));
 
     ///ventana de juego
 
@@ -35,9 +40,13 @@ int main()
     
     sf::Texture chadsterTexture;
     chadsterTexture.loadFromFile("./Assets/Sprites/chadsterSprite.png");
+    
+    sf::Texture slimeTexture;
+    slimeTexture.loadFromFile("./Assets/Sprites/slimeSprite.png");
 
-    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 10.0f, window);
+    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 20.0f, window);
 
+    Slime slime(&slimeTexture, sf::Vector2u(3, 2), 0.15f, 10.0f); //velocidad 0, lo uso de manequi de prueba
 
     sf::RectangleShape testCube(sf::Vector2f(5.0f, 7.5));
     
@@ -73,11 +82,15 @@ int main()
 
         window.setView(currentView);
 
+        slime.Update(deltaTime, chadster.getPos());
+
         chadster.Update(deltaTime);
 
         window.clear();
         
         // dibujar cosas aca
+
+        slime.Draw(window);
 
         chadster.Draw();
 

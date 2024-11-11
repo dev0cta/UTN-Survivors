@@ -15,7 +15,10 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	body.setOrigin(body.getSize() / 2.0f);
 
 	body.setTexture(texture);
-
+	//--------------DESCOMENTAR PARA VER LA HITBOX-------------
+	body.setOutlineThickness(-0.1f);
+	body.setOutlineColor(sf::Color::Red);
+	//---------------------------------------------------------
 }
 
 void Player::Update(float deltaTime)
@@ -55,6 +58,11 @@ void Player::Draw()
 {
 	window.draw(body);
 
+}
+
+sf::Vector2f Player::getPos()
+{
+	return body.getPosition();
 }
 
 void Player::takeDmg()

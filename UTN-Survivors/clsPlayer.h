@@ -14,6 +14,8 @@ public:
 	void Draw();
 
 
+	sf::Vector2f getPos(); //para el target de los enemigos
+
 	void takeDmg(); //tiene cooldown
 
 	void attack(); //verifica los cd de las habilidades y las lanza si estan disponibles

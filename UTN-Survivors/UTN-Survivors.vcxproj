@@ -136,12 +136,16 @@
   <ItemGroup>
     <ClCompile Include="clsAnimation.cpp" />
     <ClCompile Include="clsCamera.cpp" />
+    <ClCompile Include="clsEnemy.cpp" />
+    <ClCompile Include="clsSlime.cpp" />
     <ClCompile Include="clsPlayer.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsAnimation.h" />
     <ClInclude Include="clsCamera.h" />
+    <ClInclude Include="clsEnemy.h" />
+    <ClInclude Include="clsSlime.h" />
     <ClInclude Include="clsPlayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
