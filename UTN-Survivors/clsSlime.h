@@ -22,7 +22,7 @@ private:
 
 private:
 
-
+public:
 	float speed;
 
 	sf::Vector2f target;

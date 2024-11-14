@@ -6,10 +6,6 @@
 #include "clsEnemy.h"
 #include "clsSlime.h"
 
-struct Textures
-{
-    
-};
 
 int main()
 {
@@ -42,12 +38,17 @@ int main()
     chadsterTexture.loadFromFile("./Assets/Sprites/chadsterSprite.png");
     
     sf::Texture slimeTexture;
-    slimeTexture.loadFromFile("./Assets/Sprites/slimeSprite.png");
+    slimeTexture.loadFromFile("./Assets/Sprites/SlimeSprite.png");
+
+    sf::Texture elemSlimeTexture;
+    elemSlimeTexture.loadFromFile("./Assets/Sprites/elemSlimeSprite.png");
 
     Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 20.0f, window);
 
-    Slime slime(&slimeTexture, sf::Vector2u(3, 2), 0.15f, 10.0f); //velocidad 0, lo uso de manequi de prueba
+    Slime slime(&slimeTexture, sf::Vector2u(3, 3), 0.15f, 8.0f); //velocidad 0, lo uso de manequi de prueba
 
+    Slime elemSlime(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 5.0f); //velocidad 0, lo uso de manequi de prueba
+    elemSlime.body.setPosition(5.0f, 5.0f);
     sf::RectangleShape testCube(sf::Vector2f(5.0f, 7.5));
     
 
@@ -84,13 +85,16 @@ int main()
 
         slime.Update(deltaTime, chadster.getPos());
 
+        elemSlime.Update(deltaTime, chadster.getPos());
+
         chadster.Update(deltaTime);
 
-        window.clear();
+        window.clear(sf::Color::White);
         
         // dibujar cosas aca
 
         slime.Draw(window);
+        elemSlime.Draw(window);
 
         chadster.Draw();
 

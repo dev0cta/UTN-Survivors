@@ -18,8 +18,8 @@ Slime::Slime(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, fl
 
 	body.setTexture(texture);
 	//--------------DESCOMENTAR PARA VER LA HITBOX-------------
-	body.setOutlineThickness(-0.1f);
-	body.setOutlineColor(sf::Color::White);
+	//body.setOutlineThickness(-0.1f);
+	//body.setOutlineColor(sf::Color::White);
 	//---------------------------------------------------------
 
 }
