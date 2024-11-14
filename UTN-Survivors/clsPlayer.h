@@ -2,12 +2,14 @@
 
 #include "clsAnimation.h"
 #include "SFML/Graphics.hpp"
+#include "BarraVida.h"
 
 class Player
 {
 public:
 
 	Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window);
+
 
 	void Update(float deltaTime);
 
@@ -33,8 +35,8 @@ private:
 	Animation			animation;
 	unsigned int		row;
 	bool				faceRight;
-
+	BarraVida			BarraHp;
 	sf::RenderWindow& window;
-
+	float HpMax = 200;
 };
 

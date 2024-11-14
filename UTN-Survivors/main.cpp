@@ -5,6 +5,7 @@
 #include "clsPlayer.h"
 #include "clsEnemy.h"
 #include "clsSlime.h"
+#include "BarraVida.h"
 
 
 int main()
@@ -79,6 +80,8 @@ int main()
 
         //aca van los updates
 
+        
+
         currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f,0.0f));
 
         window.setView(currentView);
@@ -88,6 +91,7 @@ int main()
         elemSlime.Update(deltaTime, chadster.getPos());
 
         chadster.Update(deltaTime);
+        //vida.update(chadster.getPos());
 
         window.clear(sf::Color::White);
         

@@ -1,7 +1,7 @@
 #include "clsPlayer.h"
 
 Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window):
-	animation(texture, imageCount, switchTime), window(window)
+	animation(texture, imageCount, switchTime), window(window), BarraHp(Player::getPos(), HpMax)
 {
 
 	this->speed = speed;
@@ -50,6 +50,7 @@ void Player::Update(float deltaTime)
 		faceRight = false;
 
 	animation.Update(row, deltaTime, faceRight);
+	BarraHp.update(getPos());
 	body.setTextureRect(animation.uvRect);
 	body.move(movement);
 }
@@ -57,6 +58,7 @@ void Player::Update(float deltaTime)
 void Player::Draw()
 {
 	window.draw(body);
+	BarraHp.Draw(window);
 
 }
 

@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BarraVida.cpp" />
     <ClCompile Include="clsAnimation.cpp" />
     <ClCompile Include="clsCamera.cpp" />
     <ClCompile Include="clsEnemy.cpp" />
@@ -142,6 +143,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BarraVida.h" />
     <ClInclude Include="clsAnimation.h" />
     <ClInclude Include="clsCamera.h" />
     <ClInclude Include="clsEnemy.h" />
