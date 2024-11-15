@@ -1,0 +1,26 @@
+{
+    "activeFile": "",
+    "expandedProjectPaths": [
+    ],
+    "fileStates": {
+        "GRASS.tsx": {
+            "dynamicWrapping": false
+        }
+    },
+    "last.imagePath": "C:/Users/octav/Documents/GitHub/UTN-Survivors2/UTN-Survivors/Assets/map",
+    "map.height": 250,
+    "map.lastUsedFormat": "tmx",
+    "map.tileHeight": 16,
+    "map.tileWidth": 16,
+    "map.width": 250,
+    "openFiles": [
+    ],
+    "project": "mapa.tiled-project",
+    "recentFiles": [
+    ],
+    "tileset.lastUsedFormat": "tsx",
+    "tileset.tileSize": {
+        "height": 16,
+        "width": 16
+    }
+}

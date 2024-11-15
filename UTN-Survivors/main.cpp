@@ -6,7 +6,7 @@
 #include "clsEnemy.h"
 #include "clsSlime.h"
 #include "BarraVida.h"
-
+#include "SFMLOrthogonalLayer.h"
 
 int main()
 {
@@ -16,7 +16,7 @@ int main()
 
     ///ventana de juego
 
-    sf::RenderWindow window(sf::VideoMode(1080, 1080), "UTN Survivors", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(1080, 820), "UTN Survivors", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
 
 
     ///inicializar sistemas
@@ -53,7 +53,14 @@ int main()
     sf::RectangleShape testCube(sf::Vector2f(5.0f, 7.5));
     
 
+    /// Mapa
 
+    tmx::Map Mapa;
+
+    Mapa.load("./Assets/map/mapaPrueba.tmx");
+    MapLayer layerCero(Mapa, 0);
+    MapLayer layerUno(Mapa, 1);
+    MapLayer layerDos(Mapa, 2);
 
     ///inicializar variables
 
@@ -82,7 +89,7 @@ int main()
 
         
 
-        currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f,0.0f));
+        currentView = camara.getView(window.getSize(), chadster.getPos());
 
         window.setView(currentView);
 
@@ -96,6 +103,9 @@ int main()
         window.clear(sf::Color::White);
         
         // dibujar cosas aca
+        window.draw(layerCero);
+        window.draw(layerUno);
+        window.draw(layerDos);
 
         slime.Draw(window);
         elemSlime.Draw(window);
