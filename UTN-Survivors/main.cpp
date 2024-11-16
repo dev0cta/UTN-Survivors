@@ -6,6 +6,7 @@
 #include "clsEnemy.h"
 #include "clsSlime.h"
 #include "BarraVida.h"
+#include "clsCircleCollider.h"
 #include "SFMLOrthogonalLayer.h"
 
 int main()
@@ -21,7 +22,7 @@ int main()
 
     ///inicializar sistemas
 
-    Camera camara(70.0f);  
+    Camera camara(300.0f);  
         //es el zoom que tiene la camara, creo que 70 es adecuado para la perspectiva de vmpire survivors
         // (respecto al tamaño de personaje que elegi (5.0f, 7.5f) ) 
     sf::View currentView;
@@ -44,13 +45,30 @@ int main()
     sf::Texture elemSlimeTexture;
     elemSlimeTexture.loadFromFile("./Assets/Sprites/elemSlimeSprite.png");
 
-    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 20.0f, window);
+    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 125.0f, window);
 
-    Slime slime(&slimeTexture, sf::Vector2u(3, 3), 0.15f, 8.0f); //velocidad 0, lo uso de manequi de prueba
+    std::vector<Slime> spawnedEnemies;
 
-    Slime elemSlime(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 5.0f); //velocidad 0, lo uso de manequi de prueba
-    elemSlime.body.setPosition(5.0f, 5.0f);
-    sf::RectangleShape testCube(sf::Vector2f(5.0f, 7.5));
+    Slime slime (&slimeTexture, sf::Vector2u(3, 3), 0.15f, 80.0f); //velocidad 0, lo uso de manequi de prueba
+
+    Slime elemSlime (&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f); //velocidad 0, lo uso de manequi de prueba
+    //elemSlime.body.setPosition(5.0f, 5.0f);
+
+    Slime elemSlime1(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
+    Slime elemSlime2(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
+    Slime elemSlime3(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
+    Slime elemSlime4(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
+    Slime elemSlime5(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
+    Slime elemSlime6(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
+
+    spawnedEnemies.push_back(slime);
+    spawnedEnemies.push_back(elemSlime);
+    spawnedEnemies.push_back(elemSlime1);
+    spawnedEnemies.push_back(elemSlime2);
+    spawnedEnemies.push_back(elemSlime3);
+    spawnedEnemies.push_back(elemSlime4);
+    spawnedEnemies.push_back(elemSlime5);
+    spawnedEnemies.push_back(elemSlime6);
     
 
     /// Mapa
@@ -93,9 +111,21 @@ int main()
 
         window.setView(currentView);
 
-        slime.Update(deltaTime, chadster.getPos());
+        for (auto& enemy : spawnedEnemies)
+        {
+            enemy.Update(deltaTime, chadster.getPos());
+        }
+        
+        for (auto& enemy : spawnedEnemies)
+        {
+            for (auto& otherEnemy : spawnedEnemies)
+            {
+                enemy.GetHitbox().checkSolidCollision(otherEnemy.GetCollider(), 0.75f);
+            }   
 
-        elemSlime.Update(deltaTime, chadster.getPos());
+        }
+
+        
 
         chadster.Update(deltaTime);
         //vida.update(chadster.getPos());
@@ -107,8 +137,10 @@ int main()
         window.draw(layerUno);
         window.draw(layerDos);
 
-        slime.Draw(window);
-        elemSlime.Draw(window);
+        for (auto& enemy : spawnedEnemies)
+        {
+            enemy.Draw(window);
+        }
 
         chadster.Draw();
 

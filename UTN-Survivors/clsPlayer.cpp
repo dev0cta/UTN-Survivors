@@ -9,7 +9,10 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	row = 0;
 	faceRight = true;
 
-	body.setSize(sf::Vector2f(5.0f, 7.5f));
+	hitBox.setRadius(25.0f / 2.0f);
+	hitBox.setOrigin(sf::Vector2f(12.5f, 12.5f));
+
+	body.setSize(sf::Vector2f(25.0f, 50.0f));
 
 	body.setPosition(sf::Vector2f(0.0f, 0.0f));
 	body.setOrigin(body.getSize() / 2.0f);

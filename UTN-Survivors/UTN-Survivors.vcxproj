@@ -137,6 +137,7 @@
     <ClCompile Include="BarraVida.cpp" />
     <ClCompile Include="clsAnimation.cpp" />
     <ClCompile Include="clsCamera.cpp" />
+    <ClCompile Include="clsCircleCollider.cpp" />
     <ClCompile Include="clsEnemy.cpp" />
     <ClCompile Include="clsSlime.cpp" />
     <ClCompile Include="clsPlayer.cpp" />
@@ -146,6 +147,7 @@
     <ClInclude Include="BarraVida.h" />
     <ClInclude Include="clsAnimation.h" />
     <ClInclude Include="clsCamera.h" />
+    <ClInclude Include="clsCircleCollider.h" />
     <ClInclude Include="clsEnemy.h" />
     <ClInclude Include="clsSlime.h" />
     <ClInclude Include="clsPlayer.h" />

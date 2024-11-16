@@ -31,6 +31,7 @@ private:
 	//funciones
 
 	sf::RectangleShape	body;
+	sf::CircleShape		hitBox;
 
 	Animation			animation;
 	unsigned int		row;

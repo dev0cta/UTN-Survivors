@@ -7,11 +7,13 @@ Slime::Slime(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, fl
 {
 
 	this->speed = speed;
-	int random = rand() % 2;
+	int random = rand() % 3;
 	row = random;
 	faceRight = true;
 
-	body.setSize(sf::Vector2f(4.0f, 4.0f));
+	
+
+	body.setSize(sf::Vector2f(20.0f, 20.0f));
 
 	body.setPosition(sf::Vector2f(0.0f, 0.0f));
 	body.setOrigin(body.getSize() / 2.0f);
@@ -40,6 +42,22 @@ void Slime::Draw(sf::RenderWindow& window)
 {
 	window.draw(body);
 }
+
+CircleCollider Slime::GetHitbox()
+{
+	return CircleCollider(body);	
+}
+
+CircleCollider Slime::GetCollider()
+{
+	return CircleCollider(body);
+}
+
+
+
+
+
+
 
 /// ----------------- FUNCIONES INTERNAS --------------------------
 
