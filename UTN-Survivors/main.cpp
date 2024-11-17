@@ -97,12 +97,22 @@ int main()
 
     /// Mapa
 
-    tmx::Map Mapa;
+    sf::Texture textSuelo;
+    sf::Texture textArboles;
 
-    Mapa.load("./Assets/map/mapaPrueba.tmx");
-    MapLayer layerCero(Mapa, 0);
-    MapLayer layerUno(Mapa, 1);
-    MapLayer layerDos(Mapa, 2);
+    textSuelo.loadFromFile("./Assets/map/mapaBase.png");
+    textArboles.loadFromFile("./Assets/map/mapaArboles.png");
+    
+    sf::Sprite mapaSuelo;
+    sf::Sprite mapaArboles;
+
+    mapaSuelo.setTexture(textSuelo);
+    mapaArboles.setTexture(textArboles);
+
+    mapaSuelo.setPosition(sf::Vector2f(-250.0f, -250.0f));
+    mapaArboles.setPosition(sf::Vector2f(-250.0f, -250.0f));
+    sf::Vector2f boundMapLeftTop(72.0f, 3446.0f);
+    sf::Vector2f boundMapRightDown(3430.0f, 54.0f);
 
     ///inicializar variables
 
@@ -129,13 +139,6 @@ int main()
                 {
                 window.close();
                 }
-            
-            
-
-            
-            
-
-
         }
 
         switch (gameState)
@@ -184,12 +187,11 @@ int main()
 
         case PLAYING:         //----------------------------------------------------PLAYING STATE------------------------------
 
-
             //aca van los updates
-            
+
             std::cout << "betaTime: " << betaTime << std::endl;
-            
             std::cout << "antes: " << pauseCd << std::endl;
+
             if (pauseCd - betaTime <=0)
             {
                 bool temp = paused;
@@ -241,21 +243,43 @@ int main()
             window.clear(sf::Color::White);
 
             // dibujar cosas aca
-            window.draw(layerCero);
-            window.draw(layerUno);
-            window.draw(layerDos);
-
+            window.draw(mapaSuelo);
+            window.draw(mapaArboles);
             for (auto& enemy : spawnedEnemies)
             {
                 enemy.Draw(window);
             }
 
+            // Puse acá el checkeo de colisiones como placeholder
+            if (chadster.getPos().x < boundMapLeftTop.x) 
+            {
+                chadster.getBody().setPosition(boundMapLeftTop.x, chadster.getPos().y);
+            }
+            else
+            {
+                if (chadster.getPos().y > boundMapLeftTop.y)
+                {
+                    chadster.getBody().setPosition(chadster.getPos().x, boundMapLeftTop.y);
+                }
+            }
+   
+            if (chadster.getPos().x > boundMapRightDown.x)
+            {
+                chadster.getBody().setPosition(boundMapRightDown.x, chadster.getPos().y);
+            }
+            else
+            {
+                if (chadster.getPos().y < boundMapRightDown.y)
+                {
+                    chadster.getBody().setPosition(chadster.getPos().x, boundMapRightDown.y);
+                }
+            }
+            //
+
             chadster.Draw();
 
             gamePause.Draw(window);
-
             window.draw(cursor);
-
             window.display();
 
             break;

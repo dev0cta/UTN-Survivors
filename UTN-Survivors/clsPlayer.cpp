@@ -12,9 +12,9 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	hitBox.setRadius(25.0f / 2.0f);
 	hitBox.setOrigin(sf::Vector2f(12.5f, 12.5f));
 
-	body.setSize(sf::Vector2f(25.0f, 50.0f));
+	body.setSize(sf::Vector2f(12.5f, 25.0f));
 
-	body.setPosition(sf::Vector2f(0.0f, 0.0f));
+	body.setPosition(sf::Vector2f(250.0f, 250.0f));
 	body.setOrigin(body.getSize() / 2.0f);
 
 	body.setTexture(texture);
@@ -70,6 +70,11 @@ sf::Vector2f Player::getPos()
 	return body.getPosition();
 }
 
+sf::RectangleShape& Player::getBody()
+{
+	return body;
+}
+
 void Player::takeDmg()
 {
 }
@@ -77,3 +82,4 @@ void Player::takeDmg()
 void Player::attack()
 {
 }
+

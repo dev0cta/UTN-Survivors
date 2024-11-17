@@ -18,6 +18,8 @@ public:
 
 	sf::Vector2f getPos(); //para el target de los enemigos
 
+	sf::RectangleShape& getBody(); // nigga i cant
+
 	void takeDmg(); //tiene cooldown
 
 	void attack(); //verifica los cd de las habilidades y las lanza si estan disponibles
@@ -32,6 +34,7 @@ private:
 
 	sf::RectangleShape	body;
 	sf::CircleShape		hitBox;
+
 
 	Animation			animation;
 	unsigned int		row;
