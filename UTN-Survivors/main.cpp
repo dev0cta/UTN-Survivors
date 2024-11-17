@@ -2,9 +2,11 @@
 #include <SFML/Graphics.hpp>
 #include "clsCamera.h"
 #include "clsAnimation.h"
+#include "clsButtonAnimation.h"
 #include "clsPlayer.h"
 #include "clsEnemy.h"
 #include "clsSlime.h"
+#include "clsMenu.h"
 #include "BarraVida.h"
 #include "clsCircleCollider.h"
 #include "SFMLOrthogonalLayer.h"
@@ -17,7 +19,7 @@ int main()
 
     ///ventana de juego
 
-    sf::RenderWindow window(sf::VideoMode(1080, 820), "UTN Survivors", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(1280, 720), "UTN Survivors", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
 
 
     ///inicializar sistemas
@@ -35,9 +37,26 @@ int main()
 
     ///inicializar entidades
 
+    enum GAMESTATE {
+        MENU,
+        PLAYING,
+        STATS,
+        GAMEOVER
+    };
+
+    enum GAMESTATE  gameState = MENU;
     
+    sf::Texture playTexture;
+    playTexture.loadFromFile("./Assets/Buttons/playButtonSprite.png");
+    sf::Texture statsTexture;
+    statsTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
+    sf::Texture backgroundTexture;
+    statsTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
+
+
     sf::Texture chadsterTexture;
     chadsterTexture.loadFromFile("./Assets/Sprites/chadsterSprite.png");
+
     
     sf::Texture slimeTexture;
     slimeTexture.loadFromFile("./Assets/Sprites/SlimeSprite.png");
@@ -45,31 +64,26 @@ int main()
     sf::Texture elemSlimeTexture;
     elemSlimeTexture.loadFromFile("./Assets/Sprites/elemSlimeSprite.png");
 
+    Menu mainMenu(&playTexture, &statsTexture);
+
     Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 125.0f, window);
 
     std::vector<Slime> spawnedEnemies;
 
-    Slime slime (&slimeTexture, sf::Vector2u(3, 3), 0.15f, 80.0f); //velocidad 0, lo uso de manequi de prueba
+    Slime slimeTemplate (&slimeTexture, sf::Vector2u(3, 3), 0.15f, 80.0f); //velocidad 0, lo uso de manequi de prueba
 
-    Slime elemSlime (&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f); //velocidad 0, lo uso de manequi de prueba
-    //elemSlime.body.setPosition(5.0f, 5.0f);
+    Slime elemSlimeTemplate (&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f); //velocidad 0 para usarlo de manequi de prueba
+    //elemSlimeTemplate.body.setPosition(5.0f, 5.0f);
 
-    Slime elemSlime1(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
-    Slime elemSlime2(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
-    Slime elemSlime3(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
-    Slime elemSlime4(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
-    Slime elemSlime5(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
-    Slime elemSlime6(&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f);
 
-    spawnedEnemies.push_back(slime);
-    spawnedEnemies.push_back(elemSlime);
-    spawnedEnemies.push_back(elemSlime1);
-    spawnedEnemies.push_back(elemSlime2);
-    spawnedEnemies.push_back(elemSlime3);
-    spawnedEnemies.push_back(elemSlime4);
-    spawnedEnemies.push_back(elemSlime5);
-    spawnedEnemies.push_back(elemSlime6);
+
+    spawnedEnemies.push_back(slimeTemplate);
+    spawnedEnemies.push_back(elemSlimeTemplate);
     
+    
+    sf::RectangleShape cursor(sf::Vector2f(20.0f, 20.0f));
+    cursor.setOrigin(20.0f / 2.0f, 20.0f / 2.0f);
+    cursor.setFillColor(sf::Color::Red);
 
     /// Mapa
 
@@ -81,6 +95,8 @@ int main()
     MapLayer layerDos(Mapa, 2);
 
     ///inicializar variables
+
+    sf::Vector2f mousePos;
 
     float deltaTime = 0;
 
@@ -102,50 +118,117 @@ int main()
 
         }
 
-
-        //aca van los updates
-
-        
-
-        currentView = camara.getView(window.getSize(), chadster.getPos());
-
-        window.setView(currentView);
-
-        for (auto& enemy : spawnedEnemies)
+        switch (gameState)
         {
-            enemy.Update(deltaTime, chadster.getPos());
-        }
-        
-        for (auto& enemy : spawnedEnemies)
-        {
-            for (auto& otherEnemy : spawnedEnemies)
+        case MENU:
+            //window.setSize();
+            
+            //UPDATE MENU
+
+            currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f,0.0f));
+
+            window.setView(currentView);
+
+            mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+
+            cursor.setPosition(mousePos);
+
+
+            mainMenu.Update(mousePos);
+
+            //SALIR DEL MENU
+            //gameState = PLAYING o STATS
+
+            if (mainMenu.getOptionPressed() == PLAYING)
             {
-                enemy.GetHitbox().checkSolidCollision(otherEnemy.GetCollider(), 0.75f);
-            }   
+                gameState = PLAYING;
+            }
+            if (mainMenu.getOptionPressed() == STATS) 
+            {
+                gameState = STATS;
+            }
 
+
+            //DRAW MENU
+            window.clear();
+
+            mainMenu.Draw(window);
+
+            window.draw(cursor);
+
+            //drawButtons
+            window.display();
+
+            break;
+
+
+        case PLAYING:
+
+            //aca van los updates
+
+            currentView = camara.getView(window.getSize(), chadster.getPos());
+
+            window.setView(currentView);
+
+            for (auto& enemy : spawnedEnemies)
+            {
+                enemy.Update(deltaTime, chadster.getPos());
+            }
+
+            for (auto& enemy : spawnedEnemies)
+            {
+                for (auto& otherEnemy : spawnedEnemies)
+                {
+                    enemy.GetHitbox().checkSolidCollision(otherEnemy.GetCollider(), 0.75f);
+                }
+
+            }
+
+
+
+            chadster.Update(deltaTime);
+            //vida.update(chadster.getPos());
+
+            window.clear(sf::Color::White);
+
+            // dibujar cosas aca
+            window.draw(layerCero);
+            window.draw(layerUno);
+            window.draw(layerDos);
+
+            for (auto& enemy : spawnedEnemies)
+            {
+                enemy.Draw(window);
+            }
+
+            chadster.Draw();
+
+
+            window.display();
+
+            break;
+
+
+        case STATS:
+            break;
+
+
+        case GAMEOVER:
+            break;
+
+
+        default:
+            std::cout << "ESTO NO DEBERIA PASAR... FATAL ERROR" << std::endl;
+            window.close();
+            break;
         }
+
 
         
 
-        chadster.Update(deltaTime);
-        //vida.update(chadster.getPos());
-
-        window.clear(sf::Color::White);
         
-        // dibujar cosas aca
-        window.draw(layerCero);
-        window.draw(layerUno);
-        window.draw(layerDos);
-
-        for (auto& enemy : spawnedEnemies)
-        {
-            enemy.Draw(window);
-        }
-
-        chadster.Draw();
 
 
-        window.display();
 
 
 

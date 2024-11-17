@@ -39,6 +39,12 @@
     <ClCompile Include="clsCircleCollider.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="clsMenu.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
+    <ClCompile Include="clsButtonAnimation.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsCamera.h">
@@ -63,6 +69,12 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="clsCircleCollider.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="clsMenu.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="clsButtonAnimation.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>
