@@ -1,12 +1,14 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "clsCamera.h"
+#include "gameFunctions.h"
 #include "clsAnimation.h"
 #include "clsButtonAnimation.h"
 #include "clsPlayer.h"
 #include "clsEnemy.h"
 #include "clsSlime.h"
 #include "clsMenu.h"
+#include "clsGamePause.h"
 #include "BarraVida.h"
 #include "clsCircleCollider.h"
 #include "SFMLOrthogonalLayer.h"
@@ -32,6 +34,7 @@ int main()
     sf::Event evento;
 
     sf::Clock deltaClock;
+    sf::Clock betaClock;
 
     window.setFramerateLimit(75);
 
@@ -53,6 +56,11 @@ int main()
     sf::Texture backgroundTexture;
     statsTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
 
+    sf::Texture exitTexture;
+    exitTexture.loadFromFile("./Assets/Buttons/exitButtonSprite.png");
+    sf::Texture pauseTexture;
+    pauseTexture.loadFromFile("./Assets/Sprites/pauseSprite.png");
+
 
     sf::Texture chadsterTexture;
     chadsterTexture.loadFromFile("./Assets/Sprites/chadsterSprite.png");
@@ -65,6 +73,8 @@ int main()
     elemSlimeTexture.loadFromFile("./Assets/Sprites/elemSlimeSprite.png");
 
     Menu mainMenu(&playTexture, &statsTexture);
+
+    GamePause gamePause(&pauseTexture, &exitTexture, window);
 
     Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 125.0f, window);
 
@@ -98,13 +108,19 @@ int main()
 
     sf::Vector2f mousePos;
 
+    bool paused = false;
+    float pauseCd = 1.0f;
+
     float deltaTime = 0;
+
+    float betaTime = 0;
 
     ///BUCLE DE JUEGO
 
     while(window.isOpen())
     {
         deltaTime = deltaClock.restart().asSeconds();
+        betaTime = betaClock.restart().asSeconds(); //para implementar la pausa
 
 
         while(window.pollEvent(evento))
@@ -113,6 +129,10 @@ int main()
                 {
                 window.close();
                 }
+            
+            
+
+            
             
 
 
@@ -162,11 +182,31 @@ int main()
             break;
 
 
-        case PLAYING:
+        case PLAYING:         //----------------------------------------------------PLAYING STATE------------------------------
+
 
             //aca van los updates
+            
+            std::cout << "betaTime: " << betaTime << std::endl;
+            
+            std::cout << "antes: " << pauseCd << std::endl;
+            if (pauseCd - betaTime <=0)
+            {
+                bool temp = paused;
+                paused = pauseGame(paused);
+                if(temp != paused)
+                    pauseCd = 1.0f;
+            }
+            pauseCd -= betaTime;
 
+            std::cout << "despues: " << pauseCd << std::endl;
+
+            if (paused)
+                deltaTime = 0.0f;
+            
             currentView = camara.getView(window.getSize(), chadster.getPos());
+
+            mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
             window.setView(currentView);
 
@@ -184,10 +224,19 @@ int main()
 
             }
 
+            gamePause.Update(mousePos, paused, betaTime, chadster.getPos());
 
+            if (gamePause.getOptionPressed() == MENU)
+            {
+                gameState = MENU;
+            }
+
+            if (paused == true)
+                gamePause.getOptionPressed();
 
             chadster.Update(deltaTime);
             //vida.update(chadster.getPos());
+            cursor.setPosition(mousePos);
 
             window.clear(sf::Color::White);
 
@@ -203,6 +252,9 @@ int main()
 
             chadster.Draw();
 
+            gamePause.Draw(window);
+
+            window.draw(cursor);
 
             window.display();
 

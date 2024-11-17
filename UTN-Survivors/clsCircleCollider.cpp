@@ -40,12 +40,12 @@ bool CircleCollider::checkSolidCollision(CircleCollider other, float push)
 
 		other.move((push  * cos(angle)), (push * sin(angle)));
 
-		std::cout << "COLISION" << std::endl;
+		
 		return true;
 	}
 
 
-	std::cout << "NO COLISION" << std::endl;
+	
 	return false;
 }
 

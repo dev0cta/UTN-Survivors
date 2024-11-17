@@ -4,6 +4,9 @@
 Menu::Menu(sf::Texture* playTexture, sf::Texture* statsTexture):
 	playAnimation(playTexture), statsAnimation(statsTexture)
 {
+	this->mouseOnPlay = false;
+	this->mouseOnStats = false;
+
 	backgroundImage.loadFromFile("./Assets/Images/mainMenuBackground.png");
 	background.setTexture(backgroundImage);
 	background.setOrigin(sf::Vector2f(backgroundImage.getSize()) / 2.0f);
