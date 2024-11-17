@@ -5,10 +5,9 @@
 Slime::Slime(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed):
 	animation(texture, imageCount, switchTime)
 {
-
+	type = 0;
 	this->speed = speed;
-	int random = rand() % 3;
-	row = random;
+	row = type;
 	faceRight = true;
 
 	
@@ -34,8 +33,8 @@ void Slime::Update(float deltaTime, sf::Vector2f target)
 
 	moveTowardsTarget(deltaTime); 
 
-	animation.Update(row, deltaTime, faceRight);
-	body.setTextureRect(animation.uvRect);
+	animation.Update(type, deltaTime, faceRight);
+	body.setTextureRect(animation.getUvRect());
 }
 
 void Slime::Draw(sf::RenderWindow& window)
@@ -43,14 +42,19 @@ void Slime::Draw(sf::RenderWindow& window)
 	window.draw(body);
 }
 
-CircleCollider Slime::GetHitbox()
-{
-	return CircleCollider(body);	
-}
-
 CircleCollider Slime::GetCollider()
 {
 	return CircleCollider(body);
+}
+
+sf::RectangleShape& Slime::getBody()
+{
+	return body;
+}
+
+void Slime::setType(int type)
+{
+	this->type = type;
 }
 
 

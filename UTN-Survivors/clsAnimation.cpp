@@ -47,3 +47,13 @@ void Animation::Update(int row, float deltaTime, bool faceRight)
 		uvRect.width = -abs(uvRect.width);
 	}
 }
+
+sf::Texture* Animation::getTexture()
+{
+	return &texture;
+}
+
+sf::IntRect Animation::getUvRect()
+{
+	return uvRect;
+}

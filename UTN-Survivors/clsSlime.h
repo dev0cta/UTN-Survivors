@@ -15,10 +15,11 @@ public:
 
 	void Draw(sf::RenderWindow& window) override;
 
-	CircleCollider GetHitbox() override;
-
 	CircleCollider GetCollider() override;
 
+	sf::RectangleShape& getBody();
+
+	void setType(int type);
 
 
 private:
@@ -27,8 +28,8 @@ private:
 
 private:
 
-public:
 	float speed;
+	int type;
 
 	sf::Vector2f target;
 

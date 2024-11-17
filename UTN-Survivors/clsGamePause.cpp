@@ -69,7 +69,7 @@ void GamePause::Update(sf::Vector2f mousePos, bool paused, float betaTime, sf::V
 	exitButton.setTextureRect(exitAnimation.uvRect);
 
 	pauseAnimation.Update(0, betaTime, true);
-	pauseSymbol.setTextureRect(pauseAnimation.uvRect);
+	pauseSymbol.setTextureRect(pauseAnimation.getUvRect());
 
 }
 

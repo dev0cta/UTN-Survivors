@@ -11,7 +11,7 @@
 #include "clsGamePause.h"
 #include "BarraVida.h"
 #include "clsCircleCollider.h"
-#include "SFMLOrthogonalLayer.h"
+#include "clsGameplayData.h"
 
 int main()
 {
@@ -32,6 +32,8 @@ int main()
     sf::View currentView;
 
     sf::Event evento;
+
+    GameplayData gameData;
 
     sf::Clock deltaClock;
     sf::Clock betaClock;
@@ -78,17 +80,18 @@ int main()
 
     Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 125.0f, window);
 
-    std::vector<Slime> spawnedEnemies;
-
     Slime slimeTemplate (&slimeTexture, sf::Vector2u(3, 3), 0.15f, 80.0f); //velocidad 0, lo uso de manequi de prueba
 
     Slime elemSlimeTemplate (&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f); //velocidad 0 para usarlo de manequi de prueba
     //elemSlimeTemplate.body.setPosition(5.0f, 5.0f);
 
+    //debug counter
 
+    int spawnCounter = 5;
+    float spawnCd = 2.0f;
+    
 
-    spawnedEnemies.push_back(slimeTemplate);
-    spawnedEnemies.push_back(elemSlimeTemplate);
+    
     
     
     sf::RectangleShape cursor(sf::Vector2f(20.0f, 20.0f));
@@ -143,7 +146,7 @@ int main()
 
         switch (gameState)
         {
-        case MENU:
+        case MENU:              //----------------------------------------------------MENU STATE------------------------------
             //window.setSize();
             
             //UPDATE MENU
@@ -189,8 +192,7 @@ int main()
 
             //aca van los updates
 
-            std::cout << "betaTime: " << betaTime << std::endl;
-            std::cout << "antes: " << pauseCd << std::endl;
+
 
             if (pauseCd - betaTime <=0)
             {
@@ -201,27 +203,38 @@ int main()
             }
             pauseCd -= betaTime;
 
-            std::cout << "despues: " << pauseCd << std::endl;
+
 
             if (paused)
                 deltaTime = 0.0f;
             
+            ///spawn de slimes de prueba
+            if (spawnCd - deltaTime <= 0)
+            {
+                gameData.spawnSlime(slimeTemplate, chadster.getPos());
+                spawnCd = 2.0f;
+                std::cout << "SLIME SPAWNEADO"<<std::endl;
+            }
+            spawnCd -= deltaTime;
+            std::cout << "spawn cd: " << spawnCd << std::endl;
+
+
             currentView = camara.getView(window.getSize(), chadster.getPos());
 
             mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
             window.setView(currentView);
 
-            for (auto& enemy : spawnedEnemies)
+            for (auto& enemy : gameData.getSlimes())
             {
                 enemy.Update(deltaTime, chadster.getPos());
             }
 
-            for (auto& enemy : spawnedEnemies)
+            for (auto& enemy : gameData.getSlimes())
             {
-                for (auto& otherEnemy : spawnedEnemies)
+                for (auto& otherEnemy : gameData.getSlimes())
                 {
-                    enemy.GetHitbox().checkSolidCollision(otherEnemy.GetCollider(), 0.75f);
+                    enemy.GetCollider().checkSolidCollision(otherEnemy.GetCollider(), 1.0f);
                 }
 
             }
@@ -244,36 +257,15 @@ int main()
 
             // dibujar cosas aca
             window.draw(mapaSuelo);
-            window.draw(mapaArboles);
-            for (auto& enemy : spawnedEnemies)
+            for (auto& enemy : gameData.getSlimes())
             {
                 enemy.Draw(window);
             }
 
-            // Puse acá el checkeo de colisiones como placeholder
-            if (chadster.getPos().x < boundMapLeftTop.x) 
-            {
-                chadster.getBody().setPosition(boundMapLeftTop.x, chadster.getPos().y);
-            }
-            else
-            {
-                if (chadster.getPos().y > boundMapLeftTop.y)
-                {
-                    chadster.getBody().setPosition(chadster.getPos().x, boundMapLeftTop.y);
-                }
-            }
-   
-            if (chadster.getPos().x > boundMapRightDown.x)
-            {
-                chadster.getBody().setPosition(boundMapRightDown.x, chadster.getPos().y);
-            }
-            else
-            {
-                if (chadster.getPos().y < boundMapRightDown.y)
-                {
-                    chadster.getBody().setPosition(chadster.getPos().x, boundMapRightDown.y);
-                }
-            }
+            window.draw(mapaArboles);
+            
+            //chequeo de colisiones fin de mapa
+            checkBounds(chadster.getBody(), boundMapLeftTop, boundMapRightDown);
             //
 
             chadster.Draw();

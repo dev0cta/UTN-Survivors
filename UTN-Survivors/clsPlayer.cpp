@@ -54,7 +54,7 @@ void Player::Update(float deltaTime)
 
 	animation.Update(row, deltaTime, faceRight);
 	BarraHp.update(getPos());
-	body.setTextureRect(animation.uvRect);
+	body.setTextureRect(animation.getUvRect());
 	body.move(movement);
 }
 
