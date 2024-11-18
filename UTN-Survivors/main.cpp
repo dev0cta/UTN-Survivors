@@ -240,8 +240,6 @@ int main()
 
             }
 
-            gameData.checkPlayerSolidCollision(chadster.GetCollider());
-
             gamePause.Update(mousePos, paused, betaTime, chadster.getPos());
 
             if (paused)

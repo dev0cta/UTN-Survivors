@@ -1,7 +1,3 @@
-<<<<<<< Updated upstream
 ﻿  main.cpp
 C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\main.cpp(20,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   UTN-Survivors.vcxproj -> C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\x64\Debug\UTN-Survivors.exe
-=======
-﻿  UTN-Survivors.vcxproj -> C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe
->>>>>>> Stashed changes
