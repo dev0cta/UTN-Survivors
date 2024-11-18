@@ -161,7 +161,6 @@
     <ClInclude Include="clsSlime.h" />
     <ClInclude Include="clsPlayer.h" />
     <ClInclude Include="gameFunctions.h" />
-    <ClInclude Include="SFMLOrthogonalLayer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

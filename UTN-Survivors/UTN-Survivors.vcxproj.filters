@@ -74,9 +74,6 @@
     <ClInclude Include="BarraVida.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
-    <ClInclude Include="SFMLOrthogonalLayer.h">
-      <Filter>Archivos de encabezado</Filter>
-    </ClInclude>
     <ClInclude Include="clsCircleCollider.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
