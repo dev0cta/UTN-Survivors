@@ -1,7 +1,7 @@
 #include "clsPlayer.h"
 
 Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window):
-	animation(texture, imageCount, switchTime), window(window), BarraHp(Player::getPos(), HpMax)
+	animation(texture, imageCount, switchTime), window(window), interface(Player::getPos(), HpMax)
 {
 
 	this->speed = speed;
@@ -19,7 +19,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 
 	body.setTexture(texture);
 	//--------------DESCOMENTAR PARA VER LA HITBOX-------------
-	body.setOutlineThickness(-0.1f);
+	body.setOutlineThickness(-0.25f);
 	body.setOutlineColor(sf::Color::Red);
 	//---------------------------------------------------------
 }
@@ -53,7 +53,7 @@ void Player::Update(float deltaTime)
 		faceRight = false;
 
 	animation.Update(row, deltaTime, faceRight);
-	BarraHp.update(getPos());
+	interface.update(getPos());
 	body.setTextureRect(animation.getUvRect());
 	body.move(movement);
 }
@@ -61,7 +61,7 @@ void Player::Update(float deltaTime)
 void Player::Draw()
 {
 	window.draw(body);
-	BarraHp.Draw(window);
+	interface.Draw(window);
 
 }
 

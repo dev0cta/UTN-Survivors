@@ -2,7 +2,7 @@
 
 #include "clsAnimation.h"
 #include "SFML/Graphics.hpp"
-#include "BarraVida.h"
+#include "clsInterface.h"
 
 class Player
 {
@@ -39,7 +39,7 @@ private:
 	Animation			animation;
 	unsigned int		row;
 	bool				faceRight;
-	BarraVida			BarraHp;
+	Interface			interface;
 	sf::RenderWindow& window;
 	float HpMax = 200;
 };

@@ -7,9 +7,12 @@
 #include "clsPlayer.h"
 #include "clsEnemy.h"
 #include "clsSlime.h"
+#include "clsElemSlime.h"
+#include "clsSpartan.h"
+#include "clsReaper.h"
 #include "clsMenu.h"
 #include "clsGamePause.h"
-#include "BarraVida.h"
+#include "clsInterface.h"
 #include "clsCircleCollider.h"
 #include "clsGameplayData.h"
 
@@ -51,6 +54,7 @@ int main()
 
     enum GAMESTATE  gameState = MENU;
     
+    ///------------------- MENU TEXTURES ------------------------------------
     sf::Texture playTexture;
     playTexture.loadFromFile("./Assets/Buttons/playButtonSprite.png");
     sf::Texture statsTexture;
@@ -64,31 +68,44 @@ int main()
     pauseTexture.loadFromFile("./Assets/Sprites/pauseSprite.png");
 
 
+    ///------------------- CHARACTER TEXTURES ------------------------------------
     sf::Texture chadsterTexture;
     chadsterTexture.loadFromFile("./Assets/Sprites/chadsterSprite.png");
 
     
+    ///------------------- ENEMY TEXTURES ------------------------------------
     sf::Texture slimeTexture;
     slimeTexture.loadFromFile("./Assets/Sprites/SlimeSprite.png");
 
     sf::Texture elemSlimeTexture;
     elemSlimeTexture.loadFromFile("./Assets/Sprites/elemSlimeSprite.png");
+    
+    sf::Texture spartanTexture;
+    spartanTexture.loadFromFile("./Assets/Sprites/spartanSprite.png");
+    
+    sf::Texture reaperTexture;
+    reaperTexture.loadFromFile("./Assets/Sprites/reaperSprite.png");
 
     Menu mainMenu(&playTexture, &statsTexture);
 
     GamePause gamePause(&pauseTexture, &exitTexture, window);
 
-    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 125.0f, window);
+    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 100.0f, window);
 
-    Slime slimeTemplate (&slimeTexture, sf::Vector2u(3, 3), 0.15f, 80.0f); //velocidad 0, lo uso de manequi de prueba
+    Slime slimeTemplate (&slimeTexture, sf::Vector2u(3, 3), 0.15f, 60.0f); //velocidad 0, lo uso de manequi de prueba
 
-    Slime elemSlimeTemplate (&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 70.0f); //velocidad 0 para usarlo de manequi de prueba
-    //elemSlimeTemplate.body.setPosition(5.0f, 5.0f);
+    ElementalSlime elemSlimeTemplate (&elemSlimeTexture, sf::Vector2u(3, 3), 0.3f, 50.0f); //velocidad 0 para usarlo de manequi de prueba
+
+    Spartan spartanTemplate (&spartanTexture, sf::Vector2u(4,1), 0.3f, 55.0f);
+    
+    Reaper reaperTemplate (&reaperTexture, sf::Vector2u(6,1), 0.3f, 65.0f);
+
+
+
 
     //debug counter
 
-    int spawnCounter = 5;
-    float spawnCd = 2.0f;
+    float spawnCd = 0.5f;
     
 
     
@@ -208,16 +225,41 @@ int main()
             if (paused)
                 deltaTime = 0.0f;
             
-            ///spawn de slimes de prueba
+            ///spawn de enemigos de prueba
             if (spawnCd - deltaTime <= 0)
             {
-                gameData.spawnSlime(slimeTemplate, chadster.getPos());
-                spawnCd = 2.0f;
-                std::cout << "SLIME SPAWNEADO"<<std::endl;
+                int random = rand() % 4;
+                std::cout << "random: " << random << std::endl;
+                switch (random)
+                {
+                case 0:
+                    gameData.spawnSlime(slimeTemplate, chadster.getPos());
+                    spawnCd = 2.0f;
+                    std::cout << "SLIME SPAWNEADO"<<std::endl;
+                    break;
+                case 1:
+                    gameData.spawnElementalSlime(elemSlimeTemplate, chadster.getPos());
+                    spawnCd = 2.0f;
+                    std::cout << "SLIME ELEMENTAL SPAWNEADO" << std::endl;
+                    break;
+                case 2:
+                    gameData.spawnSpartan(spartanTemplate, chadster.getPos());
+                    spawnCd = 2.0f;
+                    std::cout << "SPARTAN SPAWNEADO"<<std::endl;
+                    break;
+                case 3:
+                    gameData.spawnReaper(reaperTemplate, chadster.getPos());
+                    spawnCd = 2.0f;
+                    std::cout << "REAPER SPAWNEADO"<<std::endl;
+                    break;
+
+                default:
+                    break;
+                }
             }
             spawnCd -= deltaTime;
-            std::cout << "spawn cd: " << spawnCd << std::endl;
 
+            std::cout << "deltaTime: " << deltaTime << std::endl;
 
             currentView = camara.getView(window.getSize(), chadster.getPos());
 
@@ -225,29 +267,21 @@ int main()
 
             window.setView(currentView);
 
-            for (auto& enemy : gameData.getSlimes())
-            {
-                enemy.Update(deltaTime, chadster.getPos());
-            }
+            gameData.UpdateEveryEnemy(deltaTime, chadster.getPos());
 
-            for (auto& enemy : gameData.getSlimes())
-            {
-                for (auto& otherEnemy : gameData.getSlimes())
-                {
-                    enemy.GetCollider().checkSolidCollision(otherEnemy.GetCollider(), 1.0f);
-                }
-
-            }
+            gameData.CheckEverySolidCollision();
 
             gamePause.Update(mousePos, paused, betaTime, chadster.getPos());
 
-            if (gamePause.getOptionPressed() == MENU)
-            {
-                gameState = MENU;
+
+            if (paused == true) {
+                if (gamePause.getOptionPressed() == MENU)
+                {
+                    gameState = MENU;
+                }
             }
 
-            if (paused == true)
-                gamePause.getOptionPressed();
+                
 
             chadster.Update(deltaTime);
             //vida.update(chadster.getPos());
@@ -257,10 +291,8 @@ int main()
 
             // dibujar cosas aca
             window.draw(mapaSuelo);
-            for (auto& enemy : gameData.getSlimes())
-            {
-                enemy.Draw(window);
-            }
+
+            gameData.DrawEveryEnemy(window);
 
             window.draw(mapaArboles);
             
