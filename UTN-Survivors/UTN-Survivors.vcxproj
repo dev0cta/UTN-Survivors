@@ -137,6 +137,7 @@
     <ClCompile Include="clsAreaAttack.cpp" />
     <ClCompile Include="clsAttack.cpp" />
     <ClCompile Include="clsBulletAttack.cpp" />
+    <ClCompile Include="clsGameOver.cpp" />
     <ClCompile Include="clsInterface.cpp" />
     <ClCompile Include="clsAnimation.cpp" />
     <ClCompile Include="clsButtonAnimation.cpp" />
@@ -159,6 +160,7 @@
     <ClInclude Include="clsAreaAttack.h" />
     <ClInclude Include="clsAttack.h" />
     <ClInclude Include="clsBulletAttack.h" />
+    <ClInclude Include="clsGameOver.h" />
     <ClInclude Include="clsInterface.h" />
     <ClInclude Include="clsAnimation.h" />
     <ClInclude Include="clsButtonAnimation.h" />

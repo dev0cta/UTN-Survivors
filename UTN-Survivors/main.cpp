@@ -11,6 +11,7 @@
 #include "clsSpartan.h"
 #include "clsReaper.h"
 #include "clsMenu.h"
+#include "clsGameOver.h"
 #include "clsGamePause.h"
 #include "clsInterface.h"
 #include "clsCircleCollider.h"
@@ -55,7 +56,7 @@ int main()
         GAMEOVER
     };
 
-    enum GAMESTATE  gameState = MENU;
+    enum GAMESTATE  gameState = GAMEOVER;
     
     ///------------------- MENU TEXTURES ------------------------------------
     sf::Texture playTexture;
@@ -63,12 +64,20 @@ int main()
     sf::Texture statsTexture;
     statsTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
     sf::Texture backgroundTexture;
-    statsTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
+    backgroundTexture.loadFromFile("./Assets/images/mainMenuBackground.jpg");
 
     sf::Texture exitTexture;
     exitTexture.loadFromFile("./Assets/Buttons/exitButtonSprite.png");
     sf::Texture pauseTexture;
     pauseTexture.loadFromFile("./Assets/Sprites/pauseSprite.png");
+
+    //gameover
+
+    sf::Texture gameOverBackgroundTexture;
+    gameOverBackgroundTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
+    sf::Texture menuTexture;
+    menuTexture.loadFromFile("./Assets/Buttons/exitButtonSprite.png");
+
 
 
     ///------------------- CHARACTER TEXTURES ------------------------------------
@@ -96,6 +105,8 @@ int main()
     reaperTexture.loadFromFile("./Assets/Sprites/reaperSprite.png");
 
     Menu mainMenu(&playTexture, &statsTexture);
+
+    GameOver gameOver(&playTexture, &menuTexture);
 
     GamePause gamePause(&pauseTexture, &exitTexture, window);
 
@@ -341,6 +352,26 @@ int main()
 
 
         case GAMEOVER:
+
+            currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f, 0.0f));
+
+            window.setView(currentView);
+
+            mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+
+            cursor.setPosition(mousePos);
+
+            gameOver.Update(mousePos);
+
+            window.clear();
+
+            gameOver.Draw(window);
+
+            window.draw(cursor);
+
+            window.display();
+
+
             break;
 
 

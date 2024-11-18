@@ -7,7 +7,7 @@ Menu::Menu(sf::Texture* playTexture, sf::Texture* statsTexture):
 	this->mouseOnPlay = false;
 	this->mouseOnStats = false;
 
-	backgroundImage.loadFromFile("./Assets/Images/mainMenuBackground.png");
+	backgroundImage.loadFromFile("./Assets/Images/mainMenuBackground.jpg");
 	background.setTexture(backgroundImage);
 	background.setOrigin(sf::Vector2f(backgroundImage.getSize()) / 2.0f);
 	background.setScale(16 / 15.5f, 9 / 8.6f);
@@ -16,7 +16,7 @@ Menu::Menu(sf::Texture* playTexture, sf::Texture* statsTexture):
 	sf::Vector2f playSize(128.0f, 64.0f);
 	playButton.setSize(playSize);
 	playButton.setOrigin(playSize /2.0f );
-	playButton.setPosition(sf::Vector2f(-200.0f, 0.0f));
+	playButton.setPosition(sf::Vector2f(100.0f, 0.0f));
 
 	playButton.setTexture(playTexture);
 	
@@ -25,7 +25,7 @@ Menu::Menu(sf::Texture* playTexture, sf::Texture* statsTexture):
 	statsButton.setSize(statsSize);
 	statsButton.setScale(0.75f, 0.75f);
 	statsButton.setOrigin(statsSize /2.0f );
-	statsButton.setPosition(sf::Vector2f(-200.0f, 60.0f));
+	statsButton.setPosition(sf::Vector2f(100.0f, 60.0f));
 
 	statsButton.setTexture(statsTexture);
 }
