@@ -1,19 +1,21 @@
 #pragma once
 #include <sfml/Graphics.hpp>
 
-class BarraVida
+class Interfaz
 {
 private:
 
 	float HpMax;
 	float HpActual;
 	sf::Vector2i size;
-	sf::RectangleShape background;
+	sf::RectangleShape Hpbackground;
 	sf::RectangleShape HpActualBar;
+	sf::RectangleShape Expbackground;
+	sf::RectangleShape ExpActualBar;
 
 public:
 
-	BarraVida(sf::Vector2f posToPj, float HpMax);
+	Interfaz(sf::Vector2f posToPj, float HpMax);
 
 	void Draw(sf::RenderWindow& window);
 	void update(sf::Vector2f posToPj);

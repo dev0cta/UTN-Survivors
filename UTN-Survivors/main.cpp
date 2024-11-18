@@ -241,13 +241,15 @@ int main()
 
             gamePause.Update(mousePos, paused, betaTime, chadster.getPos());
 
-            if (gamePause.getOptionPressed() == MENU)
+            if (paused)
             {
-                gameState = MENU;
+                if (gamePause.getOptionPressed()== MENU)
+                {
+                    gameState = MENU;
+                }
             }
 
-            if (paused == true)
-                gamePause.getOptionPressed();
+            
 
             chadster.Update(deltaTime);
             //vida.update(chadster.getPos());

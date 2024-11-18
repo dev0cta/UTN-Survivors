@@ -1,5 +1,6 @@
 #include "clsGameplayData.h"
-
+#include <cmath>
+#include <SFML/Graphics.hpp>
 GameplayData::GameplayData()
 {
 }
@@ -11,16 +12,25 @@ std::vector<Slime>& GameplayData::getSlimes()
 
 void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos)
 {
-    Slime e(slimeTemplate);
+    if (spawnedSlimes.size() < 10) {
+        Slime e(slimeTemplate);
+        
+        int type = rand() % 3;
 
-    int type = rand() % 3;
-    e.getBody().setPosition(playerPos);
+        int degree = rand() % 360;
 
+        int rad = degree * (3.14 / 180);
 
-    e.setType(type);
+        int distance = 250.0f;
 
-    spawnedSlimes.push_back(e);
+        e.getBody().setPosition(playerPos + sf::Vector2f(cos(rad) * distance, sin(rad) * distance));
 
+        e.setType(type);
+
+        spawnedSlimes.push_back(e);
+
+        
+    }
 
 }
 

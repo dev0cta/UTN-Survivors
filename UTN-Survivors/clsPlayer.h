@@ -39,7 +39,7 @@ private:
 	Animation			animation;
 	unsigned int		row;
 	bool				faceRight;
-	BarraVida			BarraHp;
+	Interfaz			BarraHp;
 	sf::RenderWindow& window;
 	float HpMax = 200;
 };
