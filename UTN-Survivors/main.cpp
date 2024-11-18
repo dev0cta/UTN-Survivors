@@ -235,6 +235,7 @@ int main()
                 for (auto& otherEnemy : gameData.getSlimes())
                 {
                     enemy.GetCollider().checkSolidCollision(otherEnemy.GetCollider(), 1.0f);
+                    enemy.GetCollider().checkSolidCollision(chadster.GetCollider(), 0.5f);
                 }
 
             }

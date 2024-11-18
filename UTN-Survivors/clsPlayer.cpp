@@ -19,7 +19,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 
 	body.setTexture(texture);
 	//--------------DESCOMENTAR PARA VER LA HITBOX-------------
-	body.setOutlineThickness(-0.1f);
+	body.setOutlineThickness(-0.25f);
 	body.setOutlineColor(sf::Color::Red);
 	//---------------------------------------------------------
 }
@@ -63,6 +63,11 @@ void Player::Draw()
 	window.draw(body);
 	BarraHp.Draw(window);
 
+}
+
+CircleCollider Player::GetCollider()
+{
+	return CircleCollider(body);
 }
 
 sf::Vector2f Player::getPos()
