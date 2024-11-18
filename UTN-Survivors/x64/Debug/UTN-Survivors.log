@@ -1,56 +1,95 @@
-﻿  clsGameplayData.cpp
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(217,17): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(219,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(233,30): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(254,17): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(256,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(292,17): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(294,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(306,32): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(324,17): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(326,22): warning C4244: 'inicializando': conversión de 'float' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244: 'argumento': conversión de 'double' a 'T'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(336,31): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+﻿  clsInterface.cpp
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsInterface.cpp(26,89): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsInterface.cpp(29,57): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+  clsAnimation.cpp
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(11,38): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(11,38): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(11,38): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(11,38): warning C4244:             T=int
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(11,38): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(12,39): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(12,39): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(12,39): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(12,39): warning C4244:             T=int
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsAnimation.cpp(12,39): warning C4244:         ]
+  clsButtonAnimation.cpp
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(9,38): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(9,38): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(9,38): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(9,38): warning C4244:             T=int
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(9,38): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(10,39): warning C4244: '=': conversion from 'float' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(10,39): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(10,39): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(10,39): warning C4244:             T=int
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsButtonAnimation.cpp(10,39): warning C4244:         ]
+  clsCamera.cpp
+  clsCircleCollider.cpp
+  clsElemSlime.cpp
+  clsEnemy.cpp
+  clsGamePause.cpp
+  clsGameplayData.cpp
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(217,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(219,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,88): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(221,67): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(233,30): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(254,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(256,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,88): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(258,67): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(292,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(294,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,88): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(296,67): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(306,32): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(324,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(326,22): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,88): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244: 'argument': conversion from 'double' to 'T', possible loss of data
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:         with
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:         [
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:             T=float
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(328,67): warning C4244:         ]
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsGameplayData.cpp(336,31): warning C4267: 'return': conversion from 'size_t' to 'int', possible loss of data
+  clsMenu.cpp
+  clsReaper.cpp
+  clsSlime.cpp
+  clsPlayer.cpp
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\clsPlayer.cpp(119,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  clsSpartan.cpp
+  clsSquareCollider.cpp
+  gameFunctions.cpp
   main.cpp
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\main.cpp(23,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  Generando código...
-  UTN-Survivors.vcxproj -> C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe
+C:\Users\octav\Documents\GitHub\UTN-Survivors2\UTN-Survivors\main.cpp(23,15): warning C4244: 'argument': conversion from 'time_t' to 'unsigned int', possible loss of data
+  Generating Code...
+  LINK : C:\Users\octav\Documents\GitHub\UTN-Survivors2\x64\Debug\UTN-Survivors.exe not found or not built by the last incremental link; performing full link
+  UTN-Survivors.vcxproj -> C:\Users\octav\Documents\GitHub\UTN-Survivors2\x64\Debug\UTN-Survivors.exe

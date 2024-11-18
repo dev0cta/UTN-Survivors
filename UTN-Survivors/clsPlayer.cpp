@@ -1,5 +1,5 @@
 #include "clsPlayer.h"
-
+#include "clsAttack.h"
 
 Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window):
 	animation(texture, imageCount, switchTime), window(window), interface(Player::getPos(), HpMax)

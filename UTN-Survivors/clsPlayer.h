@@ -4,6 +4,7 @@
 #include "clsAnimation.h"
 #include "SFML/Graphics.hpp"
 #include "clsInterface.h"
+#include "clsAttack.h"
 
 class Player
 {
@@ -14,7 +15,6 @@ public:
 	void Update(float deltaTime);
 
 	void Draw();
-
 
 	sf::Vector2f getPos(); //para el target de los enemigos
 
