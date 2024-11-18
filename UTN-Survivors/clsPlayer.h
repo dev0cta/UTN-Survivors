@@ -2,7 +2,12 @@
 #include "clsCircleCollider.h"
 #include "clsAnimation.h"
 #include "SFML/Graphics.hpp"
+<<<<<<< Updated upstream
 #include "BarraVida.h"
+=======
+#include "clsInterface.h"
+#include "clsCircleCollider.h"
+>>>>>>> Stashed changes
 
 class Player
 {
@@ -21,6 +26,8 @@ public:
 	sf::Vector2f getPos(); //para el target de los enemigos
 
 	sf::RectangleShape& getBody(); // nigga i cant
+
+	CircleCollider GetCollider();
 
 	void takeDmg(); //tiene cooldown
 
