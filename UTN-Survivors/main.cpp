@@ -15,6 +15,9 @@
 #include "clsInterface.h"
 #include "clsCircleCollider.h"
 #include "clsGameplayData.h"
+#include "clsBulletAttack.h"
+#include "clsAreaAttack.h"
+
 
 int main()
 {
@@ -74,8 +77,10 @@ int main()
 
     ///------------------- ATTACK TEXTURES ------------------------------------
 
-    sf::Texture fireTornadoTexture;
-    fireTornadoTexture.loadFromFile("./Assets/Sprites/fireTornadoSprite.png");
+    sf::Texture blueTornadoTexture;
+    blueTornadoTexture.loadFromFile("./Assets/Sprites/blueTornadoSprite.png");
+    sf::Texture purpleAreaTexture;
+    purpleAreaTexture.loadFromFile("./Assets/Sprites/purpleAreaSprite.png");
     
     ///------------------- ENEMY TEXTURES ------------------------------------
     sf::Texture slimeTexture;
@@ -105,14 +110,15 @@ int main()
     Reaper reaperTemplate (&reaperTexture, sf::Vector2u(6,1), 0.3f, 65.0f);
 
 
+    BulletAttack tornadoTemplate (&blueTornadoTexture, sf::Vector2u(5,1), 0.3f);
+    AreaAttack areaTemplate (&purpleAreaTexture, sf::Vector2u(6,1), 0.3f);
+
+
 
     //debug counter
 
-    float spawnCd = 0.5f;
+    float spawnCd = 0.25f;
     
-    float tornadoCd = 1.5f;
-    
-
 
     
     
@@ -217,21 +223,31 @@ int main()
 
 
 
-            if (pauseCd - betaTime <=0)
+            ///CHECK PAUSA
+            if (pauseCd - betaTime <= 0)
             {
                 bool temp = paused;
                 paused = pauseGame(paused);
-                if(temp != paused)
+                if (temp != paused)
                     pauseCd = 1.0f;
             }
             pauseCd -= betaTime;
 
 
-
             if (paused)
                 deltaTime = 0.0f;
-            
-            ///spawn de enemigos de prueba
+
+            gamePause.Update(mousePos, paused, betaTime, chadster.getPos());
+
+            if (paused == true) {
+                if (gamePause.getOptionPressed() == MENU)
+                {
+                    gameState = MENU;
+                }
+            }
+
+
+            ///SPAWN ENEMIGOS DE PRUEBA
             if (spawnCd - deltaTime <= 0)
             {
                 int random = rand() % 4;
@@ -241,7 +257,7 @@ int main()
                 case 0:
                     gameData.spawnSlime(slimeTemplate, chadster.getPos());
                     spawnCd = 2.0f;
-                    std::cout << "SLIME SPAWNEADO"<<std::endl;
+                    std::cout << "SLIME SPAWNEADO" << std::endl;
                     break;
                 case 1:
                     gameData.spawnElementalSlime(elemSlimeTemplate, chadster.getPos());
@@ -251,12 +267,12 @@ int main()
                 case 2:
                     gameData.spawnSpartan(spartanTemplate, chadster.getPos());
                     spawnCd = 2.0f;
-                    std::cout << "SPARTAN SPAWNEADO"<<std::endl;
+                    std::cout << "SPARTAN SPAWNEADO" << std::endl;
                     break;
                 case 3:
                     gameData.spawnReaper(reaperTemplate, chadster.getPos());
                     spawnCd = 2.0f;
-                    std::cout << "REAPER SPAWNEADO"<<std::endl;
+                    std::cout << "REAPER SPAWNEADO" << std::endl;
                     break;
 
                 default:
@@ -266,40 +282,38 @@ int main()
             spawnCd -= deltaTime;
 
 
+            
 
-            tornadoCd -= deltaTime;
 
-            std::cout << "deltaTime: " << deltaTime << std::endl;
 
+            //std::cout << "deltaTime: " << deltaTime << std::endl;
+
+            ///GET VIEW AND MOUSE POSITION
             currentView = camara.getView(window.getSize(), chadster.getPos());
-
             mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
             window.setView(currentView);
 
-  
+            chadster.Update(deltaTime);
+
+            ///UPDATE Y CHEQUEO DE HABILIDADES
+            gameData.createTornado(tornadoTemplate, chadster.getPos());
+            gameData.createAreaAttack(areaTemplate, chadster.getPos());
+            gameData.UpdateEverySkill(deltaTime);
+
+            ///CHEQUEO DE DAÑO A ENEMIGOS Y MUERTES
+            gameData.checkDmgCollision(deltaTime, chadster.getDmg());
+            gameData.dyingEnemies();
 
             gameData.UpdateEveryEnemy(deltaTime, chadster.getPos());
-
             gameData.checkPlayerCollision(chadster.getCollider());
-
             gameData.CheckEverySolidCollision();
+            
 
-            gamePause.Update(mousePos, paused, betaTime, chadster.getPos());
-
-
-            if (paused == true) {
-                if (gamePause.getOptionPressed() == MENU)
-                {
-                    gameState = MENU;
-                }
-            }
-
-                
-
-            chadster.Update(deltaTime);
-            //vida.update(chadster.getPos());
             cursor.setPosition(mousePos);
+
+            //chequeo de colisiones fin de mapa
+            checkBounds(chadster.getBody(), boundMapLeftTop, boundMapRightDown);
 
             window.clear(sf::Color::White);
 
@@ -308,15 +322,12 @@ int main()
 
             gameData.DrawEveryEnemy(window);
 
-   
+            gameData.DrawEverySkill(window);
 
             window.draw(mapaArboles);
-            
-            //chequeo de colisiones fin de mapa
-            checkBounds(chadster.getBody(), boundMapLeftTop, boundMapRightDown);
-            //
 
             chadster.Draw();
+
 
             gamePause.Draw(window);
             window.draw(cursor);

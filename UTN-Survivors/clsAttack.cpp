@@ -49,5 +49,5 @@ SquareCollider clsAttack::getCollider()
 
 int clsAttack::applyDmg()
 {
-	
+	return dmg;
 }

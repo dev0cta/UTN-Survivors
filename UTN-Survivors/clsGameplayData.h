@@ -1,6 +1,10 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+
+#include "clsBulletAttack.h"
+#include "clsAreaAttack.h"
+
 #include "clsSlime.h"
 #include "clsElemSlime.h"
 #include "clsSpartan.h"
@@ -20,14 +24,25 @@ public:
 	void checkPlayerCollision(CircleCollider playerCollider);
 
 	void CheckEverySolidCollision();
+	
+	void dyingEnemies();
 
 	void DrawEveryEnemy(sf::RenderWindow& window);
 
-	sf::Vector2f getNearestEnemy(sf::Vector2f playerPos);
+	float getNearestEnemyAngle(sf::Vector2f playerPos);
 
-	///FUNCIONES PARA EL PLAYER
+	///FUNCIONES PARA LAS SKILLS
 
+	void createTornado(BulletAttack bulletTemplate, sf::Vector2f playerPos);
+
+	void createAreaAttack(AreaAttack areaTemplate, sf::Vector2f playerPos);
+
+	void UpdateEverySkill(float deltaTime);
+
+	void DrawEverySkill(sf::RenderWindow& window);
 	
+
+	void checkDmgCollision(float deltaTime, int playerDmg);
 
 
 	//SLIME
@@ -35,6 +50,10 @@ public:
 	std::vector<Slime>& getSlimes();
 
 	void spawnSlime(Slime slime, sf::Vector2f playerPos);
+
+
+
+
 
 	int howManySlimes();
 	
@@ -72,7 +91,13 @@ private:
 
 	///ATAQUES DEL JUGADOR
 
+	std::vector<BulletAttack> tornadosSpawned;
+	float tornadoCd;
+	float tornadoDmgCd;
 
+	std::vector<AreaAttack> areaAttacksSpawned;
+	float areaCd;
+	float areaDmgCd;
 
 
 	///SISTEMA DE NIVELES

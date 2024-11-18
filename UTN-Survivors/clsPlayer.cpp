@@ -101,6 +101,11 @@ CircleCollider Player::getCollider()
 	return CircleCollider(body);
 }
 
+int Player::getDmg()
+{
+	return dmg;
+}
+
 void Player::takeDmg(int dmgTaken)
 {
 	if (dmgTakenCooldown <= 0)
@@ -110,6 +115,14 @@ void Player::takeDmg(int dmgTaken)
 int Player::getHealth()
 {
 	return health;
+}
+
+bool Player::pressedE()
+{
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
+		return true;
+	else
+		return false;
 }
 
 void Player::levelUp()

@@ -1,7 +1,13 @@
 #include "clsGameplayData.h"
+#include <iostream>
 
 GameplayData::GameplayData()
-{}
+{
+    tornadoCd = 2.0f;
+    areaCd = 2.5f;
+    tornadoDmgCd = 0.5f;
+    areaDmgCd = 0.5f;
+}
 
 void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
 {
@@ -131,6 +137,61 @@ void GameplayData::CheckEverySolidCollision()
     }
 }
 
+void GameplayData::dyingEnemies()
+{
+
+    for (int i = 0; i < spawnedSlimes.size();)
+    {
+        if (spawnedSlimes[i].getHealth() <= 0)
+        {
+            spawnedSlimes.erase(spawnedSlimes.begin() + i);
+        }
+        else
+        {
+            i++;
+        }
+
+    }
+    for (int i = 0; i < spawnedElemSlimes.size();)
+    {
+        if (spawnedElemSlimes[i].getHealth() <= 0)
+        {
+            spawnedElemSlimes.erase(spawnedElemSlimes.begin() + i);
+        }
+        else
+        {
+            i++;
+        }
+
+    }
+    for (int i = 0; i < spawnedSpartans.size();)
+    {
+        if (spawnedSpartans[i].getHealth() <= 0)
+        {
+            spawnedSpartans.erase(spawnedSpartans.begin() + i);
+        }
+        else
+        {
+            i++;
+        }
+
+    }
+    for (int i = 0; i < spawnedReapers.size();)
+    {
+        if (spawnedReapers[i].getHealth() <= 0)
+        {
+            spawnedReapers.erase(spawnedReapers.begin() + i);
+        }
+        else
+        {
+            i++;
+        }
+
+    }
+
+}
+
+
 void GameplayData::DrawEveryEnemy(sf::RenderWindow& window)
 {
 
@@ -153,10 +214,10 @@ void GameplayData::DrawEveryEnemy(sf::RenderWindow& window)
 
 }
 
-sf::Vector2f GameplayData::getNearestEnemy(sf::Vector2f playerPos)
+float GameplayData::getNearestEnemyAngle(sf::Vector2f playerPos)
 {
-    sf::Vector2f nearestPoint(15.57f, 15.57f);
-    float minDistance = 25.47f;
+    sf::Vector2f nearestPoint(playerPos);
+    float minDistance = 100.0f;
 
     for (auto& enemy : getSlimes())
     {
@@ -187,10 +248,193 @@ sf::Vector2f GameplayData::getNearestEnemy(sf::Vector2f playerPos)
         }
     }
 
-    if (minDistance == 25.47f)
-        return playerPos + sf::Vector2f(25.0f, 0.0f);
 
-    return nearestPoint;
+    if (minDistance == 25.47f)
+        return -1.0f;
+
+    float angle = atan2(nearestPoint.y - playerPos.y, nearestPoint.x - playerPos.x);
+
+    return angle;
+}
+
+void GameplayData::createTornado(BulletAttack bulletTemplate, sf::Vector2f playerPos)
+{
+    std::cout << "TORNADO CD: " << tornadoCd<<std::endl;
+    if (tornadoCd <= 0.0f) {
+        BulletAttack e(bulletTemplate);
+        e.setPosition(playerPos);
+        e.setAngle(getNearestEnemyAngle(playerPos));
+
+
+        tornadosSpawned.push_back(e);
+        tornadoCd = 2.0f;
+    }
+
+}
+
+void GameplayData::createAreaAttack(AreaAttack areaTemplate, sf::Vector2f playerPos)
+{
+    if (areaCd <= 0.0f) {
+        AreaAttack e(areaTemplate);
+        
+        int degree = rand() % 360;
+
+        int rad = degree * (3.14 / 180);
+
+        int distance = 100.0f;
+        
+        e.setPosition(playerPos + sf::Vector2f(cos(rad) * distance, sin(rad) * distance));
+        
+
+        areaAttacksSpawned.push_back(e);
+        areaCd = 2.5f;
+    }
+}
+
+void GameplayData::UpdateEverySkill(float deltaTime)
+{
+    tornadoCd -= deltaTime;
+    areaCd -= deltaTime;
+
+
+
+    ///BORRAR A LOS EXPIRADOS
+
+    for (int i = 0; i < tornadosSpawned.size();)
+    {
+        //std::cout << "tornado time alive" << tornadosSpawned[i].getTimeAlive() << std::endl;
+        if (tornadosSpawned[i].getTimeAlive() >= 2.0f)
+        {
+            tornadosSpawned.erase(tornadosSpawned.begin() + i);
+        }
+        else
+        {
+            i++;
+        }
+
+    }
+    
+    for (int i = 0; i < areaAttacksSpawned.size();)
+    {
+        //std::cout << "tornado time alive" << tornadosSpawned[i].getTimeAlive() << std::endl;
+        if (areaAttacksSpawned[i].getTimeAlive() >= 2.0f)
+        {
+            areaAttacksSpawned.erase(areaAttacksSpawned.begin() + i);
+        }
+        else
+        {
+            i++;
+        }
+
+    }
+
+
+    ///UPDATEAR TODO
+    for (auto& skill : tornadosSpawned)
+    {
+        skill.Update(deltaTime);
+    }
+
+    for (auto& skill : areaAttacksSpawned)
+    {
+        skill.Update(deltaTime);
+    }
+
+}
+
+void GameplayData::DrawEverySkill(sf::RenderWindow& window)
+{
+
+    for (auto& skill : tornadosSpawned)
+    {
+        skill.Draw(window);
+    }
+    for (auto& skill : areaAttacksSpawned)
+    {
+        skill.Draw(window);
+    }
+
+}
+
+
+
+void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
+{
+    tornadoDmgCd -= deltaTime;
+    areaDmgCd -= deltaTime;
+
+
+    if (tornadoDmgCd <= 0) {
+        for (auto& skill : tornadosSpawned)
+        {
+            for (auto& enemy : getSlimes())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                }
+
+            }
+            for (auto& enemy : getElemSlimes())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                }
+
+            }
+            for (auto& enemy : getSpartans())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                }
+
+            }
+            for (auto& enemy : getReapers())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                }
+
+            }
+        }
+        tornadoDmgCd = 0.5f;
+    }
+
+    if (areaDmgCd <= 0) {
+
+        for (auto& skill : areaAttacksSpawned)
+        {
+            for (auto& enemy : getSlimes())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                }
+
+            }
+            for (auto& enemy : getElemSlimes())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                }
+
+            }
+            for (auto& enemy : getSpartans())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                }
+
+            }
+            for (auto& enemy : getReapers())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                }
+
+            }
+        }
+        areaDmgCd = 0.5f;
+    }
+
 }
 
 
@@ -227,6 +471,7 @@ void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos)
    // }
 
 }
+
 
 int GameplayData::howManySlimes()
 {

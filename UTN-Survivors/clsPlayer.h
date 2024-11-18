@@ -24,9 +24,15 @@ public:
 
 	CircleCollider getCollider();
 
+	int getDmg(); //tiene cooldown
+
 	void takeDmg(int dmgTaken); //tiene cooldown
 
 	int getHealth();
+
+	//debug purposes only
+	bool pressedE();
+
 
 	//void attack(); //verifica los cd de las habilidades y las lanza si estan disponibles
 
