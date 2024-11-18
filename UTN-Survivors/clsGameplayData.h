@@ -16,6 +16,8 @@ public:
 
 	void UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos);
 
+	void checkPlayerCollision(CircleCollider playerCollider);
+
 	void CheckEverySolidCollision();
 
 	void DrawEveryEnemy(sf::RenderWindow& window);

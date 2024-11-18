@@ -75,6 +75,11 @@ sf::RectangleShape& Player::getBody()
 	return body;
 }
 
+CircleCollider Player::getCollider()
+{
+	return CircleCollider(body);
+}
+
 void Player::takeDmg()
 {
 }

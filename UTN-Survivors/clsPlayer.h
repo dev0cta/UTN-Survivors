@@ -1,5 +1,6 @@
 #pragma once
 
+#include "clsCircleCollider.h"
 #include "clsAnimation.h"
 #include "SFML/Graphics.hpp"
 #include "clsInterface.h"
@@ -19,6 +20,8 @@ public:
 	sf::Vector2f getPos(); //para el target de los enemigos
 
 	sf::RectangleShape& getBody(); // nigga i cant
+
+	CircleCollider getCollider();
 
 	void takeDmg(); //tiene cooldown
 

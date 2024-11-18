@@ -1,2 +1,4 @@
-﻿  clsReaper.cpp
+﻿  main.cpp
+C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\main.cpp(23,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  LINK : no se encontró C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe o no lo generó el último vínculo incremental; ejecutando vínculo completo
   UTN-Survivors.vcxproj -> C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe

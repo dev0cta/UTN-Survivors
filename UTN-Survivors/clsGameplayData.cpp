@@ -26,6 +26,28 @@ void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
 
 }
 
+void GameplayData::checkPlayerCollision(CircleCollider playerCollider)
+{
+
+    for (auto& enemy : getSlimes())
+    {
+        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+    }
+    for (auto& enemy : getElemSlimes())
+    {
+        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+    }
+    for (auto& enemy : getSpartans())
+    {
+        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+    }
+    for (auto& enemy : getReapers())
+    {
+        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+    }
+
+}
+
 void GameplayData::CheckEverySolidCollision()
 {
     for (auto& enemy : getSlimes())

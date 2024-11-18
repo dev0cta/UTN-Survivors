@@ -269,6 +269,8 @@ int main()
 
             gameData.UpdateEveryEnemy(deltaTime, chadster.getPos());
 
+            gameData.checkPlayerCollision(chadster.getCollider());
+
             gameData.CheckEverySolidCollision();
 
             gamePause.Update(mousePos, paused, betaTime, chadster.getPos());
