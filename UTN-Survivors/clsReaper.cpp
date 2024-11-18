@@ -6,10 +6,15 @@ Reaper::Reaper(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	animation(texture, imageCount, switchTime)
 {
 	type = 0;
-	this->speed = speed;
-	row = type;
 	faceRight = true;
+	row = type;
 
+	this->level = level;
+	this->speed = speed;
+	this->health = 100;
+	this->healthScaling = 25;
+	this->dmg = 10;
+	this->dmgScaling = 10;
 
 
 	body.setSize(sf::Vector2f(20.0f, 25.0f));
@@ -52,9 +57,33 @@ sf::RectangleShape& Reaper::getBody()
 	return body;
 }
 
+void Reaper::takeDmg(int dmgTaken)
+{
+	health -= dmgTaken;
+}
+
+int Reaper::getDmg()
+{
+	return dmg;
+}
+
+int Reaper::getHealth()
+{
+	return health;
+}
+
 void Reaper::setType(int type)
 {
 	this->type = type;
+}
+
+void Reaper::setLevel(int level)
+{
+	this->level = level;
+
+	dmg = dmg + level * dmgScaling;
+	health = health + level * healthScaling;
+
 }
 
 

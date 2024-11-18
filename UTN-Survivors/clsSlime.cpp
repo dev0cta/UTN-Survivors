@@ -6,11 +6,16 @@ Slime::Slime(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, fl
 	animation(texture, imageCount, switchTime)
 {
 	type = 0;
-	this->speed = speed;
 	row = type;
 	faceRight = true;
 
-	
+	this->level = level;
+	this->speed = speed;
+	this->health = 100;
+	this->healthScaling = 25;
+	this->dmg = 10;
+	this->dmgScaling = 10;
+
 
 	body.setSize(sf::Vector2f(20.0f, 20.0f));
 
@@ -52,9 +57,34 @@ sf::RectangleShape& Slime::getBody()
 	return body;
 }
 
+void Slime::takeDmg(int dmgTaken)
+{
+	health -= dmgTaken;
+
+}
+
+int Slime::getDmg()
+{
+	return dmg;
+}
+
+int Slime::getHealth()
+{
+	return health;
+}
+
 void Slime::setType(int type)
 {
 	this->type = type;
+}
+
+void Slime::setLevel(int level)
+{
+	this->level = level;
+
+	dmg = dmg + level * dmgScaling;
+	health = health + level * healthScaling;
+
 }
 
 

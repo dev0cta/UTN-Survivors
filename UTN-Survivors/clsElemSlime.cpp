@@ -6,11 +6,15 @@ ElementalSlime::ElementalSlime(sf::Texture* texture, sf::Vector2u imageCount, fl
 	animation(texture, imageCount, switchTime)
 {
 	type = 0;
-	this->speed = speed;
 	row = type;
 	faceRight = true;
 
-
+	this->level = level;
+	this->speed = speed;
+	this->health = 100;
+	this->healthScaling = 25;
+	this->dmg = 10;
+	this->dmgScaling = 10;
 
 	body.setSize(sf::Vector2f(20.0f, 20.0f));
 
@@ -52,9 +56,34 @@ sf::RectangleShape& ElementalSlime::getBody()
 	return body;
 }
 
+void ElementalSlime::takeDmg(int dmgTaken)
+{
+	health -= dmgTaken;
+
+}
+
+int ElementalSlime::getDmg()
+{
+	return dmg;
+}
+
+int ElementalSlime::getHealth()
+{
+	return health;
+}
+
 void ElementalSlime::setType(int type)
 {
 	this->type = type;
+}
+
+void ElementalSlime::setLevel(int level)
+{
+	this->level = level;
+
+	dmg = dmg + level * dmgScaling;
+	health = health + level * healthScaling;
+
 }
 
 

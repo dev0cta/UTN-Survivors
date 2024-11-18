@@ -1,8 +1,7 @@
 #include "clsGameplayData.h"
 
 GameplayData::GameplayData()
-{
-}
+{}
 
 void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
 {
@@ -154,6 +153,51 @@ void GameplayData::DrawEveryEnemy(sf::RenderWindow& window)
 
 }
 
+sf::Vector2f GameplayData::getNearestEnemy(sf::Vector2f playerPos)
+{
+    sf::Vector2f nearestPoint(15.57f, 15.57f);
+    float minDistance = 25.47f;
+
+    for (auto& enemy : getSlimes())
+    {
+        if (getDistance(enemy.getBody().getPosition(), playerPos) < minDistance) {
+            nearestPoint = enemy.getBody().getPosition();
+            minDistance = getDistance(enemy.getBody().getPosition(), playerPos);
+        }
+    }
+    for (auto& enemy : getElemSlimes())
+    {
+        if (getDistance(enemy.getBody().getPosition(), playerPos) < minDistance) {
+            nearestPoint = enemy.getBody().getPosition();
+            minDistance = getDistance(enemy.getBody().getPosition(), playerPos);
+        }
+    }
+    for (auto& enemy : getSpartans())
+    {
+        if (getDistance(enemy.getBody().getPosition(), playerPos) < minDistance) {
+            nearestPoint = enemy.getBody().getPosition();
+            minDistance = getDistance(enemy.getBody().getPosition(), playerPos);
+        }
+    }
+    for (auto& enemy : getReapers())
+    {
+        if (getDistance(enemy.getBody().getPosition(), playerPos) < minDistance) {
+            nearestPoint = enemy.getBody().getPosition();
+            minDistance = getDistance(enemy.getBody().getPosition(), playerPos);
+        }
+    }
+
+    if (minDistance == 25.47f)
+        return playerPos + sf::Vector2f(25.0f, 0.0f);
+
+    return nearestPoint;
+}
+
+
+
+
+
+
 std::vector<Slime>& GameplayData::getSlimes()
 {
     return spawnedSlimes;
@@ -290,4 +334,17 @@ void GameplayData::spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos)
 int GameplayData::howManyReapers()
 {
     return spawnedReapers.size();
+}
+
+///-------------------------------------------- MINI FUNCIONES ---------------------------------------
+
+
+float GameplayData::getDistance(sf::Vector2f pos1, sf::Vector2f pos2)
+{
+    float Xdistance = abs(pos1.x - pos2.x);
+    float Ydistance = abs(pos1.y - pos2.y);
+
+    float distance = sqrt((Xdistance * Xdistance) + (Ydistance * Ydistance));
+    
+    return distance;
 }

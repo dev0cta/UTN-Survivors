@@ -63,6 +63,9 @@
     <ClCompile Include="clsReaper.cpp">
       <Filter>Archivos de origen</Filter>
     </ClCompile>
+    <ClCompile Include="clsSquareCollider.cpp">
+      <Filter>Archivos de origen</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="clsCamera.h">
@@ -108,6 +111,9 @@
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
     <ClInclude Include="clsReaper.h">
+      <Filter>Archivos de encabezado</Filter>
+    </ClInclude>
+    <ClInclude Include="clsSquareCollider.h">
       <Filter>Archivos de encabezado</Filter>
     </ClInclude>
   </ItemGroup>

@@ -6,10 +6,15 @@ Spartan::Spartan(sf::Texture* texture, sf::Vector2u imageCount, float switchTime
 	animation(texture, imageCount, switchTime)
 {
 	type = 0;
-	this->speed = speed;
 	row = type;
 	faceRight = true;
 
+	this->level = level;
+	this->speed = speed;
+	this->health = 100;
+	this->healthScaling = 25;
+	this->dmg = 10;
+	this->dmgScaling = 10;
 
 
 	body.setSize(sf::Vector2f(20.0f, 40.0f));
@@ -52,9 +57,38 @@ sf::RectangleShape& Spartan::getBody()
 	return body;
 }
 
+void Spartan::takeDmg(int dmgTaken)
+{
+	health -= dmgTaken;
+}
+
+int Spartan::getDmg()
+{
+	return dmg;
+}
+
+int Spartan::getHealth()
+{
+	return health;
+}
+
+
+
+
+
+
 void Spartan::setType(int type)
 {
 	this->type = type;
+}
+
+void Spartan::setLevel(int level)
+{
+	this->level = level;
+
+	dmg = dmg + level * dmgScaling;
+	health = health + level * healthScaling;
+
 }
 
 

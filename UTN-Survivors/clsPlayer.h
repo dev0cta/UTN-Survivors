@@ -11,7 +11,6 @@ public:
 
 	Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window);
 
-
 	void Update(float deltaTime);
 
 	void Draw();
@@ -21,15 +20,37 @@ public:
 
 	sf::RectangleShape& getBody(); // nigga i cant
 
+	bool getFaceRight();
+
 	CircleCollider getCollider();
 
-	void takeDmg(); //tiene cooldown
+	void takeDmg(int dmgTaken); //tiene cooldown
 
-	void attack(); //verifica los cd de las habilidades y las lanza si estan disponibles
+	int getHealth();
+
+	//void attack(); //verifica los cd de las habilidades y las lanza si estan disponibles
+
+private:
+	void levelUp();
+
 
 private:
 
 	//stats
+
+	int level;
+
+	int dmgTakenCooldown;
+
+	int baseHealth;
+	int health;
+	float HpMax;
+	int healthScaling;
+
+	int baseDmg;
+	int dmg;
+	int dmgScaling;
+
 
 	float speed;
 
@@ -44,6 +65,5 @@ private:
 	bool				faceRight;
 	Interface			interface;
 	sf::RenderWindow& window;
-	float HpMax = 200;
 };
 

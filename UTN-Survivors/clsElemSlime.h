@@ -19,7 +19,16 @@ public:
 
 	sf::RectangleShape& getBody();
 
+	void takeDmg(int dmgTaken);
+
+	int getDmg();
+
+	int getHealth();
+
 	void setType(int type);
+
+	void setLevel(int level);
+
 
 
 private:
@@ -30,7 +39,13 @@ private:
 
 	///stats
 
+	int level;
 
+	int health;
+	int healthScaling; 
+
+	int dmg;
+	int dmgScaling;
 
 
 	float speed;

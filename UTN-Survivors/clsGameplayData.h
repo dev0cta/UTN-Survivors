@@ -6,6 +6,7 @@
 #include "clsSpartan.h"
 #include "clsReaper.h"
 
+
 class GameplayData
 {
 public:
@@ -21,6 +22,13 @@ public:
 	void CheckEverySolidCollision();
 
 	void DrawEveryEnemy(sf::RenderWindow& window);
+
+	sf::Vector2f getNearestEnemy(sf::Vector2f playerPos);
+
+	///FUNCIONES PARA EL PLAYER
+
+	
+
 
 	//SLIME
 
@@ -55,8 +63,30 @@ public:
 
 	int howManyReapers();
 
+
 private:
 
+	float getDistance(sf::Vector2f pos1, sf::Vector2f pos2);
+
+private:
+
+	///ATAQUES DEL JUGADOR
+
+
+
+
+	///SISTEMA DE NIVELES
+
+	int currentExp;
+	int expUntilNextLevel[15];  //tamaño = nivel maximo del player
+
+
+
+	///VARIABLES PARA ENEMIGOS
+
+	int enemyLevel;
+
+	///VECTORES DE ENEMIGOS
 	std::vector<Slime> spawnedSlimes;
 
 	std::vector<ElementalSlime> spawnedElemSlimes;

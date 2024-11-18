@@ -1,10 +1,22 @@
 #include "clsPlayer.h"
 
+
 Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window):
 	animation(texture, imageCount, switchTime), window(window), interface(Player::getPos(), HpMax)
 {
-
 	this->speed = speed;
+	this->level = 0;
+
+	this->baseHealth = 100;
+	this->health = 100;
+	this->healthScaling = 5;
+	this->HpMax = 100;
+	this->dmg = 75;
+	this->dmgScaling = 75;
+
+
+
+
 
 	row = 0;
 	faceRight = true;
@@ -52,6 +64,10 @@ void Player::Update(float deltaTime)
 	else
 		faceRight = false;
 
+	///subida de nivel
+
+
+
 	animation.Update(row, deltaTime, faceRight);
 	interface.update(getPos());
 	body.setTextureRect(animation.getUvRect());
@@ -75,16 +91,33 @@ sf::RectangleShape& Player::getBody()
 	return body;
 }
 
+bool Player::getFaceRight()
+{
+	return faceRight;
+}
+
 CircleCollider Player::getCollider()
 {
 	return CircleCollider(body);
 }
 
-void Player::takeDmg()
+void Player::takeDmg(int dmgTaken)
 {
+	if (dmgTakenCooldown <= 0)
+		health -= dmgTaken;
 }
 
-void Player::attack()
+int Player::getHealth()
 {
+	return health;
+}
+
+void Player::levelUp()
+{
+
+	health = baseHealth + level * healthScaling;
+	HpMax = baseHealth + level * healthScaling;
+
+	dmg = baseDmg + level * dmgScaling;
 }
 

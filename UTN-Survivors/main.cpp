@@ -72,6 +72,10 @@ int main()
     sf::Texture chadsterTexture;
     chadsterTexture.loadFromFile("./Assets/Sprites/chadsterSprite.png");
 
+    ///------------------- ATTACK TEXTURES ------------------------------------
+
+    sf::Texture fireTornadoTexture;
+    fireTornadoTexture.loadFromFile("./Assets/Sprites/fireTornadoSprite.png");
     
     ///------------------- ENEMY TEXTURES ------------------------------------
     sf::Texture slimeTexture;
@@ -102,11 +106,13 @@ int main()
 
 
 
-
     //debug counter
 
     float spawnCd = 0.5f;
     
+    float tornadoCd = 1.5f;
+    
+
 
     
     
@@ -259,6 +265,10 @@ int main()
             }
             spawnCd -= deltaTime;
 
+
+
+            tornadoCd -= deltaTime;
+
             std::cout << "deltaTime: " << deltaTime << std::endl;
 
             currentView = camara.getView(window.getSize(), chadster.getPos());
@@ -266,6 +276,8 @@ int main()
             mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
 
             window.setView(currentView);
+
+  
 
             gameData.UpdateEveryEnemy(deltaTime, chadster.getPos());
 
@@ -295,6 +307,8 @@ int main()
             window.draw(mapaSuelo);
 
             gameData.DrawEveryEnemy(window);
+
+   
 
             window.draw(mapaArboles);
             

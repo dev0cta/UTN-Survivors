@@ -148,6 +148,7 @@
     <ClCompile Include="clsSlime.cpp" />
     <ClCompile Include="clsPlayer.cpp" />
     <ClCompile Include="clsSpartan.cpp" />
+    <ClCompile Include="clsSquareCollider.cpp" />
     <ClCompile Include="gameFunctions.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
@@ -166,6 +167,7 @@
     <ClInclude Include="clsSlime.h" />
     <ClInclude Include="clsPlayer.h" />
     <ClInclude Include="clsSpartan.h" />
+    <ClInclude Include="clsSquareCollider.h" />
     <ClInclude Include="gameFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
