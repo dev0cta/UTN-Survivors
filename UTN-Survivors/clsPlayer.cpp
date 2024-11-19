@@ -75,7 +75,7 @@ void Player::Update(float deltaTime, int level)
 
 
 	animation.Update(row, deltaTime, faceRight);
-	interface.update(getPos(), level);
+	interface.update(getPos(), level, deltaTime);
 	body.setTextureRect(animation.getUvRect());
 	body.move(movement);
 }

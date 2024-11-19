@@ -79,5 +79,8 @@ private:
 
 	sf::Texture magicBallTexture;
 	MagicBall* magicball;
+
+	//Confirmacion
+	bool LevelUp;
 };
 

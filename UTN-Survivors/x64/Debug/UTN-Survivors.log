@@ -1,2 +1,25 @@
-﻿  clsStatisticsMenu.cpp
-  UTN-Survivors.vcxproj -> C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe
+﻿  clsInterface.cpp
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,125): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,125): warning C4305:         with
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,125): warning C4305:         [
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,125): warning C4305:             T=float
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,125): warning C4305:         ]
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,121): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,121): warning C4305:         with
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,121): warning C4305:         [
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,121): warning C4305:             T=float
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(20,121): warning C4305:         ]
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,109): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,109): warning C4305:         with
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,109): warning C4305:         [
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,109): warning C4305:             T=float
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,109): warning C4305:         ]
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,105): warning C4305: 'argumento': truncamiento de 'double' a 'T'
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,105): warning C4305:         with
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,105): warning C4305:         [
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,105): warning C4305:             T=float
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(22,105): warning C4305:         ]
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(40,89): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(43,57): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\UTN-Survivors\clsInterface.cpp(46,65): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+  UTN-Survivors.vcxproj -> C:\Users\Jefferson Achata\Documents\GitHub\UTN-Survivors\x64\Debug\UTN-Survivors.exe
