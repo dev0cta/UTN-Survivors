@@ -13,3 +13,5 @@ void checkBounds(sf::RectangleShape& body, sf::Vector2f boundMapLeftTop, sf::Vec
 
 void saveStatisticsData(std::string, Statistics currentMatch);
 
+Statistics getLastRecordedStatistics();
+

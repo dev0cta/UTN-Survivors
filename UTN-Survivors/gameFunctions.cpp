@@ -47,3 +47,13 @@ void saveStatisticsData(std::string, Statistics currentMatch)
     ///descomentar para chequear en la consola
     arc.Read().coutStatistics(arc.Read());
 }
+
+Statistics getLastRecordedStatistics()
+{
+
+    ArchivoStatistics arc("statistics.dat");
+
+    Statistics obj(arc.Read());
+
+    return obj;
+}

@@ -13,6 +13,7 @@
 #include "clsMenu.h"
 #include "clsGameOver.h"
 #include "clsGamePause.h"
+#include "clsStatisticsMenu.h"
 #include "clsInterface.h"
 #include "clsCircleCollider.h"
 #include "clsGameplayData.h"
@@ -102,6 +103,8 @@ int main()
     GameOver gameOver(&playTexture, &exitTexture);
 
     GamePause gamePause(&pauseTexture, &exitTexture, window);
+
+    StatisticsMenu statisticsMenu(getLastRecordedStatistics(), &exitTexture);
 
     Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 80.0f, window);
 
@@ -204,6 +207,7 @@ int main()
             }
             if (mainMenu.getOptionPressed() == STATS) 
             {
+                statisticsMenu.setStatistics(getLastRecordedStatistics());
                 gameState = STATS;
             }
 
@@ -333,6 +337,37 @@ int main()
 
 
         case STATS:
+
+            currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f, 0.0f));
+
+            window.setView(currentView);
+
+            mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+
+            cursor.setPosition(mousePos);
+
+            statisticsMenu.Update(mousePos);
+
+            //SALIR DEL MENU
+            if (statisticsMenu.getOptionPressed() == MENU)
+            {
+                chadster.Reset();
+                gameData.ResetGameData(chadster.getBody());
+                gameState = MENU;
+            }
+            
+
+            //DRAW MENU
+            window.clear();
+
+            statisticsMenu.Draw(window);
+
+            window.draw(cursor);
+
+            //drawButtons
+            window.display();
+
+
             break;
 
 
