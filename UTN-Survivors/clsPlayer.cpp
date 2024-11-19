@@ -68,7 +68,10 @@ void Player::Update(float deltaTime, int level)
 
 	if (lastLevel < level) {
 		levelUp(level);
+		lastLevel = level;
 	}
+
+	interface.UpdateHpBar(health, HpMax);
 
 
 	animation.Update(row, deltaTime, faceRight);
@@ -137,5 +140,6 @@ void Player::levelUp(int level)
 	HpMax = baseHealth + level * healthScaling;
 
 	dmg = baseDmg + level * dmgScaling;
+
 }
 

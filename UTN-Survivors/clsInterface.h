@@ -5,7 +5,7 @@ class Interface
 {
 private:
 
-	float HpMax;
+	float hpMax;
 	float HpActual;
 	sf::Vector2i size;
 	sf::RectangleShape Hpbackground;
@@ -19,8 +19,8 @@ private:
 
 public:
 
-	Interface(sf::Vector2f posToPj, float HpMax);
-
+	Interface(sf::Vector2f posToPj, float hpMax);
+	void UpdateHpBar(float hpActual, float hpMax);
 	void Draw(sf::RenderWindow& window);
 	void update(sf::Vector2f posToPj, int level);
 

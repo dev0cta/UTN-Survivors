@@ -1,9 +1,10 @@
 #include "clsInterface.h"
 #include "clsInterface.h"
+#include <iostream>
 
-Interface::Interface(sf::Vector2f posToPj, float HpMax)
+Interface::Interface(sf::Vector2f posToPj, float hpMax)
 {
-	this->HpMax = HpMax;
+	this->hpMax = hpMax;
 		Hpbackground.setSize(sf::Vector2f(50.0f, 3.50f));
 		Hpbackground.setFillColor(sf::Color::Black);
 		
@@ -35,6 +36,16 @@ Interface::Interface(sf::Vector2f posToPj, float HpMax)
 		levelNumber.setCharacterSize(32);
 		levelNumber.setScale(sf::Vector2f(0.4, 0.4));
 
+}
+
+void Interface::UpdateHpBar(float hpActual, float hpMax)
+{
+	float hpPercent = hpActual / hpMax;
+	HpActualBar.setSize(sf::Vector2f(48.5f * hpPercent, HpActualBar.getSize().y));
+	hpPercent = std::max(0.0f, std::min(hpPercent, 1.0f));
+	std::cout << "hpPercent: " << hpPercent << std::endl;
+
+	HpActualBar.setSize(sf::Vector2f(48.5f * hpPercent, HpActualBar.getSize().y));
 }
 
 void Interface::update(sf::Vector2f posToPj, int level)
