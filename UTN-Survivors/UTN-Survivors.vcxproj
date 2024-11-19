@@ -155,6 +155,7 @@
     <ClCompile Include="clsSpartan.cpp" />
     <ClCompile Include="clsSquareCollider.cpp" />
     <ClCompile Include="gameFunctions.cpp" />
+    <ClCompile Include="MagicBall.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +180,7 @@
     <ClInclude Include="clsSpartan.h" />
     <ClInclude Include="clsSquareCollider.h" />
     <ClInclude Include="gameFunctions.h" />
+    <ClInclude Include="MagicBall.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

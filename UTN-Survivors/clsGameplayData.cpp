@@ -1,4 +1,4 @@
-#include "clsGameplayData.h"
+﻿#include "clsGameplayData.h"
 #include <iostream>
 
 GameplayData::GameplayData()
@@ -470,7 +470,7 @@ void GameplayData::createAreaAttack(AreaAttack areaTemplate, sf::Vector2f player
     }
 }
 
-void GameplayData::UpdateEverySkill(float deltaTime)
+void GameplayData::UpdateEverySkill(sf::Vector2f playerpos, float deltaTime)
 {
     tornadoCd -= deltaTime;
     areaCd -= deltaTime;
@@ -518,6 +518,10 @@ void GameplayData::UpdateEverySkill(float deltaTime)
     {
         skill.Update(deltaTime);
     }
+    for (auto& skill : spawnedBalls)
+    {
+        skill.update(playerpos, deltaTime);
+    }
 
 }
 
@@ -532,7 +536,10 @@ void GameplayData::DrawEverySkill(sf::RenderWindow& window)
     {
         skill.Draw(window);
     }
-
+    for (auto& skill : spawnedBalls)
+    {
+        skill.draw(window);
+    }
 }
 
 
@@ -541,7 +548,7 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
 {
     tornadoDmgCd -= deltaTime;
     areaDmgCd -= deltaTime;
-
+    ballDmgCd -= deltaTime;
 
     if (tornadoDmgCd <= 0) {
         for (auto& skill : tornadosSpawned)
@@ -614,6 +621,64 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
         areaDmgCd = 0.5f;
     }
 
+    if (ballDmgCd <= 0) {
+        for (auto& ball : spawnedBalls) {
+            for (auto& enemy : getSlimes()) {
+                if (ball.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
+                    // Da�o de la bola
+                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                }
+            }
+            for (auto& enemy : getElemSlimes()) {
+                if (ball.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
+                    // Da�o de la bola
+                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                }
+            }
+            for (auto& enemy : getSpartans()) {
+                if (ball.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
+                    // Da�o de la bola
+                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                }
+            }
+            for (auto& enemy : getReapers()) {
+                if (ball.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(ball.getDmg() + playerDmg);
+
+                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
+                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                }
+            }
+        }
+        ballDmgCd = 0.0f; // Resetear el tiempo de cooldown para la bola
+    }
+}
+
+void GameplayData::createBall(MagicBall magicBallTemplate, sf::Vector2f playerpos)
+{
+    //std::cout << "Magic ball cd: " << ballDmgCd << std::endl;
+
+    MagicBall e(magicBallTemplate);
+
+    MagicBall newBall(magicBallTemplate);
+
+    addMagicBall(newBall);
+
+}
+
+void GameplayData::addMagicBall(const MagicBall& newBall) {
+    if (spawnedBalls.size() < 1) { // Limitar a un m�ximo de 1 bolas, cuandoa gregue mas veo el tema del angulo
+        spawnedBalls.push_back(newBall);
+    }
+    else {
+        // std::cout << "Ya alcanzaste el m�ximo de bolas m�gicas (3)." << std::endl;
+    }
 }
 
 int GameplayData::getLevel()

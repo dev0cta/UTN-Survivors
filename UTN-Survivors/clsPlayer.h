@@ -5,6 +5,8 @@
 #include "SFML/Graphics.hpp"
 #include "clsInterface.h"
 #include "clsAttack.h"
+#include"MagicBall.h"
+#include<vector>
 
 class Player
 {
@@ -72,5 +74,8 @@ private:
 	bool				faceRight;
 	Interface			interface;
 	sf::RenderWindow& window;
+
+	sf::Texture magicBallTexture;
+	MagicBall* magicball;
 };
 

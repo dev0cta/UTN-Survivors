@@ -1,3 +1,12 @@
-﻿  main.cpp
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\main.cpp(27,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-  UTN-Survivors.vcxproj -> C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe
+﻿  clsGameplayData.cpp
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(715,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(732,30): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(753,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(791,17): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(805,32): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(823,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(835,31): warning C4267: 'return': conversión de 'size_t' a 'int'; posible pérdida de datos
+  main.cpp
+C:\Users\rojas\UTN-Survivors\UTN-Survivors\main.cpp(27,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
+  Generando código...
+  UTN-Survivors.vcxproj -> C:\Users\rojas\UTN-Survivors\x64\Debug\UTN-Survivors.exe

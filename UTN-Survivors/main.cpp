@@ -18,7 +18,7 @@
 #include "clsGameplayData.h"
 #include "clsBulletAttack.h"
 #include "clsAreaAttack.h"
-
+#include"MagicBall.h"
 
 int main()
 {
@@ -82,7 +82,8 @@ int main()
     blueTornadoTexture.loadFromFile("./Assets/Sprites/blueTornadoSprite.png");
     sf::Texture purpleAreaTexture;
     purpleAreaTexture.loadFromFile("./Assets/Sprites/purpleAreaSprite.png");
-    
+    sf::Texture magicBallTexture;
+    magicBallTexture.loadFromFile("./Assets/Sprites/fireSpin.png");
     ///------------------- ENEMY TEXTURES ------------------------------------
     sf::Texture slimeTexture;
     slimeTexture.loadFromFile("./Assets/Sprites/SlimeSprite.png");
@@ -116,7 +117,7 @@ int main()
     BulletAttack tornadoTemplate (&blueTornadoTexture, sf::Vector2u(5,1), 0.3f);
     AreaAttack areaTemplate (&purpleAreaTexture, sf::Vector2u(6,1), 0.3f);
 
-
+    MagicBall magicBallTemplate(15.0f, 60.0f, 100.0f, 100, sf::Vector2u(6, 1), 0.1f, &magicBallTexture);   //radio, radioOrbita, velocidad, daño,----  lo demas no se toca
 
     //debug counter
 
@@ -280,7 +281,9 @@ int main()
             ///UPDATE Y CHEQUEO DE HABILIDADES
             gameData.createTornado(tornadoTemplate, chadster.getPos());
             gameData.createAreaAttack(areaTemplate, chadster.getPos());
-            gameData.UpdateEverySkill(deltaTime);
+            gameData.createBall(magicBallTemplate, chadster.getPos());
+
+            gameData.UpdateEverySkill(chadster.getPos(), deltaTime);;
 
             ///CHEQUEO DE DAÑO A ENEMIGOS Y MUERTES
             gameData.checkDmgCollision(deltaTime, chadster.getDmg());

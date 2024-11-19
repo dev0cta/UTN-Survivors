@@ -11,7 +11,7 @@
 #include "clsElemSlime.h"
 #include "clsSpartan.h"
 #include "clsReaper.h"
-
+#include "MagicBall.h"
 
 class GameplayData
 {
@@ -48,12 +48,19 @@ public:
 
 	void createAreaAttack(AreaAttack areaTemplate, sf::Vector2f playerPos);
 
-	void UpdateEverySkill(float deltaTime);
+	void UpdateEverySkill(sf::Vector2f playerpos, float deltaTime);
 
 	void DrawEverySkill(sf::RenderWindow& window);
-	
 
 	void checkDmgCollision(float deltaTime, int playerDmg);
+
+
+
+
+	void createBall(MagicBall magicBallTemplate, sf::Vector2f playerpos);
+	void addMagicBall(const MagicBall& newBall);
+
+
 
 	///FUNCIONES PARA EL PLAYER	
 
@@ -115,7 +122,19 @@ private:
 
 	///ATAQUES DEL JUGADOR
 
+
 	int skillLevels[3];
+
+
+	std::vector <MagicBall> spawnedBalls;
+
+	float ballCd;
+	float ballDmgCd;
+	int ballAttackDmg = 15;
+
+
+
+
 
 	std::vector<BulletAttack> tornadosSpawned;
 	float tornadoCd;
