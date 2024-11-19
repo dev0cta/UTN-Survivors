@@ -229,7 +229,7 @@ int main()
                 //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
                 gameState = GAMEOVER;
             }
-            std::cout << chadster.getHealth()<<std::endl;
+            //std::cout << chadster.getHealth()<<std::endl;
 
             ///CHECK PAUSA
             if (pauseCd - betaTime <= 0)
@@ -280,7 +280,7 @@ int main()
             window.setView(currentView);
 
             gameData.checkLevelUp();
-            std::cout << "playerLevel (GAMEDATA):" << gameData.getLevel() << std::endl;
+            //std::cout << "playerLevel (GAMEDATA):" << gameData.getLevel() << std::endl;
             //std::cout << "playerLevel (MAIN): " << chadster.getLevel() << std::endl;
             chadster.Update(deltaTime, gameData.getLevel());
 
@@ -354,8 +354,11 @@ int main()
                 gameData.ResetGameData(chadster.getBody());
                 gameState = PLAYING;
             }
+
+            /////--------SAVE STATISTICS ACA NO TESTEADO
             if (gameOver.getOptionPressed() == MENU) {
-                gameState == MENU;
+                saveStatisticsData("statistics.dat", gameData.getGameStatistics());
+                gameState = MENU;
             }
 
             window.clear();

@@ -4,6 +4,7 @@
 #include <vector>
 #include "clsLevelingSystem.h"
 #include "clsPlayer.h"
+#include "clsStatistics.h"
 
 #include "clsBulletAttack.h"
 #include "clsAreaAttack.h"
@@ -76,28 +77,17 @@ public:
 
 	void spawnSlime(Slime slime, sf::Vector2f playerPos);
 
-
-
-
-
-	int howManySlimes();
-	
-
 	//ELEMENTAL SLIME
 
 	std::vector<ElementalSlime>& getElemSlimes();
 
 	void spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vector2f playerPos);
-
-	int howManyElemSlimes();
 	
 	//SPARTAN
 
 	std::vector<Spartan>& getSpartans();
 
 	void spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos);
-
-	int howManySpartans();
 	
 	//REAPER
 
@@ -105,8 +95,11 @@ public:
 
 	void spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos);
 
-	int howManyReapers();
 
+
+	///STATISTICS
+
+	Statistics getGameStatistics();
 
 private:
 
@@ -155,8 +148,20 @@ private:
 
 	std::vector<Reaper> spawnedReapers;
 
+	//CONTADORES PARA STADISTICS
 
+	
+	float timeSurvived;
 
+	int dmgTaken;
+	int dmgDealt;
+
+	int slimesDefeated;
+	int elementalSlimesDefeated;
+	int spartansDefeated;
+	int reapersDefeated;
+	int timesLeveledUp;
+	int gameBeatedCounter;
 
 
 };

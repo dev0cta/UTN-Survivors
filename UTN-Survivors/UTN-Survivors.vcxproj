@@ -134,6 +134,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="clsArchivoStatistics.cpp" />
     <ClCompile Include="clsAreaAttack.cpp" />
     <ClCompile Include="clsAttack.cpp" />
     <ClCompile Include="clsBulletAttack.cpp" />
@@ -154,11 +155,13 @@
     <ClCompile Include="clsPlayer.cpp" />
     <ClCompile Include="clsSpartan.cpp" />
     <ClCompile Include="clsSquareCollider.cpp" />
+    <ClCompile Include="clsStatistics.cpp" />
     <ClCompile Include="gameFunctions.cpp" />
     <ClCompile Include="MagicBall.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="clsArchivoStatistics.h" />
     <ClInclude Include="clsAreaAttack.h" />
     <ClInclude Include="clsAttack.h" />
     <ClInclude Include="clsBulletAttack.h" />
@@ -179,6 +182,7 @@
     <ClInclude Include="clsPlayer.h" />
     <ClInclude Include="clsSpartan.h" />
     <ClInclude Include="clsSquareCollider.h" />
+    <ClInclude Include="clsStatistics.h" />
     <ClInclude Include="gameFunctions.h" />
     <ClInclude Include="MagicBall.h" />
   </ItemGroup>

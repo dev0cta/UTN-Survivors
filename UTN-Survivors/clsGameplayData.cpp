@@ -4,7 +4,7 @@
 GameplayData::GameplayData()
 {
 
-    sf::Clock gameClock;
+    gameTime = 0.0f;
 
     enemyLevel = 0;
 
@@ -13,8 +13,23 @@ GameplayData::GameplayData()
     areaCd = 2.5f;
     tornadoDmgCd = 0.5f;
     areaDmgCd = 0.5f;
+    ballDmgCd = 0.5f;
 
     dmgTakenCd = 0.25f;
+
+    ///STATISTICS
+    timeSurvived = 0.0f;
+
+    dmgTaken = 0;
+    dmgDealt = 0;
+
+    slimesDefeated = 0;
+    elementalSlimesDefeated = 0;
+    spartansDefeated = 0;
+    reapersDefeated = 0;
+    timesLeveledUp = 0;
+    gameBeatedCounter = 0;
+
 }
 
 void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
@@ -39,6 +54,8 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
 
 void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
 {
+    
+
     gameTime += deltaTime;
     int minutesPassed = int(deltaTime / 60);
     
@@ -160,10 +177,14 @@ void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime sl
         }
         break;
     default:
-        //no spawn termina el juego
+        //no spawn, termina el juego si se mato al boss
+
         /*
         if (bossKilled == true) {
+            gameBeatenCounter++;
+            timesLeveledUp += this->getLevel();
             //MANDAR A PANTALLA DE VICTORIA
+            
         }
         */
         break;
@@ -174,6 +195,9 @@ void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime sl
 
 void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
 {
+
+    ///statistics
+    timeSurvived += deltaTime;
 
     for (auto& enemy : getSlimes())
     {
@@ -208,6 +232,8 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
             dmgTakenCd = 0.25f;
+            ///statistics
+            dmgTaken += enemy.getDmg();
         }
 
     }
@@ -216,6 +242,8 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
             dmgTakenCd = 0.25f;
+            ///statistics
+            dmgTaken += enemy.getDmg();
         }
     }
     for (auto& enemy : getSpartans())
@@ -223,6 +251,8 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
             dmgTakenCd = 0.25f;
+            ///statistics
+            dmgTaken += enemy.getDmg();
         }
     }
     for (auto& enemy : getReapers())
@@ -230,6 +260,8 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
             dmgTakenCd = 0.25f;
+            ///statistics
+            dmgTaken += enemy.getDmg();
         }
     }
 
@@ -328,6 +360,8 @@ void GameplayData::dyingEnemies()
         {
             spawnedSlimes.erase(spawnedSlimes.begin() + i);
             levelingSystem.obtainExp(15);
+            ///statistics
+            slimesDefeated++;
         }
         else
         {
@@ -341,6 +375,8 @@ void GameplayData::dyingEnemies()
         {
             spawnedElemSlimes.erase(spawnedElemSlimes.begin() + i);
             levelingSystem.obtainExp(15);
+            ///statistics
+            elementalSlimesDefeated++;
         }
         else
         {
@@ -354,6 +390,8 @@ void GameplayData::dyingEnemies()
         {
             spawnedSpartans.erase(spawnedSpartans.begin() + i);
             levelingSystem.obtainExp(15);
+            ///statistics
+            spartansDefeated++;
         }
         else
         {
@@ -367,6 +405,8 @@ void GameplayData::dyingEnemies()
         {
             spawnedReapers.erase(spawnedReapers.begin() + i);
             levelingSystem.obtainExp(15);
+            ///statistics
+            reapersDefeated++;
         }
         else
         {
@@ -570,6 +610,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + playerDmg);
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -577,6 +619,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + playerDmg);
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -584,6 +628,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + playerDmg);
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -591,6 +637,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + playerDmg);
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -606,6 +654,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -613,6 +663,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -620,6 +672,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -627,6 +681,8 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
+                    ///statistics
+                    dmgDealt += skill.getDmg();
                 }
 
             }
@@ -639,33 +695,29 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             for (auto& enemy : getSlimes()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(ball.getDmg() + playerDmg);
-                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
-                    // Da�o de la bola
-                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                    ///statistics
+                    dmgDealt += ball.getDmg();
                 }
             }
             for (auto& enemy : getElemSlimes()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(ball.getDmg() + playerDmg);
-                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
-                    // Da�o de la bola
-                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                    ///statistics
+                    dmgDealt += ball.getDmg();
                 }
             }
             for (auto& enemy : getSpartans()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(ball.getDmg() + playerDmg);
-                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
-                    // Da�o de la bola
-                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                    ///statistics
+                    dmgDealt += ball.getDmg();
                 }
             }
             for (auto& enemy : getReapers()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(ball.getDmg() + playerDmg);
-
-                    std::cout << "damage taken: " << ball.getDmg() << std::endl;// Da�o de la bola
-                    // Aqu� podr�as destruir la bola o marcarla como inactiva
+                    ///statistics
+                    dmgDealt += ball.getDmg();
                 }
             }
         }
@@ -740,10 +792,7 @@ void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos)
 }
 
 
-int GameplayData::howManySlimes()
-{
-    return spawnedSlimes.size();
-}
+
 
 
 
@@ -778,10 +827,6 @@ void GameplayData::spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vec
 
 }
 
-int GameplayData::howManyElemSlimes()
-{
-    return 0;
-}
 
 
 
@@ -813,10 +858,6 @@ void GameplayData::spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos)
 }
 
 
-int GameplayData::howManySpartans()
-{
-    return spawnedSpartans.size();
-}
 
 
 
@@ -843,13 +884,18 @@ void GameplayData::spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos)
    // }
 }
 
-int GameplayData::howManyReapers()
-{
-    return spawnedReapers.size();
-}
 
 ///-------------------------------------------- MINI FUNCIONES ---------------------------------------
 
+
+Statistics GameplayData::getGameStatistics()
+{
+
+    Statistics obj(timeSurvived, dmgTaken, dmgDealt, slimesDefeated,
+        elementalSlimesDefeated, spartansDefeated, reapersDefeated, timesLeveledUp, gameBeatedCounter);
+
+    return obj;
+}
 
 float GameplayData::getDistance(sf::Vector2f pos1, sf::Vector2f pos2)
 {

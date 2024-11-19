@@ -43,7 +43,7 @@ void Interface::UpdateHpBar(float hpActual, float hpMax)
 	float hpPercent = hpActual / hpMax;
 	HpActualBar.setSize(sf::Vector2f(48.5f * hpPercent, HpActualBar.getSize().y));
 	hpPercent = std::max(0.0f, std::min(hpPercent, 1.0f));
-	std::cout << "hpPercent: " << hpPercent << std::endl;
+	//std::cout << "hpPercent: " << hpPercent << std::endl;
 
 	HpActualBar.setSize(sf::Vector2f(48.5f * hpPercent, HpActualBar.getSize().y));
 }

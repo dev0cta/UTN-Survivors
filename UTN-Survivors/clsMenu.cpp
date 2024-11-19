@@ -62,7 +62,7 @@ void Menu::Update(sf::Vector2f mousePos)
 	IntersectX = abs(deltaX) - (thisHalfSize.x);
 	IntersectY = abs(deltaY) - (thisHalfSize.y);
 
-	std::cout << "intersectX: " << IntersectX << std::endl << "IntersectY: " << IntersectY << std::endl;
+	//std::cout << "intersectX: " << IntersectX << std::endl << "IntersectY: " << IntersectY << std::endl;
 
 	if (IntersectX < 0 && IntersectY < 0)  /// que pasa si se tocan
 	{

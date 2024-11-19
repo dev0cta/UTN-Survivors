@@ -37,3 +37,13 @@ void checkBounds(sf::RectangleShape& body, sf::Vector2f boundMapLeftTop, sf::Vec
         body.setPosition(body.getPosition().x, boundMapRightDown.y);
     }
 }
+
+void saveStatisticsData(std::string, Statistics currentMatch)
+{
+    ArchivoStatistics arc("statistics.dat");
+
+    arc.addAndSaveRecentMatch(currentMatch);
+
+    ///descomentar para chequear en la consola
+    arc.Read().coutStatistics(arc.Read());
+}
