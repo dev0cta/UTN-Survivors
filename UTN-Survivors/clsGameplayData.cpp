@@ -56,7 +56,7 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
 void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
 {
 
-    gameTime += deltaTime*10;
+    gameTime += deltaTime;
     int minutesPassed = int(gameTime / 60);
     
     spawnCd -= deltaTime;

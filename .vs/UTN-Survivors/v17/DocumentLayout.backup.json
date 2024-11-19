@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsGameplayData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\MagicBall.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\MagicBall.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsGameplayData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\MagicBall.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\MagicBall.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\MagicBall.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -130,11 +130,11 @@
       "DocumentGroups": [
         {
           "DockedWidth": 48,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 27,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\main.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\main.cpp",
@@ -157,8 +157,7 @@
               "ViewState": "AgIAAAkAAAAAAAAAAAAAAB0AAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-14T13:05:21.41Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -171,8 +170,7 @@
               "ViewState": "AgIAADYAAAAAAAAAAAAAAEsAAAADAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-19T00:58:16.232Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -185,8 +183,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-19T15:43:50.327Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Document",
@@ -199,8 +196,7 @@
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAABQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-19T15:43:14.413Z",
-              "IsPinned": true,
-              "EditorCaption": ""
+              "IsPinned": true
             },
             {
               "$type": "Bookmark",
@@ -220,7 +216,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "MagicBall.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\MagicBall.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\MagicBall.h",
@@ -228,8 +224,7 @@
               "RelativeToolTip": "UTN-Survivors\\MagicBall.h",
               "ViewState": "AgIAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-19T19:41:32.845Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T19:41:32.845Z"
             },
             {
               "$type": "Document",
@@ -241,8 +236,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsSpartan.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T19:35:55.91Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T19:35:55.91Z"
             },
             {
               "$type": "Document",
@@ -254,8 +248,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsSlime.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T19:35:46.891Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T19:35:46.891Z"
             },
             {
               "$type": "Document",
@@ -267,8 +260,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsReaper.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T19:35:13.983Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T19:35:13.983Z"
             },
             {
               "$type": "Document",
@@ -280,8 +272,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsElemSlime.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T19:34:24.329Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T19:34:24.329Z"
             },
             {
               "$type": "Document",
@@ -293,8 +284,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsLevelingSystem.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAEAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-19T15:07:33.866Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T15:07:33.866Z"
             },
             {
               "$type": "Document",
@@ -306,8 +296,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsLevelingSystem.cpp",
               "ViewState": "AgIAABwAAAAAAAAAAAAwwDcAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T17:32:21.144Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T17:32:21.144Z"
             },
             {
               "$type": "Document",
@@ -331,8 +320,7 @@
               "RelativeToolTip": "UTN-Survivors\\MagicBall.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADYAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T16:58:31.607Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T16:58:31.607Z"
             },
             {
               "$type": "Document",
@@ -344,8 +332,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsStatisticsMenu.h",
               "ViewState": "AgIAAA8AAAAAAAAAAAAAACQAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-19T09:31:24.239Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T09:31:24.239Z"
             },
             {
               "$type": "Document",
@@ -357,8 +344,7 @@
               "RelativeToolTip": "UTN-Survivors\\clsStatisticsMenu.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABUAAAAUAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T09:31:56.631Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T09:31:56.631Z"
             },
             {
               "$type": "Document",
@@ -434,7 +420,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "clsGameplayData.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsGameplayData.h",
@@ -447,13 +433,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "clsGameplayData.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsGameplayData.cpp",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.cpp",
               "RelativeToolTip": "UTN-Survivors\\clsGameplayData.cpp",
-              "ViewState": "AgIAALoCAAAAAAAAAADwv9sCAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAAAMgAAAAQAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-17T22:17:45.377Z",
               "EditorCaption": ""
