@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include "clsLevelingSystem.h"
 
 #include "clsBulletAttack.h"
 #include "clsAreaAttack.h"
@@ -16,6 +17,12 @@ class GameplayData
 public:
 
 	GameplayData();
+	
+	/// FUNCIONES CLAVE
+
+	void ResetGameData(sf::RectangleShape& characterBody);
+
+	void randomSpawn(sf::Vector2f playerPos, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate);
 
 	//FUNCIONES GENERALES
 
@@ -43,6 +50,12 @@ public:
 	
 
 	void checkDmgCollision(float deltaTime, int playerDmg);
+
+	///FUNCIONES PARA EL PLAYER	
+
+	int getLevel();
+
+	void checkLevelUp();
 
 
 	//SLIME
@@ -89,7 +102,16 @@ private:
 
 private:
 
+	///LEVELING SYSTEM
+
+	sf::Clock gameClock;
+	
+	LevelingSystem levelingSystem;
+
+
 	///ATAQUES DEL JUGADOR
+
+	int skillLevels[3];
 
 	std::vector<BulletAttack> tornadosSpawned;
 	float tornadoCd;
@@ -98,13 +120,6 @@ private:
 	std::vector<AreaAttack> areaAttacksSpawned;
 	float areaCd;
 	float areaDmgCd;
-
-
-	///SISTEMA DE NIVELES
-
-	int currentExp;
-	int expUntilNextLevel[15];  //tamaño = nivel maximo del player
-
 
 
 	///VARIABLES PARA ENEMIGOS

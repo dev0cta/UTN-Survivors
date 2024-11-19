@@ -3,11 +3,86 @@
 
 GameplayData::GameplayData()
 {
+
+    sf::Clock gameClock;
+
+    enemyLevel = 0;
+
     tornadoCd = 2.0f;
     areaCd = 2.5f;
     tornadoDmgCd = 0.5f;
     areaDmgCd = 0.5f;
+
+    for (int i = 0; i < 3; i++)
+    {
+        skillLevels[i] = 0;
+    }
 }
+
+void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
+{
+    characterBody.setPosition(sf::Vector2f(250.0f, 250.0f));
+    levelingSystem.resetLeveling();
+
+    enemyLevel = 0;
+
+    getSlimes().clear();
+    getElemSlimes().clear();
+    getSpartans().clear();
+    getReapers().clear();
+
+
+    for (int i = 0; i < 3; i++)
+    {
+        skillLevels[i] = 0;
+    }
+}
+
+void GameplayData::randomSpawn(sf::Vector2f playerPos, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
+{
+    int minutesPassed = int(gameClock.getElapsedTime().asSeconds() / 60);
+
+    //std::cout << "minutos ingame: " << minutesPassed << std::endl;
+
+    int randomSpawn = (rand() % 100) +1;
+
+    switch (minutesPassed)
+    {
+    case 0:
+        if (randomSpawn <= 25) {
+            spawnElementalSlime(elemSlimeTemplate, playerPos);
+        }
+        else
+        {
+            spawnSlime(slimeTemplate, playerPos);
+        }
+        break;
+    case 1:
+        break;
+    case 2:
+        break;
+    case 3:
+        break;
+    case 4:
+        break;
+    case 5:
+        break;
+    case 6:
+        break;
+    case 7:
+        break;
+    case 8:
+        break;
+    case 9:
+        break;
+    case 10:
+        break;
+    default:
+        break;
+    }
+
+}
+
 
 void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
 {
@@ -145,6 +220,7 @@ void GameplayData::dyingEnemies()
         if (spawnedSlimes[i].getHealth() <= 0)
         {
             spawnedSlimes.erase(spawnedSlimes.begin() + i);
+            levelingSystem.obtainExp(10);
         }
         else
         {
@@ -157,6 +233,7 @@ void GameplayData::dyingEnemies()
         if (spawnedElemSlimes[i].getHealth() <= 0)
         {
             spawnedElemSlimes.erase(spawnedElemSlimes.begin() + i);
+            levelingSystem.obtainExp(10);
         }
         else
         {
@@ -169,6 +246,7 @@ void GameplayData::dyingEnemies()
         if (spawnedSpartans[i].getHealth() <= 0)
         {
             spawnedSpartans.erase(spawnedSpartans.begin() + i);
+            levelingSystem.obtainExp(10);
         }
         else
         {
@@ -181,6 +259,7 @@ void GameplayData::dyingEnemies()
         if (spawnedReapers[i].getHealth() <= 0)
         {
             spawnedReapers.erase(spawnedReapers.begin() + i);
+            levelingSystem.obtainExp(10);
         }
         else
         {
@@ -211,6 +290,8 @@ void GameplayData::DrawEveryEnemy(sf::RenderWindow& window)
     {
         enemy.Draw(window);
     }
+
+    
 
 }
 
@@ -259,7 +340,7 @@ float GameplayData::getNearestEnemyAngle(sf::Vector2f playerPos)
 
 void GameplayData::createTornado(BulletAttack bulletTemplate, sf::Vector2f playerPos)
 {
-    std::cout << "TORNADO CD: " << tornadoCd<<std::endl;
+    //std::cout << "TORNADO CD: " << tornadoCd<<std::endl;
     if (tornadoCd <= 0.0f) {
         BulletAttack e(bulletTemplate);
         e.setPosition(playerPos);
@@ -279,11 +360,11 @@ void GameplayData::createAreaAttack(AreaAttack areaTemplate, sf::Vector2f player
         
         int degree = rand() % 360;
 
-        int rad = degree * (3.14 / 180);
+        float rad = float(degree * (3.14 / 180));
 
-        int distance = 100.0f;
+        float distance = 100.0f;
         
-        e.setPosition(playerPos + sf::Vector2f(cos(rad) * distance, sin(rad) * distance));
+        e.setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
         
 
         areaAttacksSpawned.push_back(e);
@@ -406,28 +487,28 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             for (auto& enemy : getSlimes())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                 }
 
             }
             for (auto& enemy : getElemSlimes())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                 }
 
             }
             for (auto& enemy : getSpartans())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                 }
 
             }
             for (auto& enemy : getReapers())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + 0.25 * playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                 }
 
             }
@@ -435,6 +516,16 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
         areaDmgCd = 0.5f;
     }
 
+}
+
+int GameplayData::getLevel()
+{
+    return levelingSystem.getLevel();
+}
+
+void GameplayData::checkLevelUp()
+{
+    levelingSystem.checkLevelUp();
 }
 
 
@@ -458,11 +549,11 @@ void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos)
 
         int degree = rand() % 360;
 
-        int rad = degree * (3.14 / 180);
+        float rad = degree * (3.14 / 180);
 
-        int distance = 250.0f;
+        float distance = 250.0f;
 
-        e.getBody().setPosition(playerPos + sf::Vector2f(cos(rad) * distance, sin(rad) * distance));
+        e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
 
 
         e.setType(type);
@@ -496,11 +587,11 @@ void GameplayData::spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vec
 
         int degree = rand() % 360;
 
-        int rad = degree * (3.14 / 180);
+        float rad = degree * (3.14 / 180);
 
-        int distance = 250.0f;
+        float distance = 250.0f;
 
-        e.getBody().setPosition(playerPos + sf::Vector2f(cos(rad) * distance, sin(rad) * distance));
+        e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
 
 
         e.setType(type);
@@ -536,9 +627,9 @@ void GameplayData::spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos)
 
         int rad = degree * (3.14 / 180);
 
-        int distance = 250.0f;
+        float distance = 250.0f;
 
-        e.getBody().setPosition(playerPos + sf::Vector2f(cos(rad) * distance, sin(rad) * distance));
+        e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
 
 
         spawnedSpartans.push_back(e);
@@ -566,11 +657,11 @@ void GameplayData::spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos)
 
         int degree = rand() % 360;
 
-        int rad = degree * (3.14 / 180);
+        float rad = degree * (3.14 / 180);
 
-        int distance = 250.0f;
+        float distance = 250.0f;
 
-        e.getBody().setPosition(playerPos + sf::Vector2f(cos(rad) * distance, sin(rad) * distance));
+        e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
 
         spawnedReapers.push_back(e);
    // }

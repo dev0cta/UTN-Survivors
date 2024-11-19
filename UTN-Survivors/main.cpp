@@ -28,7 +28,7 @@ int main()
 
     ///ventana de juego
 
-    sf::RenderWindow window(sf::VideoMode(1280, 720), "UTN Survivors", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
+    sf::RenderWindow window(sf::VideoMode(800, 600), "UTN Survivors", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
 
 
     ///inicializar sistemas
@@ -56,29 +56,21 @@ int main()
         GAMEOVER
     };
 
-    enum GAMESTATE  gameState = GAMEOVER;
+    enum GAMESTATE  gameState = MENU;
     
     ///------------------- MENU TEXTURES ------------------------------------
     sf::Texture playTexture;
     playTexture.loadFromFile("./Assets/Buttons/playButtonSprite.png");
     sf::Texture statsTexture;
     statsTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
-    sf::Texture backgroundTexture;
-    backgroundTexture.loadFromFile("./Assets/images/mainMenuBackground.jpg");
 
     sf::Texture exitTexture;
     exitTexture.loadFromFile("./Assets/Buttons/exitButtonSprite.png");
     sf::Texture pauseTexture;
     pauseTexture.loadFromFile("./Assets/Sprites/pauseSprite.png");
 
-    //gameover
-
-    sf::Texture gameOverBackgroundTexture;
-    gameOverBackgroundTexture.loadFromFile("./Assets/Buttons/statsButtonSprite.png");
-    sf::Texture menuTexture;
-    menuTexture.loadFromFile("./Assets/Buttons/exitButtonSprite.png");
-
-
+    sf::Texture playAgainTexture;
+    playAgainTexture.loadFromFile("./Assets/Buttons/playAgainButtonSprite.png");
 
     ///------------------- CHARACTER TEXTURES ------------------------------------
     sf::Texture chadsterTexture;
@@ -106,11 +98,11 @@ int main()
 
     Menu mainMenu(&playTexture, &statsTexture);
 
-    GameOver gameOver(&playTexture, &menuTexture);
+    GameOver gameOver(&playTexture, &exitTexture);
 
     GamePause gamePause(&pauseTexture, &exitTexture, window);
 
-    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 100.0f, window);
+    Player chadster(&chadsterTexture,sf::Vector2u(2,2), 0.2f, 80.0f, window);
 
     Slime slimeTemplate (&slimeTexture, sf::Vector2u(3, 3), 0.15f, 60.0f); //velocidad 0, lo uso de manequi de prueba
 
@@ -203,8 +195,6 @@ int main()
             mainMenu.Update(mousePos);
 
             //SALIR DEL MENU
-            //gameState = PLAYING o STATS
-
             if (mainMenu.getOptionPressed() == PLAYING)
             {
                 gameState = PLAYING;
@@ -232,7 +222,7 @@ int main()
 
             //aca van los updates
 
-
+            //std::cout << "playerPos" << chadster.getPos().x << chadster.getPos().y << std::endl;
 
             ///CHECK PAUSA
             if (pauseCd - betaTime <= 0)
@@ -305,7 +295,10 @@ int main()
 
             window.setView(currentView);
 
-            chadster.Update(deltaTime);
+            gameData.checkLevelUp();
+            std::cout << "playerLevel (GAMEDATA):" << gameData.getLevel() << std::endl;
+            //std::cout << "playerLevel (MAIN): " << chadster.getLevel() << std::endl;
+            chadster.Update(deltaTime, gameData.getLevel());
 
             ///UPDATE Y CHEQUEO DE HABILIDADES
             gameData.createTornado(tornadoTemplate, chadster.getPos());

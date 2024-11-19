@@ -12,7 +12,7 @@ public:
 
 	Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window);
 
-	void Update(float deltaTime);
+	void Update(float deltaTime, int level);
 
 	void Draw();
 
@@ -34,17 +34,18 @@ public:
 	bool pressedE();
 
 
+
 	//void attack(); //verifica los cd de las habilidades y las lanza si estan disponibles
 
 private:
-	void levelUp();
+	void levelUp(int level);
 
 
 private:
 
 	//stats
 
-	int level;
+	int lastLevel;
 
 	int dmgTakenCooldown;
 

@@ -5,7 +5,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	animation(texture, imageCount, switchTime), window(window), interface(Player::getPos(), HpMax)
 {
 	this->speed = speed;
-	this->level = 0;
+	this->lastLevel = 0;
 
 	this->baseHealth = 100;
 	this->health = 100;
@@ -36,7 +36,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	//---------------------------------------------------------
 }
 
-void Player::Update(float deltaTime)
+void Player::Update(float deltaTime, int level)
 {
 	sf::Vector2f movement(0.0f, 0.0f);
 
@@ -66,10 +66,13 @@ void Player::Update(float deltaTime)
 
 	///subida de nivel
 
+	if (lastLevel < level) {
+		levelUp(level);
+	}
 
 
 	animation.Update(row, deltaTime, faceRight);
-	interface.update(getPos());
+	interface.update(getPos(), level);
 	body.setTextureRect(animation.getUvRect());
 	body.move(movement);
 }
@@ -125,7 +128,9 @@ bool Player::pressedE()
 		return false;
 }
 
-void Player::levelUp()
+
+
+void Player::levelUp(int level)
 {
 
 	health = baseHealth + level * healthScaling;

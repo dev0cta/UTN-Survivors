@@ -147,6 +147,7 @@
     <ClCompile Include="clsEnemy.cpp" />
     <ClCompile Include="clsGamePause.cpp" />
     <ClCompile Include="clsGameplayData.cpp" />
+    <ClCompile Include="clsLevelingSystem.cpp" />
     <ClCompile Include="clsMenu.cpp" />
     <ClCompile Include="clsReaper.cpp" />
     <ClCompile Include="clsSlime.cpp" />
@@ -170,6 +171,7 @@
     <ClInclude Include="clsEnemy.h" />
     <ClInclude Include="clsGamePause.h" />
     <ClInclude Include="clsGameplayData.h" />
+    <ClInclude Include="clsLevelingSystem.h" />
     <ClInclude Include="clsMenu.h" />
     <ClInclude Include="clsReaper.h" />
     <ClInclude Include="clsSlime.h" />
