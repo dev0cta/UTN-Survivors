@@ -222,7 +222,10 @@ int main()
 
             //aca van los updates
 
-            //std::cout << "playerPos" << chadster.getPos().x << chadster.getPos().y << std::endl;
+            if (chadster.getHealth() <= 0.0f) {
+                gameState = GAMEOVER;
+            }
+            std::cout << chadster.getHealth()<<std::endl;
 
             ///CHECK PAUSA
             if (pauseCd - betaTime <= 0)
@@ -251,34 +254,8 @@ int main()
             ///SPAWN ENEMIGOS DE PRUEBA
             if (spawnCd - deltaTime <= 0)
             {
-                int random = rand() % 4;
-                std::cout << "random: " << random << std::endl;
-                switch (random)
-                {
-                case 0:
-                    gameData.spawnSlime(slimeTemplate, chadster.getPos());
-                    spawnCd = 2.0f;
-                    std::cout << "SLIME SPAWNEADO" << std::endl;
-                    break;
-                case 1:
-                    gameData.spawnElementalSlime(elemSlimeTemplate, chadster.getPos());
-                    spawnCd = 2.0f;
-                    std::cout << "SLIME ELEMENTAL SPAWNEADO" << std::endl;
-                    break;
-                case 2:
-                    gameData.spawnSpartan(spartanTemplate, chadster.getPos());
-                    spawnCd = 2.0f;
-                    std::cout << "SPARTAN SPAWNEADO" << std::endl;
-                    break;
-                case 3:
-                    gameData.spawnReaper(reaperTemplate, chadster.getPos());
-                    spawnCd = 2.0f;
-                    std::cout << "REAPER SPAWNEADO" << std::endl;
-                    break;
-
-                default:
-                    break;
-                }
+                gameData.randomSpawn(chadster.getPos(), deltaTime, slimeTemplate, elemSlimeTemplate, spartanTemplate, reaperTemplate);
+                spawnCd = 2.0f;
             }
             spawnCd -= deltaTime;
 
@@ -310,7 +287,7 @@ int main()
             gameData.dyingEnemies();
 
             gameData.UpdateEveryEnemy(deltaTime, chadster.getPos());
-            gameData.checkPlayerCollision(chadster.getCollider());
+            gameData.checkPlayerCollision(chadster.getCollider(), chadster);
             gameData.CheckEverySolidCollision();
             
 

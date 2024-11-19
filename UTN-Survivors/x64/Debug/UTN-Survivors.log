@@ -1,15 +1,3 @@
-﻿  clsInterface.cpp
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,42): warning C4305: 'argumento': truncamiento de 'double' a 'T'
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,42): warning C4305:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,42): warning C4305:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,42): warning C4305:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,42): warning C4305:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,37): warning C4305: 'argumento': truncamiento de 'double' a 'T'
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,37): warning C4305:         with
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,37): warning C4305:         [
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,37): warning C4305:             T=float
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(36,37): warning C4305:         ]
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(43,89): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(46,57): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsInterface.cpp(49,65): warning C4244: 'argumento': conversión de 'double' a 'float'; posible pérdida de datos
+﻿  main.cpp
+C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\main.cpp(27,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
   UTN-Survivors.vcxproj -> C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe

@@ -25,6 +25,7 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
     levelingSystem.resetLeveling();
 
     enemyLevel = 0;
+    gameTime = 0;
 
     getSlimes().clear();
     getElemSlimes().clear();
@@ -38,46 +39,130 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
     }
 }
 
-void GameplayData::randomSpawn(sf::Vector2f playerPos, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
+void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
 {
-    int minutesPassed = int(gameClock.getElapsedTime().asSeconds() / 60);
+    gameTime += deltaTime;
+    int minutesPassed = int(deltaTime / 60);
+    
+    
 
-    //std::cout << "minutos ingame: " << minutesPassed << std::endl;
-
-    int randomSpawn = (rand() % 100) +1;
+    int randomSpawn = (rand() % 100) + 1;
 
     switch (minutesPassed)
     {
-    case 0:
-        if (randomSpawn <= 25) {
+    case 0:                                         //25% elemSlime 75% slime
+
+            spawnSlime(slimeTemplate, playerPos);
+       
+        break;
+    case 1:                                         //50% slime 50% elemental slime
+        if (randomSpawn <= 50) {
+            spawnSlime(slimeTemplate, playerPos);
+        }
+        else
+        {
+            spawnElementalSlime(elemSlimeTemplate, playerPos);
+        }
+
+        break;
+    case 2:                                         //75% elemental slime 25% slime
+        if (randomSpawn <= 75) {
             spawnElementalSlime(elemSlimeTemplate, playerPos);
         }
         else
         {
             spawnSlime(slimeTemplate, playerPos);
         }
+        
+    case 3:                                         //80% elemental slime 20% spartan
+        if (randomSpawn <= 80) {
+            spawnElementalSlime(elemSlimeTemplate, playerPos);
+        }
+        else
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
         break;
-    case 1:
+    case 4:                                         //40% elemental slime 60% spartan
+        if (randomSpawn <= 40) {
+            spawnElementalSlime(elemSlimeTemplate, playerPos);
+        }
+        else
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
         break;
-    case 2:
+    case 5:                                         //20% elemental slime 70% spartan 10% reaper
+        if (randomSpawn <= 20) {
+            spawnElementalSlime(elemSlimeTemplate, playerPos);
+        }
+        else if(randomSpawn <= 90)
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
+        else
+        {
+            spawnReaper(reaperTemplate, playerPos);
+        }
         break;
-    case 3:
+    case 6:                                         //15% elemental slime 70% spartan 15% reaper
+        if (randomSpawn <= 15) {
+            spawnElementalSlime(elemSlimeTemplate, playerPos);
+        }
+        else if (randomSpawn <= 90)
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
+        else
+        {
+            spawnReaper(reaperTemplate, playerPos);
+        }
         break;
-    case 4:
+    case 7:                                         //15% elemental slime 45% spartan 40% reaper
+        if (randomSpawn <= 15) {
+            spawnElementalSlime(elemSlimeTemplate, playerPos);
+        }
+        else if (randomSpawn <= 60)
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
+        else
+        {
+            spawnReaper(reaperTemplate, playerPos);
+        }
         break;
-    case 5:
+    case 8:                                         //40% spartan 60% reaper
+        if (randomSpawn <= 40)
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
+        else
+        {
+            spawnReaper(reaperTemplate, playerPos);
+        }
         break;
-    case 6:
-        break;
-    case 7:
-        break;
-    case 8:
-        break;
-    case 9:
+    case 9:                                         //50% spartan 50% reaper
+        if (randomSpawn <= 50)
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
+        else
+        {
+            spawnReaper(reaperTemplate, playerPos);
+        }
         break;
     case 10:
+        if (randomSpawn <= 75)
+        {
+            spawnSpartan(spartanTemplate, playerPos);
+        }
+        else
+        {
+            spawnReaper(reaperTemplate, playerPos);
+        }
         break;
     default:
+        //no spawn termina el juego
         break;
     }
 
@@ -106,24 +191,33 @@ void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
 
 }
 
-void GameplayData::checkPlayerCollision(CircleCollider playerCollider)
+void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& player)
 {
 
     for (auto& enemy : getSlimes())
     {
-        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+            CheckDamageEnemy(player, enemy.getDmg());
+        }
+
     }
     for (auto& enemy : getElemSlimes())
     {
-        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+            CheckDamageEnemy(player, enemy.getDmg());
+        }
     }
     for (auto& enemy : getSpartans())
     {
-        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+            CheckDamageEnemy(player, enemy.getDmg());
+        }
     }
     for (auto& enemy : getReapers())
     {
-        enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f);;
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+            CheckDamageEnemy(player, enemy.getDmg());
+        }
     }
 
 }
@@ -291,8 +385,6 @@ void GameplayData::DrawEveryEnemy(sf::RenderWindow& window)
         enemy.Draw(window);
     }
 
-    
-
 }
 
 float GameplayData::getNearestEnemyAngle(sf::Vector2f playerPos)
@@ -336,6 +428,12 @@ float GameplayData::getNearestEnemyAngle(sf::Vector2f playerPos)
     float angle = atan2(nearestPoint.y - playerPos.y, nearestPoint.x - playerPos.x);
 
     return angle;
+}
+
+void GameplayData::CheckDamageEnemy(Player& player, int dmgTaken)
+{
+
+    player.takeDmg(dmgTaken);
 }
 
 void GameplayData::createTornado(BulletAttack bulletTemplate, sf::Vector2f playerPos)

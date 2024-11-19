@@ -35,7 +35,7 @@ void LevelingSystem::checkLevelUp()
     }
     else if(currentLevel > 5)
     {
-        if (currentExperience >= 150);
+        if (currentExperience >= 150)
         {
             currentLevel++;
             currentExperience = 0;

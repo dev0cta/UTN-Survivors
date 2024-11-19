@@ -3,24 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\main.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsPlayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsPlayer.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsPlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsPlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsLevelingSystem.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -31,6 +19,10 @@
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsLevelingSystem.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsAreaAttack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsAreaAttack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsGameplayData.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -39,8 +31,32 @@
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsGameplayData.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsEnemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsEnemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSpartan.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsSpartan.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSlime.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsSlime.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameOver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsGameOver.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsInterface.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsInterface.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsPlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsPlayer.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsMenu.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -63,10 +79,6 @@
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsButtonAnimation.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsEnemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsEnemy.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsElemSlime.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsElemSlime.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -83,20 +95,12 @@
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsGamePause.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsAreaAttack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsAreaAttack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsEnemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsEnemy.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsBulletAttack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsBulletAttack.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSlime.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsSlime.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSlime.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -123,10 +127,6 @@
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\gameFunctions.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSpartan.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsSpartan.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsCircleCollider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{CB7B8E0C-2E38-4C4F-904C-A3D671F03E25}|UTN-Survivors\\UTN-Survivors.vcxproj|solutionrelative:UTN-Survivors\\clsCircleCollider.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
@@ -138,17 +138,17 @@
       "DocumentGroups": [
         {
           "DockedWidth": 48,
-          "SelectedChildIndex": 28,
+          "SelectedChildIndex": 0,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "main.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\main.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\main.cpp",
-              "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\main.cpp",
-              "RelativeToolTip": "UTN-Survivors\\main.cpp",
-              "ViewState": "AgIAAB0BAAAAAAAAAAAAwCIBAAAAAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\main.cpp*",
+              "RelativeToolTip": "UTN-Survivors\\main.cpp*",
+              "ViewState": "AgIAAPEAAAAAAAAAAAAAAAMBAAAhAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-17T20:11:07.562Z",
               "IsPinned": true,
@@ -168,33 +168,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "clsLevelingSystem.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsLevelingSystem.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsLevelingSystem.h",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsLevelingSystem.h",
               "RelativeToolTip": "UTN-Survivors\\clsLevelingSystem.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAGAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-18T23:54:15.27Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "clsLevelingSystem.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsLevelingSystem.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsLevelingSystem.cpp",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsLevelingSystem.cpp",
               "RelativeToolTip": "UTN-Survivors\\clsLevelingSystem.cpp",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAAEAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-19T00:00:02.722Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 18,
               "Title": "clsButtonAnimation.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsButtonAnimation.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsButtonAnimation.h",
@@ -206,20 +206,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "clsPlayer.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsPlayer.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsPlayer.cpp",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsPlayer.cpp",
               "RelativeToolTip": "UTN-Survivors\\clsPlayer.cpp",
-              "ViewState": "AgIAADYAAAAAAAAAAAAAAEYAAAACAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAADEAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-09T07:25:44.591Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 13,
               "Title": "clsPlayer.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsPlayer.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsPlayer.h",
@@ -227,12 +227,11 @@
               "RelativeToolTip": "UTN-Survivors\\clsPlayer.h",
               "ViewState": "AgIAABgAAAAAAAAAAAAAACgAAAAXAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-09T07:17:13.217Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-09T07:17:13.217Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 16,
               "Title": "clsGameOver.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameOver.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsGameOver.h",
@@ -240,12 +239,11 @@
               "RelativeToolTip": "UTN-Survivors\\clsGameOver.h",
               "ViewState": "AgIAAAMAAAAAAAAAAAAIwBcAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-18T20:25:20.3Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T20:25:20.3Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 10,
               "Title": "clsGameOver.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameOver.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsGameOver.cpp",
@@ -253,12 +251,11 @@
               "RelativeToolTip": "UTN-Survivors\\clsGameOver.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAABKAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-18T20:26:00.558Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T20:26:00.558Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 15,
               "Title": "clsMenu.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsMenu.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsMenu.h",
@@ -266,12 +263,11 @@
               "RelativeToolTip": "UTN-Survivors\\clsMenu.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-18T20:23:27.58Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T20:23:27.58Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 14,
               "Title": "clsMenu.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsMenu.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsMenu.cpp",
@@ -279,12 +275,11 @@
               "RelativeToolTip": "UTN-Survivors\\clsMenu.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAA+AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-18T20:25:06.514Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-18T20:25:06.514Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "clsAreaAttack.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsAreaAttack.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsAreaAttack.h",
@@ -296,7 +291,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 4,
               "Title": "clsAreaAttack.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsAreaAttack.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsAreaAttack.cpp",
@@ -304,11 +299,12 @@
               "RelativeToolTip": "UTN-Survivors\\clsAreaAttack.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-18T19:34:22.257Z"
+              "WhenOpened": "2024-11-18T19:34:22.257Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "clsBulletAttack.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsBulletAttack.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsBulletAttack.h",
@@ -320,7 +316,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 24,
               "Title": "clsBulletAttack.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsBulletAttack.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsBulletAttack.cpp",
@@ -332,7 +328,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 27,
               "Title": "clsElemSlime.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsElemSlime.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsElemSlime.cpp",
@@ -344,7 +340,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 25,
               "Title": "clsSlime.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSlime.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsSlime.h",
@@ -356,7 +352,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 28,
               "Title": "clsReaper.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsReaper.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsReaper.h",
@@ -368,45 +364,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 6,
               "Title": "clsGameplayData.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsGameplayData.h",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.h",
               "RelativeToolTip": "UTN-Survivors\\clsGameplayData.h",
-              "ViewState": "AgIAACQAAAAAAAAAAAAAADUAAAAdAAAAAAAAAA==",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAACkAAAATAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2024-11-17T22:10:42.941Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 5,
               "Title": "clsGameplayData.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsGameplayData.cpp",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGameplayData.cpp",
               "RelativeToolTip": "UTN-Survivors\\clsGameplayData.cpp",
-              "ViewState": "AgIAAB8BAAAAAAAAAAAAAHYBAAA0AAAAAAAAAA==",
+              "ViewState": "AgIAACMAAAAAAAAAAAAlwHEBAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2024-11-17T22:17:45.377Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 7,
               "Title": "clsEnemy.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsEnemy.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsEnemy.h",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsEnemy.h",
               "RelativeToolTip": "UTN-Survivors\\clsEnemy.h",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-11T04:09:23.054Z"
+              "WhenOpened": "2024-11-11T04:09:23.054Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 23,
               "Title": "clsEnemy.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsEnemy.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsEnemy.cpp",
@@ -418,7 +415,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 29,
               "Title": "clsSquareCollider.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSquareCollider.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsSquareCollider.h",
@@ -430,7 +427,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 30,
               "Title": "gameFunctions.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\gameFunctions.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\gameFunctions.h",
@@ -442,7 +439,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 26,
               "Title": "clsSpartan.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSpartan.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsSpartan.h",
@@ -454,7 +451,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 12,
               "Title": "clsInterface.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsInterface.h",
@@ -462,25 +459,23 @@
               "RelativeToolTip": "UTN-Survivors\\clsInterface.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAVAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2024-11-14T13:05:21.41Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-14T13:05:21.41Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 11,
               "Title": "clsInterface.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsInterface.cpp",
-              "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.cpp*",
-              "RelativeToolTip": "UTN-Survivors\\clsInterface.cpp*",
-              "ViewState": "AgIAABAAAAAAAAAAAAAkwCAAAAAnAAAAAAAAAA==",
+              "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsInterface.cpp",
+              "RelativeToolTip": "UTN-Survivors\\clsInterface.cpp",
+              "ViewState": "AgIAABAAAAAAAAAAAAAkwB8AAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-19T00:58:16.232Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-11-19T00:58:16.232Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "clsElemSlime.h",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsElemSlime.h",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsElemSlime.h",
@@ -492,7 +487,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 9,
               "Title": "clsSlime.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSlime.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsSlime.cpp",
@@ -500,23 +495,25 @@
               "RelativeToolTip": "UTN-Survivors\\clsSlime.cpp",
               "ViewState": "AgIAACcAAAAAAAAAAAAAADIAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-11T03:12:27.883Z"
+              "WhenOpened": "2024-11-11T03:12:27.883Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 8,
               "Title": "clsSpartan.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSpartan.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsSpartan.cpp",
               "ToolTip": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsSpartan.cpp",
               "RelativeToolTip": "UTN-Survivors\\clsSpartan.cpp",
-              "ViewState": "AgIAAEUAAAAAAAAAAAAAAEEAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAFgAAAAfAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2024-11-18T03:54:01.029Z"
+              "WhenOpened": "2024-11-18T03:54:01.029Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "clsGamePause.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsGamePause.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsGamePause.cpp",
@@ -528,7 +525,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 17,
               "Title": "clsButtonAnimation.cpp",
               "DocumentMoniker": "C:\\Users\\Quinn\\Downloads\\Programacion legit\\A repos con permisos\\UTN-Survivors\\UTN-Survivors\\UTN-Survivors\\clsButtonAnimation.cpp",
               "RelativeDocumentMoniker": "UTN-Survivors\\clsButtonAnimation.cpp",

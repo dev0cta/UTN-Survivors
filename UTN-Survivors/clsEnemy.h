@@ -14,5 +14,8 @@ public:
 	virtual void Draw(sf::RenderWindow& window) = 0;
 
 	virtual CircleCollider GetCollider() = 0;
+
+private:
+	int dmg = 1;
 };
 

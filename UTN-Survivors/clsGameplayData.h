@@ -2,6 +2,7 @@
 
 #include "SFML/Graphics.hpp"
 #include "clsLevelingSystem.h"
+#include "clsPlayer.h"
 
 #include "clsBulletAttack.h"
 #include "clsAreaAttack.h"
@@ -22,13 +23,13 @@ public:
 
 	void ResetGameData(sf::RectangleShape& characterBody);
 
-	void randomSpawn(sf::Vector2f playerPos, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate);
+	void randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate);
 
 	//FUNCIONES GENERALES
 
 	void UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos);
 
-	void checkPlayerCollision(CircleCollider playerCollider);
+	void checkPlayerCollision(CircleCollider playerCollider, Player& player);
 
 	void CheckEverySolidCollision();
 	
@@ -37,6 +38,9 @@ public:
 	void DrawEveryEnemy(sf::RenderWindow& window);
 
 	float getNearestEnemyAngle(sf::Vector2f playerPos);
+
+	void CheckDamageEnemy(Player& player, int dmgTaken);
+	
 
 	///FUNCIONES PARA LAS SKILLS
 
@@ -104,7 +108,7 @@ private:
 
 	///LEVELING SYSTEM
 
-	sf::Clock gameClock;
+	float gameTime;
 	
 	LevelingSystem levelingSystem;
 

@@ -5,7 +5,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	animation(texture, imageCount, switchTime), window(window), interface(Player::getPos(), HpMax)
 {
 	this->speed = speed;
-	this->lastLevel = 0;
+	this->lastLevel = 1;
 
 	this->baseHealth = 100;
 	this->health = 100;
