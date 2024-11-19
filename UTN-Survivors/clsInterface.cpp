@@ -8,16 +8,16 @@ Interface::Interface(sf::Vector2f posToPj, float hpMax)
 	this->hpMax = hpMax;
 
 		configurarRectangle(Hpbackground, sf::Vector2f(50.0f, 3.50f), sf::Color::Black, false);
-		configurarRectangle(HpActualBar, sf::Vector2f(48.5f, 2.5f), sf::Color::Green, false);
+		configurarRectangle(HpActualBar, sf::Vector2f(48.5f, 2.5f), sf::Color::Red, false);
 		
 		configurarRectangle(Expbackground, sf::Vector2f(540.0f, 10.0f), sf::Color(209, 209, 209), true);
-		configurarRectangle(ExpActualBar, sf::Vector2f(530.0f, 5.0f), sf::Color::Cyan, true);
+		configurarRectangle(ExpActualBar, sf::Vector2f(530.0f, 5.0f), sf::Color::Green, true);
 		configurarRectangle(levelCounterBackground, sf::Vector2f(20.0f, 20.0f), sf::Color(100, 129, 143), true);
 
-		if (textFont.loadFromFile("./Assets/Fonts/Minecraft.ttf")) {
+		if (!textFont.loadFromFile("./Assets/Fonts/Minecraft.ttf")) {
 			std::cout << "NO FUNCAAAAA / INTERFACECPP";
 		}
-		configurarText(ProyectUpgrade, textFont, "UPGRADE LEVEL", sf::Color::White, 16, -1.0f, sf::Color::Black, sf::Vector2f(0.4,0.4));
+		configurarText(ProyectUpgrade, textFont, "LEVEL UP", sf::Color::White, 16, -1.0f, sf::Color::Black, sf::Vector2f(0.4,0.4));
 		levelNumber.setOrigin(sf::Vector2f(20.0f, 20.0f) / 2.0f);
 		configurarText(levelNumber, textFont, "", sf::Color::White, 32, -1.0f, sf::Color::Black, sf::Vector2f(0.4,0.4));
 
@@ -31,6 +31,17 @@ void Interface::UpdateHpBar(float hpActual, float hpMax)
 	//std::cout << "hpPercent: " << hpPercent << std::endl;
 
 	HpActualBar.setSize(sf::Vector2f(48.5f * hpPercent, HpActualBar.getSize().y));
+}
+
+void Interface::UpdateExpBar(float expActual, float expMax)
+{
+	if (expMax > 0)
+	{
+		float expPercent = expActual / expMax;
+		expPercent = std::max(0.0f, std::min(expPercent, 1.0f));
+
+		ExpActualBar.setSize(sf::Vector2f(530.0f * expPercent, 5.0f));
+	}
 }
 
 void Interface::update(sf::Vector2f posToPj, int level, float deltaTime)
@@ -61,7 +72,7 @@ void Interface::update(sf::Vector2f posToPj, int level, float deltaTime)
 		}
 		else {
 			// Actualizar la posición de ProyectUpgrade para que siga al jugador
-			ProyectUpgrade.setPosition(posToPj.x-25, posToPj.y-20);
+			ProyectUpgrade.setPosition(posToPj.x-12.5, posToPj.y-20);
 		}
 
 

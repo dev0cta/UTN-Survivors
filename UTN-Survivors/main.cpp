@@ -120,11 +120,11 @@ int main()
     BulletAttack tornadoTemplate (&blueTornadoTexture, sf::Vector2u(5,1), 0.3f);
     AreaAttack areaTemplate (&purpleAreaTexture, sf::Vector2u(6,1), 0.3f);
 
-    MagicBall magicBallTemplate(15.0f, 60.0f, 100.0f, 100, sf::Vector2u(6, 1), 0.1f, &magicBallTexture);   //radio, radioOrbita, velocidad, daño,----  lo demas no se toca
+    MagicBall magicBallTemplate(15.0f, 60.0f, 100.0f, 75, sf::Vector2u(6, 1), 0.1f, &magicBallTexture);   //radio, radioOrbita, velocidad, daño,----  lo demas no se toca
 
     //debug counter
 
-    float spawnCd = 0.25f;
+    
     
 
     
@@ -263,19 +263,8 @@ int main()
 
 
             ///SPAWN ENEMIGOS DE PRUEBA
-            if (spawnCd - deltaTime <= 0)
-            {
-                gameData.randomSpawn(chadster.getPos(), deltaTime, slimeTemplate, elemSlimeTemplate, spartanTemplate, reaperTemplate);
-                spawnCd = 2.0f;
-            }
-            spawnCd -= deltaTime;
 
-
-            
-
-
-
-            //std::cout << "deltaTime: " << deltaTime << std::endl;
+            gameData.randomSpawn(chadster.getPos(), deltaTime, slimeTemplate, elemSlimeTemplate, spartanTemplate, reaperTemplate);
 
             ///GET VIEW AND MOUSE POSITION
             currentView = camara.getView(window.getSize(), chadster.getPos());
@@ -284,20 +273,18 @@ int main()
             window.setView(currentView);
 
             gameData.checkLevelUp();
-            //std::cout << "playerLevel (GAMEDATA):" << gameData.getLevel() << std::endl;
-            //std::cout << "playerLevel (MAIN): " << chadster.getLevel() << std::endl;
-            chadster.Update(deltaTime, gameData.getLevel());
+            chadster.Update(deltaTime, gameData.getLevel(), gameData.getCurrentExp(), gameData.getExpNeeded());
 
             ///UPDATE Y CHEQUEO DE HABILIDADES
 
             gameData.createTornado(tornadoTemplate, chadster.getPos());
 
-            if (gameData.getLevel() >= 5) {
+            if (gameData.getLevel() >= 5)
             gameData.createAreaAttack(areaTemplate, chadster.getPos());
-            }
-            if (gameData.getLevel() >= 10) {
+            
+            if (gameData.getLevel() >= 10) 
             gameData.createBall(magicBallTemplate, chadster.getPos());
-            }
+            
 
             gameData.UpdateEverySkill(chadster.getPos(), deltaTime);;
 

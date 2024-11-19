@@ -41,10 +41,51 @@ void LevelingSystem::checkLevelUp()
             currentExperience = 0;
         }
     }
+    else if (currentLevel > 10)
+    {
+        if (currentExperience >= 200)
+        {
+            currentLevel++;
+            currentExperience = 0;
+        }
+    }
+    else if (currentLevel > 15)
+    {
+        if (currentExperience >= 250)
+        {
+            currentLevel++;
+            currentExperience = 0;
+        }
+    }
     
 }
 
 int LevelingSystem::getLevel()
 {
     return currentLevel;
+}
+
+int LevelingSystem::getCurrentExperience()
+{
+    return currentExperience;
+}
+
+int LevelingSystem::getExpNeeded()
+{
+    if (currentLevel <= 5) {
+
+        return 100;
+    }
+    else if (currentLevel > 5)
+    {
+        return 150;
+    }
+    else if (currentLevel > 10)
+    {
+        return 200;
+    }
+    else if (currentLevel > 15)
+    {
+        return 250;
+    }
 }

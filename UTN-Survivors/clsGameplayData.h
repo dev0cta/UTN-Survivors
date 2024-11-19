@@ -70,30 +70,34 @@ public:
 
 	void checkLevelUp();
 
+	int getCurrentExp();
+
+	int getExpNeeded();
+
 
 	//SLIME
 
 	std::vector<Slime>& getSlimes();
 
-	void spawnSlime(Slime slime, sf::Vector2f playerPos);
+	void spawnSlime(Slime slime, sf::Vector2f playerPos, int minutesPassed);
 
 	//ELEMENTAL SLIME
 
 	std::vector<ElementalSlime>& getElemSlimes();
 
-	void spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vector2f playerPos);
+	void spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vector2f playerPos, int minutesPassed);
 	
 	//SPARTAN
 
 	std::vector<Spartan>& getSpartans();
 
-	void spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos);
+	void spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos, int minutesPassed);
 	
 	//REAPER
 
 	std::vector<Reaper>& getReapers();
 
-	void spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos);
+	void spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos, int minutesPassed);
 
 
 
@@ -136,6 +140,8 @@ private:
 	float dmgTakenCd;
 
 	///VARIABLES PARA ENEMIGOS
+
+	float spawnCd;
 
 	int enemyLevel;
 

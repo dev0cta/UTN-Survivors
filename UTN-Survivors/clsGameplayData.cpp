@@ -7,6 +7,7 @@ GameplayData::GameplayData()
     gameTime = 0.0f;
 
     enemyLevel = 0;
+    spawnCd = 0.25f;
 
     tornadoCd = 2.0f;
     areaCd = 2.5f;
@@ -54,140 +55,156 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
 
 void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
 {
+
+    gameTime += deltaTime*10;
+    int minutesPassed = int(gameTime / 60);
+    
+    spawnCd -= deltaTime;
+
+    std::cout << "gameTime: " << gameTime << std::endl;
     
 
-    gameTime += deltaTime;
-    int minutesPassed = int(deltaTime / 60);
-    
-    
+    if (spawnCd <= 0.0f) {
 
-    int randomSpawn = (rand() % 100) + 1;
 
-    switch (minutesPassed)
-    {
-    case 0:                                         //25% elemSlime 75% slime
+        int randomSpawn = (rand() % 100) + 1;
 
-            spawnSlime(slimeTemplate, playerPos);
-       
-        break;
-    case 1:                                         //50% slime 50% elemental slime
-        if (randomSpawn <= 50) {
-            spawnSlime(slimeTemplate, playerPos);
-        }
-        else
+        switch (minutesPassed)
         {
-            spawnElementalSlime(elemSlimeTemplate, playerPos);
-        }
+        case 0:                                         //25% elemSlime 75% slime
 
-        break;
-    case 2:                                         //75% elemental slime 25% slime
-        if (randomSpawn <= 75) {
-            spawnElementalSlime(elemSlimeTemplate, playerPos);
-        }
-        else
-        {
-            spawnSlime(slimeTemplate, playerPos);
-        }
-        
-    case 3:                                         //80% elemental slime 20% spartan
-        if (randomSpawn <= 80) {
-            spawnElementalSlime(elemSlimeTemplate, playerPos);
-        }
-        else
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        break;
-    case 4:                                         //40% elemental slime 60% spartan
-        if (randomSpawn <= 40) {
-            spawnElementalSlime(elemSlimeTemplate, playerPos);
-        }
-        else
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        break;
-    case 5:                                         //20% elemental slime 70% spartan 10% reaper
-        if (randomSpawn <= 20) {
-            spawnElementalSlime(elemSlimeTemplate, playerPos);
-        }
-        else if(randomSpawn <= 90)
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        else
-        {
-            spawnReaper(reaperTemplate, playerPos);
-        }
-        break;
-    case 6:                                         //15% elemental slime 70% spartan 15% reaper
-        if (randomSpawn <= 15) {
-            spawnElementalSlime(elemSlimeTemplate, playerPos);
-        }
-        else if (randomSpawn <= 90)
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        else
-        {
-            spawnReaper(reaperTemplate, playerPos);
-        }
-        break;
-    case 7:                                         //15% elemental slime 45% spartan 40% reaper
-        if (randomSpawn <= 15) {
-            spawnElementalSlime(elemSlimeTemplate, playerPos);
-        }
-        else if (randomSpawn <= 60)
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        else
-        {
-            spawnReaper(reaperTemplate, playerPos);
-        }
-        break;
-    case 8:                                         //40% spartan 60% reaper
-        if (randomSpawn <= 40)
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        else
-        {
-            spawnReaper(reaperTemplate, playerPos);
-        }
-        break;
-    case 9:                                         //50% spartan 50% reaper
-        if (randomSpawn <= 50)
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        else
-        {
-            spawnReaper(reaperTemplate, playerPos);
-        }
-        break;
-    case 10:
-        if (randomSpawn <= 75)
-        {
-            spawnSpartan(spartanTemplate, playerPos);
-        }
-        else
-        {
-            spawnReaper(reaperTemplate, playerPos);
-        }
-        break;
-    default:
-        //no spawn, termina el juego si se mato al boss
+            spawnSlime(slimeTemplate, playerPos, minutesPassed);
 
-        /*
-        if (bossKilled == true) {
-            gameBeatenCounter++;
-            timesLeveledUp += this->getLevel();
-            //MANDAR A PANTALLA DE VICTORIA
-            
+            break;
+        case 1:                                         //50% slime 50% elemental slime
+            if (randomSpawn <= 50) {
+                spawnSlime(slimeTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnElementalSlime(elemSlimeTemplate, playerPos, minutesPassed);
+            }
+
+            break;
+        case 2:                                         //75% elemental slime 25% slime
+            if (randomSpawn <= 75) {
+                spawnElementalSlime(elemSlimeTemplate, playerPos,  minutesPassed);
+            }
+            else
+            {
+                spawnSlime(slimeTemplate, playerPos,  minutesPassed);
+            }
+
+        case 3:                                         //80% elemental slime 20% spartan
+            if (randomSpawn <= 80) {
+                spawnElementalSlime(elemSlimeTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            break;
+        case 4:                                         //40% elemental slime 60% spartan
+            if (randomSpawn <= 40) {
+                spawnElementalSlime(elemSlimeTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            break;
+        case 5:                                         //20% elemental slime 70% spartan 10% reaper
+            if (randomSpawn <= 20) {
+                spawnElementalSlime(elemSlimeTemplate, playerPos, minutesPassed);
+            }
+            else if (randomSpawn <= 90)
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnReaper(reaperTemplate, playerPos, minutesPassed);
+            }
+            break;
+        case 6:                                         //15% elemental slime 70% spartan 15% reaper
+            if (randomSpawn <= 15) {
+                spawnElementalSlime(elemSlimeTemplate, playerPos, minutesPassed);
+            }
+            else if (randomSpawn <= 90)
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnReaper(reaperTemplate, playerPos, minutesPassed);
+            }
+            break;
+        case 7:                                         //15% elemental slime 45% spartan 40% reaper
+            if (randomSpawn <= 15) {
+                spawnElementalSlime(elemSlimeTemplate, playerPos, minutesPassed);
+            }
+            else if (randomSpawn <= 60)
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnReaper(reaperTemplate, playerPos, minutesPassed);
+            }
+            break;
+        case 8:                                         //40% spartan 60% reaper
+            if (randomSpawn <= 40)
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnReaper(reaperTemplate, playerPos, minutesPassed);
+            }
+            break;
+        case 9:                                         //50% spartan 50% reaper
+            if (randomSpawn <= 50)
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnReaper(reaperTemplate, playerPos, minutesPassed);
+            }
+            break;
+        case 10:
+            if (randomSpawn <= 75)
+            {
+                spawnSpartan(spartanTemplate, playerPos, minutesPassed);
+            }
+            else
+            {
+                spawnReaper(reaperTemplate, playerPos, minutesPassed);
+            }
+            break;
+        default:
+            //no spawn, termina el juego si se mato al boss
+
+            /*
+            if (bossKilled == true) {
+                gameBeatenCounter++;
+                timesLeveledUp += this->getLevel();
+                //MANDAR A PANTALLA DE VICTORIA
+
+            }
+
+
+            or
+
+            if(noEnemiesLeft == true){
+                ganaste el juego
+                
+            }
+
+            */
+            break;
         }
-        */
-        break;
+        spawnCd = 0.4f;
     }
 
 }
@@ -231,7 +248,7 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
     {
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
-            dmgTakenCd = 0.25f;
+            dmgTakenCd = 0.5f;
             ///statistics
             dmgTaken += enemy.getDmg();
         }
@@ -241,7 +258,7 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
     {
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
-            dmgTakenCd = 0.25f;
+            dmgTakenCd = 0.5f;
             ///statistics
             dmgTaken += enemy.getDmg();
         }
@@ -250,7 +267,7 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
     {
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
-            dmgTakenCd = 0.25f;
+            dmgTakenCd = 0.5f;
             ///statistics
             dmgTaken += enemy.getDmg();
         }
@@ -259,7 +276,7 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
     {
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
-            dmgTakenCd = 0.25f;
+            dmgTakenCd = 0.5f;
             ///statistics
             dmgTaken += enemy.getDmg();
         }
@@ -611,16 +628,16 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + playerDmg);
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
                 }
 
             }
             for (auto& enemy : getElemSlimes())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    enemy.takeDmg(skill.getDmg() + 0.8*playerDmg);
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
                 }
 
             }
@@ -629,7 +646,7 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + playerDmg);
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
                 }
 
             }
@@ -638,7 +655,7 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + playerDmg);
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
                 }
 
             }
@@ -655,7 +672,7 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + int(0.25 * playerDmg);
                 }
 
             }
@@ -664,7 +681,7 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + int(0.25 * playerDmg);
                 }
 
             }
@@ -673,7 +690,7 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + int(0.25 * playerDmg);
                 }
 
             }
@@ -682,7 +699,7 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
                     enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg();
+                    dmgDealt += skill.getDmg() + int(0.25 * playerDmg);
                 }
 
             }
@@ -694,34 +711,34 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
         for (auto& ball : spawnedBalls) {
             for (auto& enemy : getSlimes()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.5 * playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg();
+                    dmgDealt += ball.getDmg() + 0.5 * playerDmg;
                 }
             }
             for (auto& enemy : getElemSlimes()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.5*playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg();
+                    dmgDealt += ball.getDmg() + 0.5 * playerDmg;
                 }
             }
             for (auto& enemy : getSpartans()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.5 * playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg();
+                    dmgDealt += ball.getDmg() + 0.5 * playerDmg;
                 }
             }
             for (auto& enemy : getReapers()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.5 * playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg();
+                    dmgDealt += ball.getDmg() * 0.5 + playerDmg;
                 }
             }
         }
-        ballDmgCd = 0.0f; // Resetear el tiempo de cooldown para la bola
+        ballDmgCd = 0.5f; // Resetear el tiempo de cooldown para la bola
     }
 }
 
@@ -756,6 +773,16 @@ void GameplayData::checkLevelUp()
     levelingSystem.checkLevelUp();
 }
 
+int GameplayData::getCurrentExp()
+{
+    return levelingSystem.getCurrentExperience();
+}
+
+int GameplayData::getExpNeeded()
+{
+    return levelingSystem.getExpNeeded();
+}
+
 
 
 
@@ -766,7 +793,7 @@ std::vector<Slime>& GameplayData::getSlimes()
     return spawnedSlimes;
 }
 
-void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos)
+void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos, int minutesPassed)
 {
 
    // if (spawnedSlimes.size() < 10) {
@@ -783,7 +810,7 @@ void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos)
 
         e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
 
-
+        e.setLevel(minutesPassed);
         e.setType(type);
 
         spawnedSlimes.push_back(e);
@@ -802,7 +829,7 @@ std::vector<ElementalSlime>& GameplayData::getElemSlimes()
     return spawnedElemSlimes;
 }
 
-void GameplayData::spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vector2f playerPos)
+void GameplayData::spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vector2f playerPos, int minutesPassed)
 {
     //if (spawnedElemSlimes.size() < 10) {
 
@@ -818,7 +845,7 @@ void GameplayData::spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vec
 
         e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
 
-
+        e.setLevel(minutesPassed);
         e.setType(type);
 
         spawnedElemSlimes.push_back(e);
@@ -836,7 +863,7 @@ std::vector<Spartan>& GameplayData::getSpartans()
     return spawnedSpartans;
 }
 
-void GameplayData::spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos)
+void GameplayData::spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos, int minutesPassed)
 {
    // if (spawnedSpartans.size() < 10) {
 
@@ -852,7 +879,7 @@ void GameplayData::spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos)
 
         e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
 
-
+        e.setLevel(minutesPassed);
         spawnedSpartans.push_back(e);
    // }
 }
@@ -866,7 +893,7 @@ std::vector<Reaper>& GameplayData::getReapers()
     return spawnedReapers;
 }
 
-void GameplayData::spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos)
+void GameplayData::spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos, int minutesPassed)
 {
    // if (spawnedReapers.size() < 10) {
 
@@ -879,7 +906,7 @@ void GameplayData::spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos)
         float distance = 250.0f;
 
         e.getBody().setPosition(playerPos + sf::Vector2f(float(cos(rad)) * distance, float(sin(rad)) * distance));
-
+        e.setLevel(minutesPassed);
         spawnedReapers.push_back(e);
    // }
 }

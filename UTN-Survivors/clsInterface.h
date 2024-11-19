@@ -28,6 +28,8 @@ public:
 
 	Interface(sf::Vector2f posToPj, float hpMax);
 	void UpdateHpBar(float hpActual, float hpMax);
+	void UpdateExpBar(float expActual, float expMax);
+
 	void Draw(sf::RenderWindow& window);
 	void update(sf::Vector2f posToPj, int level, float deltaTime);
 	void configurarRectangle(sf::RectangleShape& rect, sf::Vector2f size, sf::Color color, bool setOrigin);

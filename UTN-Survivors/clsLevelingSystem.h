@@ -13,6 +13,11 @@ public:
 
     int getLevel();
 
+    int getCurrentExperience();
+
+    int getExpNeeded();
+    
+
 private:
 
     int currentLevel;

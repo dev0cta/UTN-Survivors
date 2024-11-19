@@ -1,11 +1,12 @@
 #include "clsPlayer.h"
 #include "clsAttack.h"
+#include "clsLevelingSystem.h"
 
 Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window):
 	animation(texture, imageCount, switchTime), window(window), interface(Player::getPos(), HpMax)
 {
 	this->speed = speed;
-	this->lastLevel = 1;
+
 
 	this->baseHealth = 100;
 	this->health = 100;
@@ -36,7 +37,7 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	//---------------------------------------------------------
 }
 
-void Player::Update(float deltaTime, int level)
+void Player::Update(float deltaTime, int level, float currentExp, float expNeeded)
 {
 	sf::Vector2f movement(0.0f, 0.0f);
 
@@ -72,7 +73,9 @@ void Player::Update(float deltaTime, int level)
 	}
 
 	interface.UpdateHpBar(health, HpMax);
+	
 
+	interface.UpdateExpBar(currentExp,expNeeded);
 
 	animation.Update(row, deltaTime, faceRight);
 	interface.update(getPos(), level, deltaTime);

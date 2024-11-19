@@ -12,7 +12,7 @@ ElementalSlime::ElementalSlime(sf::Texture* texture, sf::Vector2u imageCount, fl
 	this->level = level;
 	this->speed = speed;
 	this->health = 100;
-	this->healthScaling = 25;
+	this->healthScaling = 30;
 	this->dmg = 10;
 	this->dmgScaling = 10;
 

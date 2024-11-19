@@ -12,7 +12,7 @@ Spartan::Spartan(sf::Texture* texture, sf::Vector2u imageCount, float switchTime
 	this->level = level;
 	this->speed = speed;
 	this->health = 100;
-	this->healthScaling = 25;
+	this->healthScaling = 45;
 	this->dmg = 10;
 	this->dmgScaling = 10;
 

@@ -14,7 +14,7 @@ public:
 
 	Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed, sf::RenderWindow& window);
 
-	void Update(float deltaTime, int level);
+	void Update(float deltaTime, int level, float getCurrentExp, float getExpNeeded);
 
 	void Draw();
 
