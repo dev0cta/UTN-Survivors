@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include <vector>
 #include "clsLevelingSystem.h"
 #include "clsPlayer.h"
 
@@ -29,7 +30,7 @@ public:
 
 	void UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos);
 
-	void checkPlayerCollision(CircleCollider playerCollider, Player& player);
+	void checkPlayerCollision(CircleCollider playerCollider, Player& player, float deltaTime);
 
 	void CheckEverySolidCollision();
 	
@@ -123,17 +124,11 @@ private:
 	///ATAQUES DEL JUGADOR
 
 
-	int skillLevels[3];
-
-
 	std::vector <MagicBall> spawnedBalls;
 
-	float ballCd;
+
 	float ballDmgCd;
 	int ballAttackDmg = 15;
-
-
-
 
 
 	std::vector<BulletAttack> tornadosSpawned;
@@ -144,6 +139,8 @@ private:
 	float areaCd;
 	float areaDmgCd;
 
+
+	float dmgTakenCd;
 
 	///VARIABLES PARA ENEMIGOS
 

@@ -18,7 +18,7 @@ public:
 private:
 
 	bool mouseOnPlay;
-	bool mouseOnStats;
+	bool mouseOnExit;
 
 	sf::Texture			backgroundImage;
 	sf::Sprite			backgroundSprite;

@@ -18,7 +18,7 @@
 #include "clsGameplayData.h"
 #include "clsBulletAttack.h"
 #include "clsAreaAttack.h"
-#include"MagicBall.h"
+#include "MagicBall.h"
 
 int main()
 {
@@ -198,6 +198,8 @@ int main()
             //SALIR DEL MENU
             if (mainMenu.getOptionPressed() == PLAYING)
             {
+                chadster.Reset();
+                gameData.ResetGameData(chadster.getBody());
                 gameState = PLAYING;
             }
             if (mainMenu.getOptionPressed() == STATS) 
@@ -224,6 +226,7 @@ int main()
             //aca van los updates
 
             if (chadster.getHealth() <= 0.0f) {
+                //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
                 gameState = GAMEOVER;
             }
             std::cout << chadster.getHealth()<<std::endl;
@@ -247,6 +250,9 @@ int main()
             if (paused == true) {
                 if (gamePause.getOptionPressed() == MENU)
                 {
+                    chadster.Reset();
+                    gameData.ResetGameData(chadster.getBody());
+                    paused = false;
                     gameState = MENU;
                 }
             }
@@ -279,9 +285,15 @@ int main()
             chadster.Update(deltaTime, gameData.getLevel());
 
             ///UPDATE Y CHEQUEO DE HABILIDADES
+
             gameData.createTornado(tornadoTemplate, chadster.getPos());
+
+            if (gameData.getLevel() >= 5) {
             gameData.createAreaAttack(areaTemplate, chadster.getPos());
+            }
+            if (gameData.getLevel() >= 10) {
             gameData.createBall(magicBallTemplate, chadster.getPos());
+            }
 
             gameData.UpdateEverySkill(chadster.getPos(), deltaTime);;
 
@@ -290,7 +302,7 @@ int main()
             gameData.dyingEnemies();
 
             gameData.UpdateEveryEnemy(deltaTime, chadster.getPos());
-            gameData.checkPlayerCollision(chadster.getCollider(), chadster);
+            gameData.checkPlayerCollision(chadster.getCollider(), chadster, deltaTime);
             gameData.CheckEverySolidCollision();
             
 
@@ -335,6 +347,16 @@ int main()
             cursor.setPosition(mousePos);
 
             gameOver.Update(mousePos);
+
+            if (gameOver.getOptionPressed() == PLAYING) {
+
+                chadster.Reset();
+                gameData.ResetGameData(chadster.getBody());
+                gameState = PLAYING;
+            }
+            if (gameOver.getOptionPressed() == MENU) {
+                gameState == MENU;
+            }
 
             window.clear();
 

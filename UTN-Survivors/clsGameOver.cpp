@@ -5,7 +5,7 @@ GameOver::GameOver(sf::Texture* playAgainTexture, sf::Texture* menuTexture) :
 	playAgainAnimation(playAgainTexture), MenuAnimation(menuTexture)
 {
 	this->mouseOnPlay = false;
-	this->mouseOnStats = false;
+	this->mouseOnExit = false;
 
 	backgroundImage.loadFromFile("./Assets/Images/gameOverBackground.png");
 	backgroundSprite.setTexture(backgroundImage);
@@ -16,7 +16,7 @@ GameOver::GameOver(sf::Texture* playAgainTexture, sf::Texture* menuTexture) :
 	sf::Vector2f playSize(128.0f, 64.0f);
 	playAgainButton.setSize(playSize);
 	playAgainButton.setOrigin(playSize / 2.0f);
-	playAgainButton.setPosition(sf::Vector2f(-200.0f, 0.0f));
+	playAgainButton.setPosition(sf::Vector2f(-100.0f, 0.0f));
 
 	playAgainButton.setTexture(playAgainTexture);
 
@@ -25,7 +25,7 @@ GameOver::GameOver(sf::Texture* playAgainTexture, sf::Texture* menuTexture) :
 	MenuButton.setSize(statsSize);
 	MenuButton.setScale(0.75f, 0.75f);
 	MenuButton.setOrigin(statsSize / 2.0f);
-	MenuButton.setPosition(sf::Vector2f(-200.0f, 60.0f));
+	MenuButton.setPosition(sf::Vector2f(-100.0f, 60.0f));
 
 	MenuButton.setTexture(menuTexture);
 }
@@ -71,7 +71,7 @@ void GameOver::Update(sf::Vector2f mousePos)
 	}
 
 	this->mouseOnPlay = mouseOverPlay;
-	this->mouseOnStats = mouseOverExit;
+	this->mouseOnExit = mouseOverExit;
 
 	playAgainAnimation.Update(mouseOverPlay);
 	playAgainButton.setTextureRect(playAgainAnimation.uvRect);
@@ -97,9 +97,9 @@ int GameOver::getOptionPressed()
 	{
 		return 1;
 	}
-	if (mouseOnStats && sf::Mouse::isButtonPressed(sf::Mouse::Left))
+	if (mouseOnExit && sf::Mouse::isButtonPressed(sf::Mouse::Left))
 	{
-		return 2;
+		return 0;
 	}
 
 

@@ -13,14 +13,14 @@ GamePause::GamePause(sf::Texture* pauseTexture, sf::Texture* exitTexture, sf::Re
 	screenSize = secondCornerPos - firstCornerPos;
 
 
-	sf::Vector2f pauseSize(256.0f, 64.0f);
+	sf::Vector2f pauseSize(192.0f, 64.0f);
 	pauseSymbol.setSize(pauseSize);
 	pauseSymbol.setOrigin(pauseSize / 2.0f);
 	pauseSymbol.setPosition(firstCornerPos + (secondCornerPos / 2.0f));
 
 	pauseSymbol.setTexture(pauseTexture);
 	
-	sf::Vector2f exitSize(246.0f, 42.0f);
+	sf::Vector2f exitSize(75.0f, 42.0f);
 	exitButton.setSize(exitSize);
 	exitButton.setOrigin(exitSize / 2.0f);
 	exitButton.setPosition(firstCornerPos + (secondCornerPos / 2.0f));

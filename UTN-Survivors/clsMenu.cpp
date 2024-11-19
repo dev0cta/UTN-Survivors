@@ -25,7 +25,7 @@ Menu::Menu(sf::Texture* playTexture, sf::Texture* statsTexture):
 	statsButton.setSize(statsSize);
 	statsButton.setScale(0.75f, 0.75f);
 	statsButton.setOrigin(statsSize /2.0f );
-	statsButton.setPosition(sf::Vector2f(100.0f, 60.0f));
+	statsButton.setPosition(sf::Vector2f(110.0f, 60.0f));
 
 	statsButton.setTexture(statsTexture);
 }

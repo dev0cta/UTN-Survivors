@@ -10,13 +10,11 @@ GameplayData::GameplayData()
 
     tornadoCd = 2.0f;
     areaCd = 2.5f;
+    areaCd = 2.5f;
     tornadoDmgCd = 0.5f;
     areaDmgCd = 0.5f;
 
-    for (int i = 0; i < 3; i++)
-    {
-        skillLevels[i] = 0;
-    }
+    dmgTakenCd = 0.25f;
 }
 
 void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
@@ -32,11 +30,11 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
     getSpartans().clear();
     getReapers().clear();
 
+    areaAttacksSpawned.clear();
+    tornadosSpawned.clear();
+    spawnedBalls.clear();
 
-    for (int i = 0; i < 3; i++)
-    {
-        skillLevels[i] = 0;
-    }
+
 }
 
 void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
@@ -163,6 +161,11 @@ void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime sl
         break;
     default:
         //no spawn termina el juego
+        /*
+        if (bossKilled == true) {
+            //MANDAR A PANTALLA DE VICTORIA
+        }
+        */
         break;
     }
 
@@ -191,32 +194,42 @@ void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
 
 }
 
-void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& player)
+void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& player, float deltaTime)
 {
+    dmgTakenCd -= deltaTime;
+
+    bool canTakeDmg = false;
+    if (dmgTakenCd <= 0) {
+        canTakeDmg = true;
+    }
 
     for (auto& enemy : getSlimes())
     {
-        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
+            dmgTakenCd = 0.25f;
         }
 
     }
     for (auto& enemy : getElemSlimes())
     {
-        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
+            dmgTakenCd = 0.25f;
         }
     }
     for (auto& enemy : getSpartans())
     {
-        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
+            dmgTakenCd = 0.25f;
         }
     }
     for (auto& enemy : getReapers())
     {
-        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f)) {
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
+            dmgTakenCd = 0.25f;
         }
     }
 
@@ -314,7 +327,7 @@ void GameplayData::dyingEnemies()
         if (spawnedSlimes[i].getHealth() <= 0)
         {
             spawnedSlimes.erase(spawnedSlimes.begin() + i);
-            levelingSystem.obtainExp(10);
+            levelingSystem.obtainExp(15);
         }
         else
         {
@@ -327,7 +340,7 @@ void GameplayData::dyingEnemies()
         if (spawnedElemSlimes[i].getHealth() <= 0)
         {
             spawnedElemSlimes.erase(spawnedElemSlimes.begin() + i);
-            levelingSystem.obtainExp(10);
+            levelingSystem.obtainExp(15);
         }
         else
         {
@@ -340,7 +353,7 @@ void GameplayData::dyingEnemies()
         if (spawnedSpartans[i].getHealth() <= 0)
         {
             spawnedSpartans.erase(spawnedSpartans.begin() + i);
-            levelingSystem.obtainExp(10);
+            levelingSystem.obtainExp(15);
         }
         else
         {
@@ -353,7 +366,7 @@ void GameplayData::dyingEnemies()
         if (spawnedReapers[i].getHealth() <= 0)
         {
             spawnedReapers.erase(spawnedReapers.begin() + i);
-            levelingSystem.obtainExp(10);
+            levelingSystem.obtainExp(15);
         }
         else
         {

@@ -32,6 +32,8 @@ public:
 
 	int getHealth();
 
+	void Reset();
+
 	//debug purposes only
 	bool pressedE();
 

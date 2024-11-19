@@ -123,6 +123,18 @@ int Player::getHealth()
 	return health;
 }
 
+void Player::Reset()
+{
+	this->lastLevel = 1;
+
+	this->baseHealth = 100;
+	this->health = 100;
+	this->healthScaling = 5;
+	this->HpMax = 100;
+	this->dmg = 75;
+	this->dmgScaling = 75;
+}
+
 bool Player::pressedE()
 {
 	if (sf::Keyboard::isKeyPressed(sf::Keyboard::E))
