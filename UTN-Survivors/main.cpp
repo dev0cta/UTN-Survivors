@@ -97,6 +97,9 @@ int main()
     
     sf::Texture reaperTexture;
     reaperTexture.loadFromFile("./Assets/Sprites/reaperSprite.png");
+    
+    sf::Texture dirubinTexture;
+    dirubinTexture.loadFromFile("./Assets/Sprites/dirubinSprite.png");
 
     Menu mainMenu(&playTexture, &statsTexture);
 
@@ -115,6 +118,8 @@ int main()
     Spartan spartanTemplate (&spartanTexture, sf::Vector2u(4,1), 0.3f, 55.0f);
     
     Reaper reaperTemplate (&reaperTexture, sf::Vector2u(6,1), 0.3f, 65.0f);
+
+    Dirubin dirubinTemplate (&dirubinTexture, sf::Vector2u(4,1), 0.3f, 65.0f);
 
 
     BulletAttack tornadoTemplate (&blueTornadoTexture, sf::Vector2u(5,1), 0.3f);
@@ -231,7 +236,21 @@ int main()
 
             if (chadster.getHealth() <= 0.0f) {
                 //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
+                gameData.saveSomeData();
+                saveStatisticsData("statistics.dat", gameData.getGameStatistics());
+
+                chadster.Reset();
+                gameData.ResetGameData(chadster.getBody());
                 gameState = GAMEOVER;
+            }
+            if (gameData.isGameBeaten()) {
+                //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
+                gameData.saveSomeData();
+                saveStatisticsData("statistics.dat", gameData.getGameStatistics());
+
+                chadster.Reset();
+                gameData.ResetGameData(chadster.getBody());
+                gameState = MENU;
             }
             //std::cout << chadster.getHealth()<<std::endl;
 
@@ -254,6 +273,8 @@ int main()
             if (paused == true) {
                 if (gamePause.getOptionPressed() == MENU)
                 {
+                    gameData.saveSomeData();
+                    saveStatisticsData("statistics.dat", gameData.getGameStatistics());
                     chadster.Reset();
                     gameData.ResetGameData(chadster.getBody());
                     paused = false;
@@ -264,7 +285,7 @@ int main()
 
             ///SPAWN ENEMIGOS DE PRUEBA
 
-            gameData.randomSpawn(chadster.getPos(), deltaTime, slimeTemplate, elemSlimeTemplate, spartanTemplate, reaperTemplate);
+            gameData.randomSpawn(chadster.getPos(), deltaTime, slimeTemplate, elemSlimeTemplate, spartanTemplate, reaperTemplate, dirubinTemplate);
 
             ///GET VIEW AND MOUSE POSITION
             currentView = camara.getView(window.getSize(), chadster.getPos());
@@ -379,7 +400,7 @@ int main()
 
             /////--------SAVE STATISTICS ACA NO TESTEADO
             if (gameOver.getOptionPressed() == MENU) {
-                saveStatisticsData("statistics.dat", gameData.getGameStatistics());
+                
                 gameState = MENU;
             }
 

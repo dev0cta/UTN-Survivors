@@ -38,9 +38,9 @@ void checkBounds(sf::RectangleShape& body, sf::Vector2f boundMapLeftTop, sf::Vec
     }
 }
 
-void saveStatisticsData(std::string, Statistics currentMatch)
+void saveStatisticsData(std::string path, Statistics currentMatch)
 {
-    ArchivoStatistics arc("statistics.dat");
+    ArchivoStatistics arc(path);
 
     arc.addAndSaveRecentMatch(currentMatch);
 
@@ -51,7 +51,7 @@ void saveStatisticsData(std::string, Statistics currentMatch)
 Statistics getLastRecordedStatistics()
 {
 
-    ArchivoStatistics arc("statistics.dat");
+    ArchivoStatistics arc("path");
 
     Statistics obj(arc.Read());
 

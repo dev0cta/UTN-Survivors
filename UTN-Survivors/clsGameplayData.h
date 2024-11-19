@@ -8,12 +8,13 @@
 
 #include "clsBulletAttack.h"
 #include "clsAreaAttack.h"
+#include "MagicBall.h"
 
 #include "clsSlime.h"
 #include "clsElemSlime.h"
 #include "clsSpartan.h"
 #include "clsReaper.h"
-#include "MagicBall.h"
+#include "clsDirubin.h"
 
 class GameplayData
 {
@@ -25,7 +26,9 @@ public:
 
 	void ResetGameData(sf::RectangleShape& characterBody);
 
-	void randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate);
+	void randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate, Dirubin dirubinTemplate);
+
+	bool isGameBeaten();
 
 	//FUNCIONES GENERALES
 
@@ -98,12 +101,25 @@ public:
 	std::vector<Reaper>& getReapers();
 
 	void spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos, int minutesPassed);
+	
+
+	//DIRUBIN 
+
+	std::vector<Dirubin>& getDirubin();
+
+	void spawnDirubin(Dirubin dirubinTemplate, sf::Vector2f playerPos);
 
 
 
 	///STATISTICS
 
+	void loadTimesLeveledUp();
+
 	Statistics getGameStatistics();
+
+	void saveSomeData();
+
+	void resetStatistics();
 
 private:
 
@@ -145,6 +161,9 @@ private:
 
 	int enemyLevel;
 
+	bool bossSpawned;
+	bool bossBeaten;
+
 	///VECTORES DE ENEMIGOS
 	std::vector<Slime> spawnedSlimes;
 
@@ -153,6 +172,8 @@ private:
 	std::vector<Spartan> spawnedSpartans;
 
 	std::vector<Reaper> spawnedReapers;
+
+	std::vector<Dirubin> spawnedDirubin;
 
 	//CONTADORES PARA STADISTICS
 

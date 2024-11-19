@@ -1,24 +1,2 @@
-﻿  clsGameplayData.cpp
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(622,48): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(629,50): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(631,48): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(640,48): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(649,48): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(705,49): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(707,47): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(712,49): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(714,47): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(719,49): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(721,47): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(726,49): warning C4244: 'argumento': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(728,53): warning C4244: '+=': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(798,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(833,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(867,17): warning C4244: 'inicializando': conversión de 'double' a 'int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\clsGameplayData.cpp(895,19): warning C4244: 'inicializando': conversión de 'double' a 'float'; posible pérdida de datos
-  main.cpp
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\main.cpp(28,15): warning C4244: 'argumento': conversión de 'time_t' a 'unsigned int'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\main.cpp(276,108): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\UTN-Survivors\main.cpp(276,83): warning C4244: 'argumento': conversión de 'int' a 'float'; posible pérdida de datos
-  Generando código...
+﻿  clsStatistics.cpp
   UTN-Survivors.vcxproj -> C:\Users\Quinn\Downloads\Programacion legit\A repos con permisos\UTN-Survivors\UTN-Survivors\x64\Debug\UTN-Survivors.exe

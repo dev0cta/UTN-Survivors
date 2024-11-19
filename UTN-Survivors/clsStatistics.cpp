@@ -38,9 +38,9 @@ Statistics Statistics::operator+=(Statistics& other)
 	this->slimesDefeated = slimesDefeated + other.getSlimesDefeated();
 	this->elementalSlimesDefeated = elementalSlimesDefeated + other.getElementalSlimesDefeated();
 	this->spartansDefeated = spartansDefeated + other.getSpartansDefeated();
-	this->reapersDefeated = reapersDefeated + getReapersDefeated();
-	this->timesLeveledUp = timesLeveledUp + getTimesLeveledUp();
-	this->gameBeatedCounter = gameBeatedCounter;
+	this->reapersDefeated = reapersDefeated + other.getReapersDefeated();
+	this->timesLeveledUp = timesLeveledUp + other.getTimesLeveledUp();
+	this->gameBeatedCounter = gameBeatedCounter + other.getGameBeatedCounter();
 
 
 	return *this;

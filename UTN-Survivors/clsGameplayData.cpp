@@ -4,6 +4,9 @@
 GameplayData::GameplayData()
 {
 
+    bossSpawned = false;
+    bossBeaten = false;
+
     gameTime = 0.0f;
 
     enemyLevel = 0;
@@ -31,6 +34,8 @@ GameplayData::GameplayData()
     timesLeveledUp = 0;
     gameBeatedCounter = 0;
 
+
+
 }
 
 void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
@@ -45,18 +50,23 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
     getElemSlimes().clear();
     getSpartans().clear();
     getReapers().clear();
+    getDirubin().clear();
 
     areaAttacksSpawned.clear();
     tornadosSpawned.clear();
     spawnedBalls.clear();
 
+    resetStatistics();
+
+
+
 
 }
 
-void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate)
+void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate, Dirubin dirubinTemplate)
 {
 
-    gameTime += deltaTime;
+    gameTime += deltaTime*20;
     int minutesPassed = int(gameTime / 60);
     
     spawnCd -= deltaTime;
@@ -173,6 +183,12 @@ void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime sl
             }
             break;
         case 10:
+
+            if (!bossSpawned) {
+                bossSpawned = true;
+                spawnDirubin(dirubinTemplate, playerPos);
+            }
+
             if (randomSpawn <= 75)
             {
                 spawnSpartan(spartanTemplate, playerPos, minutesPassed);
@@ -185,28 +201,18 @@ void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime sl
         default:
             //no spawn, termina el juego si se mato al boss
 
-            /*
-            if (bossKilled == true) {
-                gameBeatenCounter++;
-                timesLeveledUp += this->getLevel();
-                //MANDAR A PANTALLA DE VICTORIA
-
-            }
-
-
-            or
-
-            if(noEnemiesLeft == true){
-                ganaste el juego
-                
-            }
-
-            */
             break;
         }
         spawnCd = 0.4f;
     }
 
+}
+
+bool GameplayData::isGameBeaten()
+{
+    timesLeveledUp = levelingSystem.getLevel();
+    gameBeatedCounter = 1;
+    return bossBeaten;
 }
 
 
@@ -229,6 +235,11 @@ void GameplayData::UpdateEveryEnemy(float deltaTime, sf::Vector2f playerPos)
         enemy.Update(deltaTime, playerPos);
     }
     for (auto& enemy : getReapers())
+    {
+        enemy.Update(deltaTime, playerPos);
+    }
+
+    for (auto& enemy : getDirubin())
     {
         enemy.Update(deltaTime, playerPos);
     }
@@ -273,6 +284,25 @@ void GameplayData::checkPlayerCollision(CircleCollider playerCollider, Player& p
         }
     }
     for (auto& enemy : getReapers())
+    {
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
+            CheckDamageEnemy(player, enemy.getDmg());
+            dmgTakenCd = 0.5f;
+            ///statistics
+            dmgTaken += enemy.getDmg();
+        }
+    }
+    for (auto& enemy : getReapers())
+    {
+        if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
+            CheckDamageEnemy(player, enemy.getDmg());
+            dmgTakenCd = 0.5f;
+            ///statistics
+            dmgTaken += enemy.getDmg();
+        }
+    }
+    
+    for (auto& enemy : getDirubin())
     {
         if (enemy.GetCollider().checkSolidCollision(playerCollider, 0.5f) && canTakeDmg) {
             CheckDamageEnemy(player, enemy.getDmg());
@@ -431,6 +461,23 @@ void GameplayData::dyingEnemies()
         }
 
     }
+    
+    for (int i = 0; i < spawnedDirubin.size();)
+    {
+        if (spawnedDirubin[i].getHealth() <= 0)
+        {
+            bossBeaten = true;
+            spawnedDirubin.erase(spawnedDirubin.begin() + i);
+            levelingSystem.obtainExp(15);
+
+            
+        }
+        else
+        {
+            i++;
+        }
+
+    }
 
 }
 
@@ -451,6 +498,10 @@ void GameplayData::DrawEveryEnemy(sf::RenderWindow& window)
         enemy.Draw(window);
     }
     for (auto& enemy : getReapers())
+    {
+        enemy.Draw(window);
+    }
+    for (auto& enemy : getDirubin())
     {
         enemy.Draw(window);
     }
@@ -484,6 +535,13 @@ float GameplayData::getNearestEnemyAngle(sf::Vector2f playerPos)
         }
     }
     for (auto& enemy : getReapers())
+    {
+        if (getDistance(enemy.getBody().getPosition(), playerPos) < minDistance) {
+            nearestPoint = enemy.getBody().getPosition();
+            minDistance = getDistance(enemy.getBody().getPosition(), playerPos);
+        }
+    } 
+    for (auto& enemy : getDirubin())
     {
         if (getDistance(enemy.getBody().getPosition(), playerPos) < minDistance) {
             nearestPoint = enemy.getBody().getPosition();
@@ -659,6 +717,15 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 }
 
             }
+            for (auto& enemy : getDirubin())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    ///statistics
+                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                }
+
+            }
         }
         tornadoDmgCd = 0.5f;
     }
@@ -703,6 +770,15 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                 }
 
             }
+            for (auto& enemy : getDirubin())
+            {
+                if (skill.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    ///statistics
+                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                }
+
+            }
         }
         areaDmgCd = 0.5f;
     }
@@ -736,6 +812,15 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
                     ///statistics
                     dmgDealt += ball.getDmg() * 0.5 + playerDmg;
                 }
+            }
+            for (auto& enemy : getDirubin())
+            {
+                if (ball.getCollider().checkCollision(enemy.GetCollider())) {
+                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    ///statistics
+                    dmgDealt += ball.getDmg() + 0.8 * playerDmg;
+                }
+
             }
         }
         ballDmgCd = 0.5f; // Resetear el tiempo de cooldown para la bola
@@ -790,7 +875,9 @@ int GameplayData::getExpNeeded()
 
 std::vector<Slime>& GameplayData::getSlimes()
 {
+
     return spawnedSlimes;
+
 }
 
 void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos, int minutesPassed)
@@ -817,10 +904,6 @@ void GameplayData::spawnSlime(Slime slimeTemplate, sf::Vector2f playerPos, int m
    // }
 
 }
-
-
-
-
 
 
 
@@ -855,9 +938,6 @@ void GameplayData::spawnElementalSlime(ElementalSlime elemSlimeTemplate, sf::Vec
 }
 
 
-
-
-
 std::vector<Spartan>& GameplayData::getSpartans()
 {
     return spawnedSpartans;
@@ -886,8 +966,6 @@ void GameplayData::spawnSpartan(Spartan spartanTemplate, sf::Vector2f playerPos,
 
 
 
-
-
 std::vector<Reaper>& GameplayData::getReapers()
 {
     return spawnedReapers;
@@ -911,9 +989,33 @@ void GameplayData::spawnReaper(Reaper reaperTemplate, sf::Vector2f playerPos, in
    // }
 }
 
+std::vector<Dirubin>& GameplayData::getDirubin()
+{
+    return spawnedDirubin;
+}
+
+void GameplayData::spawnDirubin(Dirubin dirubinTemplate, sf::Vector2f playerPos)
+{
+
+    Dirubin e(dirubinTemplate);
+
+
+    float distance = 250.0f;
+
+    e.getBody().setPosition(playerPos + sf::Vector2f(0.0f, 1 * distance));
+
+    spawnedDirubin.push_back(e);
+}
+
 
 ///-------------------------------------------- MINI FUNCIONES ---------------------------------------
 
+
+void GameplayData::loadTimesLeveledUp()
+{
+    timesLeveledUp = levelingSystem.getLevel();
+
+}
 
 Statistics GameplayData::getGameStatistics()
 {
@@ -922,6 +1024,25 @@ Statistics GameplayData::getGameStatistics()
         elementalSlimesDefeated, spartansDefeated, reapersDefeated, timesLeveledUp, gameBeatedCounter);
 
     return obj;
+}
+
+void GameplayData::saveSomeData()
+{
+    timesLeveledUp = levelingSystem.getLevel();
+}
+
+void GameplayData::resetStatistics()
+{
+    timeSurvived = 0.0f;
+    dmgTaken = 0;
+    dmgDealt = 0;
+    slimesDefeated = 0;
+    elementalSlimesDefeated = 0;
+    spartansDefeated = 0;
+    reapersDefeated = 0;
+    timesLeveledUp = 0;
+    gameBeatedCounter = 0;
+
 }
 
 float GameplayData::getDistance(sf::Vector2f pos1, sf::Vector2f pos2)
