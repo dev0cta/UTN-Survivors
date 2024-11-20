@@ -14,6 +14,7 @@
 #include "clsMenu.h"
 #include "clsGameOver.h"
 #include "clsGamePause.h"
+#include "clsWinMenu.h"
 #include "clsStatisticsMenu.h"
 #include "clsInterface.h"
 #include "clsCircleCollider.h"
@@ -31,7 +32,6 @@ int main()
     ///ventana de juego
 
     sf::RenderWindow window(sf::VideoMode(800, 600), "UTN Survivors", sf::Style::Close | sf::Style::Titlebar | sf::Style::Resize);
-
 
     ///inicializar sistemas
 
@@ -55,7 +55,8 @@ int main()
         MENU,
         PLAYING,
         STATS,
-        GAMEOVER
+        GAMEOVER,
+        WIN
     };
 
     enum GAMESTATE  gameState = MENU;
@@ -104,9 +105,11 @@ int main()
 
     Menu mainMenu(&playTexture, &statsTexture);
 
-    GameOver gameOver(&playTexture, &exitTexture);
+    GameOver gameOver(&playAgainTexture, &exitTexture);
 
     GamePause gamePause(&pauseTexture, &exitTexture, window);
+
+    WinMenu winMenu(&playAgainTexture, &exitTexture);
 
     StatisticsMenu statisticsMenu(getLastRecordedStatistics(), &exitTexture);
 
@@ -202,14 +205,9 @@ int main()
             //UPDATE MENU
 
             currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f,0.0f));
-
             window.setView(currentView);
-
             mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
-
             cursor.setPosition(mousePos);
-
-
             mainMenu.Update(mousePos);
 
             //SALIR DEL MENU
@@ -227,15 +225,10 @@ int main()
                 gameState = STATS;
             }
 
-
             //DRAW MENU
             window.clear();
-
             mainMenu.Draw(window);
-
             window.draw(cursor);
-
-            //drawButtons
             window.display();
 
             break;
@@ -254,10 +247,8 @@ int main()
                 //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
                 gameData.saveSomeData();
                 saveStatisticsData("statistics.dat", gameData.getGameStatistics());
-
                 chadster.Reset();
                 gameData.ResetGameData(chadster.getBody());
-
                 playingMusic.stop();
                 isMusicPlaying = false;
                 gameState = GAMEOVER;
@@ -267,12 +258,11 @@ int main()
                 //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
                 gameData.saveSomeData();
                 saveStatisticsData("statistics.dat", gameData.getGameStatistics());
-
                 chadster.Reset();
                 gameData.ResetGameData(chadster.getBody());
-
-                
-                gameState = MENU;
+                playingMusic.stop();
+                isMusicPlaying = false;
+                gameState = WIN;
             }
             //std::cout << chadster.getHealth()<<std::endl;
 
@@ -450,22 +440,53 @@ int main()
 
             break;
 
+        case WIN:
+
+            if (!isMusicPlaying) {
+                setMusic(endMusic, "./Assets/Sounds/backgroundMusic/2-02-Results-Screen.ogg", 60, false);
+                isMusicPlaying = true;
+            }
+
+            currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f, 0.0f));
+
+            window.setView(currentView);
+
+            mousePos = window.mapPixelToCoords(sf::Mouse::getPosition(window));
+
+            cursor.setPosition(mousePos);
+
+            winMenu.Update(mousePos);
+
+            if (gameOver.getOptionPressed() == PLAYING) {
+
+                chadster.Reset();
+                gameData.ResetGameData(chadster.getBody());
+                endMusic.stop();
+                isMusicPlaying = false;
+                gameState = PLAYING;
+            }
+
+            /////--------SAVE STATISTICS ACA NO TESTEADO
+            if (gameOver.getOptionPressed() == MENU) {
+                endMusic.stop();
+                isMusicPlaying = false;
+
+                gameState = MENU;
+            }
+
+            window.clear();
+            winMenu.Draw(window);
+            window.draw(cursor);
+            window.display();
+
+
+            break;
 
         default:
             std::cout << "ESTO NO DEBERIA PASAR... FATAL ERROR" << std::endl;
             window.close();
             break;
         }
-
-
-        
-
-        
-
-
-
-
-
 
 
     }

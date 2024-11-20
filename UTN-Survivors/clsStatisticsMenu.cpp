@@ -7,10 +7,10 @@ StatisticsMenu::StatisticsMenu(Statistics statistics, sf::Texture* exitTexture) 
 	this->mouseOnPlay = false;
 	this->mouseOnExit = false;
 
-	backgroundImage.loadFromFile("./Assets/Images/StatisticsMenuBackground.png");
+	backgroundImage.loadFromFile("./Assets/Images/StatisticsBackground.jpg");
 	backgroundSprite.setTexture(backgroundImage);
 	backgroundSprite.setOrigin(sf::Vector2f(backgroundImage.getSize()) / 2.0f);
-	backgroundSprite.setScale(16 / 15.5f, 9 / 8.6f);
+	backgroundSprite.setScale(4 / 4.5f, 3 / 6.0f);
 
 
 	sf::Vector2f statsSize(128.0f, 47.0f);
@@ -104,7 +104,6 @@ StatisticsMenu::StatisticsMenu(Statistics statistics, sf::Texture* exitTexture) 
 
 void StatisticsMenu::setStatistics(Statistics statistics)
 {
-	statistics.coutStatistics(statistics);
 	this->globalStats = statistics;
 }
 
@@ -139,7 +138,7 @@ void StatisticsMenu::Update(sf::Vector2f mousePos)
 	dmgTaken.setString("Total dmg Taken: " + std::to_string(globalStats.getDmgTaken()));
 	dmgDealt.setString("Total dmg Dealt " + std::to_string(globalStats.getDmgDealt()));
 	slimeText.setString("Total Slimes Defeated: " + std::to_string(globalStats.getSlimesDefeated()));
-	elemSlimeText.setString("Total Elemental Slime Defeated: " + std::to_string(globalStats.getElementalSlimesDefeated()));
+	elemSlimeText.setString("Total Elem. Slime Defeated: " + std::to_string(globalStats.getElementalSlimesDefeated()));
 	spartanText.setString("Total Spartan Defeated: " + std::to_string(globalStats.getSpartansDefeated()));
 	reaperText.setString("Total Reaper Defeated: " + std::to_string(globalStats.getReapersDefeated()));
 	timesLeveledUpText.setString("Times leveled up: " + std::to_string(globalStats.getTimesLeveledUp()));

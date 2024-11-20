@@ -158,6 +158,7 @@
     <ClCompile Include="clsSquareCollider.cpp" />
     <ClCompile Include="clsStatistics.cpp" />
     <ClCompile Include="clsStatisticsMenu.cpp" />
+    <ClCompile Include="clsWinMenu.cpp" />
     <ClCompile Include="gameFunctions.cpp" />
     <ClCompile Include="MagicBall.cpp" />
     <ClCompile Include="main.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="clsSquareCollider.h" />
     <ClInclude Include="clsStatistics.h" />
     <ClInclude Include="clsStatisticsMenu.h" />
+    <ClInclude Include="clsWinMenu.h" />
     <ClInclude Include="gameFunctions.h" />
     <ClInclude Include="MagicBall.h" />
   </ItemGroup>

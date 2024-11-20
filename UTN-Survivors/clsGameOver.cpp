@@ -7,16 +7,17 @@ GameOver::GameOver(sf::Texture* playAgainTexture, sf::Texture* menuTexture) :
 	this->mouseOnPlay = false;
 	this->mouseOnExit = false;
 
-	backgroundImage.loadFromFile("./Assets/Images/gameOverBackground.png");
+	backgroundImage.loadFromFile("./Assets/Images/gameOverBackground.jpg");
 	backgroundSprite.setTexture(backgroundImage);
 	backgroundSprite.setOrigin(sf::Vector2f(backgroundImage.getSize()) / 2.0f);
+	backgroundSprite.setPosition(sf::Vector2f(-10.0f, -30.0f));
 	backgroundSprite.setScale(16 / 15.5f, 9 / 8.6f);
 
 
-	sf::Vector2f playSize(128.0f, 64.0f);
+	sf::Vector2f playSize= sf::Vector2f(71.0f, 23.0f) * 1.75f;
 	playAgainButton.setSize(playSize);
 	playAgainButton.setOrigin(playSize / 2.0f);
-	playAgainButton.setPosition(sf::Vector2f(-100.0f, 0.0f));
+	playAgainButton.setPosition(sf::Vector2f(-80.0f, 100.0f));
 
 	playAgainButton.setTexture(playAgainTexture);
 
@@ -25,7 +26,7 @@ GameOver::GameOver(sf::Texture* playAgainTexture, sf::Texture* menuTexture) :
 	MenuButton.setSize(statsSize);
 	MenuButton.setScale(0.75f, 0.75f);
 	MenuButton.setOrigin(statsSize / 2.0f);
-	MenuButton.setPosition(sf::Vector2f(-100.0f, 60.0f));
+	MenuButton.setPosition(sf::Vector2f(80.0f, 100.0f));
 
 	MenuButton.setTexture(menuTexture);
 }

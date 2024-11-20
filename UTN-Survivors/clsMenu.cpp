@@ -10,6 +10,7 @@ Menu::Menu(sf::Texture* playTexture, sf::Texture* statsTexture):
 	backgroundImage.loadFromFile("./Assets/Images/mainMenuBackground.jpg");
 	background.setTexture(backgroundImage);
 	background.setOrigin(sf::Vector2f(backgroundImage.getSize()) / 2.0f);
+	background.setPosition(sf::Vector2f(80.0f,0.0f));
 	background.setScale(16 / 15.5f, 9 / 8.6f);
 
 
