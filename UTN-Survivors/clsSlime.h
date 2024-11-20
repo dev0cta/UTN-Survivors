@@ -3,6 +3,7 @@
 #include "SFML/Graphics.hpp"
 #include "clsAnimation.h"
 #include "clsEnemy.h"
+#include "clsCircleCollider.h"
 
 class Slime: public Enemy
 {
@@ -10,10 +11,15 @@ public:
 
 	Slime(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, float speed);
 
-	void Update(float deltaTime, sf::Vector2f target);
+	void Update(float deltaTime, sf::Vector2f target) override;
 
-	void Draw(sf::RenderWindow& window);
+	void Draw(sf::RenderWindow& window) override;
 
+	CircleCollider GetCollider() override;
+
+	sf::RectangleShape& getBody();
+
+	void setType(int type);
 
 
 private:
@@ -22,8 +28,8 @@ private:
 
 private:
 
-public:
 	float speed;
+	int type;
 
 	sf::Vector2f target;
 

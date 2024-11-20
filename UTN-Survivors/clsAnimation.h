@@ -12,12 +12,16 @@ public:
 
 	void Update(int row, float deltaTime, bool faceRight);
 
+	sf::Texture* getTexture();
+
+	sf::IntRect getUvRect();
+
 public:
 
-	sf::IntRect uvRect;
-	sf::Vector2u currentImage;
 
 private:
+	sf::IntRect uvRect;
+	sf::Vector2u currentImage;
 	sf::Texture texture;
 	sf::Vector2u imageCount;
 

@@ -105,13 +105,13 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_CONSOLE;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
-      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include;$(SolutionDir)External\tmxlite\include</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>$(SolutionDir)External\SFML\include</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)External\SFML\lib;$(SolutionDir)\External\tmxlite\x64\bin\DebugStatic</AdditionalLibraryDirectories>
-      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;libtmxlite-s-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)External\SFML\lib</AdditionalLibraryDirectories>
+      <AdditionalDependencies>sfml-graphics-d.lib;sfml-window-d.lib;sfml-audio-d.lib;sfml-network-d.lib;sfml-system-d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -136,20 +136,31 @@
   <ItemGroup>
     <ClCompile Include="BarraVida.cpp" />
     <ClCompile Include="clsAnimation.cpp" />
+    <ClCompile Include="clsButtonAnimation.cpp" />
     <ClCompile Include="clsCamera.cpp" />
+    <ClCompile Include="clsCircleCollider.cpp" />
     <ClCompile Include="clsEnemy.cpp" />
+    <ClCompile Include="clsGamePause.cpp" />
+    <ClCompile Include="clsGameplayData.cpp" />
+    <ClCompile Include="clsMenu.cpp" />
     <ClCompile Include="clsSlime.cpp" />
     <ClCompile Include="clsPlayer.cpp" />
+    <ClCompile Include="gameFunctions.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BarraVida.h" />
     <ClInclude Include="clsAnimation.h" />
+    <ClInclude Include="clsButtonAnimation.h" />
     <ClInclude Include="clsCamera.h" />
+    <ClInclude Include="clsCircleCollider.h" />
     <ClInclude Include="clsEnemy.h" />
+    <ClInclude Include="clsGamePause.h" />
+    <ClInclude Include="clsGameplayData.h" />
+    <ClInclude Include="clsMenu.h" />
     <ClInclude Include="clsSlime.h" />
     <ClInclude Include="clsPlayer.h" />
-    <ClInclude Include="SFMLOrthogonalLayer.h" />
+    <ClInclude Include="gameFunctions.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

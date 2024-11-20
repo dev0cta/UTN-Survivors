@@ -1,5 +1,5 @@
 #pragma once
-
+#include "clsCircleCollider.h"
 #include "clsAnimation.h"
 #include "SFML/Graphics.hpp"
 #include "BarraVida.h"
@@ -15,8 +15,12 @@ public:
 
 	void Draw();
 
+	CircleCollider GetCollider();
+
 
 	sf::Vector2f getPos(); //para el target de los enemigos
+
+	sf::RectangleShape& getBody(); // nigga i cant
 
 	void takeDmg(); //tiene cooldown
 
@@ -31,11 +35,13 @@ private:
 	//funciones
 
 	sf::RectangleShape	body;
+	sf::CircleShape		hitBox;
+
 
 	Animation			animation;
 	unsigned int		row;
 	bool				faceRight;
-	BarraVida			BarraHp;
+	Interfaz			BarraHp;
 	sf::RenderWindow& window;
 	float HpMax = 200;
 };

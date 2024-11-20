@@ -9,14 +9,17 @@ Player::Player(sf::Texture* texture, sf::Vector2u imageCount, float switchTime, 
 	row = 0;
 	faceRight = true;
 
-	body.setSize(sf::Vector2f(5.0f, 7.5f));
+	hitBox.setRadius(25.0f / 2.0f);
+	hitBox.setOrigin(sf::Vector2f(12.5f, 12.5f));
 
-	body.setPosition(sf::Vector2f(0.0f, 0.0f));
+	body.setSize(sf::Vector2f(12.5f, 25.0f));
+
+	body.setPosition(sf::Vector2f(250.0f, 250.0f));
 	body.setOrigin(body.getSize() / 2.0f);
 
 	body.setTexture(texture);
 	//--------------DESCOMENTAR PARA VER LA HITBOX-------------
-	body.setOutlineThickness(-0.1f);
+	body.setOutlineThickness(-0.25f);
 	body.setOutlineColor(sf::Color::Red);
 	//---------------------------------------------------------
 }
@@ -51,7 +54,7 @@ void Player::Update(float deltaTime)
 
 	animation.Update(row, deltaTime, faceRight);
 	BarraHp.update(getPos());
-	body.setTextureRect(animation.uvRect);
+	body.setTextureRect(animation.getUvRect());
 	body.move(movement);
 }
 
@@ -62,9 +65,19 @@ void Player::Draw()
 
 }
 
+CircleCollider Player::GetCollider()
+{
+	return CircleCollider(body);
+}
+
 sf::Vector2f Player::getPos()
 {
 	return body.getPosition();
+}
+
+sf::RectangleShape& Player::getBody()
+{
+	return body;
 }
 
 void Player::takeDmg()
@@ -74,3 +87,4 @@ void Player::takeDmg()
 void Player::attack()
 {
 }
+
