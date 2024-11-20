@@ -7,7 +7,7 @@ ArchivoStatistics::ArchivoStatistics(std::string filePath)
 
 bool ArchivoStatistics::Save(Statistics statistics)
 {
-    FILE* p = fopen(_filePath.c_str(), "wb+");
+    FILE* p = fopen("statistics.dat", "wb+");
     if (p == NULL) {
         return false;
     }
@@ -20,13 +20,15 @@ bool ArchivoStatistics::Save(Statistics statistics)
 
 Statistics ArchivoStatistics::Read()
 {
-    FILE* pArchivo = fopen(_filePath.c_str(), "rb");
+    FILE* pArchivo = fopen("statistics.dat", "rb");
     if (pArchivo == NULL) {
-        return Statistics();
+        return Statistics(0,0,0,0,0,0,0,0,0);
     }
     Statistics statistics;
     fread(&statistics, sizeof(Statistics), 1, pArchivo);
     fclose(pArchivo);
+    std::cout << "read : ";
+    statistics.coutStatistics(statistics);
     return statistics;
 }
 
@@ -39,6 +41,9 @@ void ArchivoStatistics::addAndSaveRecentMatch(Statistics statistics)
     if (Save(lastRecord)) {
         std::cout << "RecentMatch added succesfully" << std::endl;
     }
+    std::cout << "lastRecord : ";
+
+    lastRecord.coutStatistics(lastRecord);
 
 
 }

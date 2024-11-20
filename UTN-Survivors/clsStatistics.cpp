@@ -16,7 +16,7 @@ Statistics::Statistics()
 }
 
 Statistics::Statistics(float timeSurvived, int dmgTaken, int dmgDealt, int slimesDefeated, int elementalSlimesDefeated,
-	int spartansDefeated, int reapersDefeated, int timesLeveledUp, bool gameBeatedCounter)
+	int spartansDefeated, int reapersDefeated, int timesLeveledUp, int gameBeatedCounter)
 {
 	this->timeSurvived = timeSurvived;
 	this->dmgTaken = dmgTaken;
@@ -32,15 +32,15 @@ Statistics::Statistics(float timeSurvived, int dmgTaken, int dmgDealt, int slime
 
 Statistics Statistics::operator+=(Statistics& other)
 {
-	this->timeSurvived = timeSurvived + other.getTimeSurvived();
-	this->dmgTaken = dmgTaken + other.getDmgTaken();
-	this->dmgDealt = dmgDealt + other.getDmgDealt();
-	this->slimesDefeated = slimesDefeated + other.getSlimesDefeated();
-	this->elementalSlimesDefeated = elementalSlimesDefeated + other.getElementalSlimesDefeated();
-	this->spartansDefeated = spartansDefeated + other.getSpartansDefeated();
-	this->reapersDefeated = reapersDefeated + other.getReapersDefeated();
-	this->timesLeveledUp = timesLeveledUp + other.getTimesLeveledUp();
-	this->gameBeatedCounter = gameBeatedCounter + other.getGameBeatedCounter();
+	this->timeSurvived += other.getTimeSurvived();
+	this->dmgTaken += other.getDmgTaken();
+	this->dmgDealt += other.getDmgDealt();
+	this->slimesDefeated += other.getSlimesDefeated();
+	this->elementalSlimesDefeated += other.getElementalSlimesDefeated();
+	this->spartansDefeated += other.getSpartansDefeated();
+	this->reapersDefeated += other.getReapersDefeated();
+	this->timesLeveledUp += other.getTimesLeveledUp();
+	this->gameBeatedCounter += other.getGameBeatedCounter();
 
 
 	return *this;

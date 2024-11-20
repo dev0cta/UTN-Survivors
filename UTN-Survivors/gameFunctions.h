@@ -1,6 +1,7 @@
 #pragma once
 
 #include "SFML/Graphics.hpp"
+#include "SFML/Audio.hpp"
 #include <string>
 #include "clsStatistics.h"
 #include "clsArchivoStatistics.h"
@@ -15,3 +16,5 @@ void saveStatisticsData(std::string, Statistics currentMatch);
 
 Statistics getLastRecordedStatistics();
 
+
+void setMusic(sf::Music& music, const std::string& filePath, float volume, bool loop);

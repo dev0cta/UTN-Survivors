@@ -43,6 +43,10 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
     characterBody.setPosition(sf::Vector2f(250.0f, 250.0f));
     levelingSystem.resetLeveling();
 
+
+    bossBeaten = false;
+    bossSpawned = false;
+
     enemyLevel = 0;
     gameTime = 0;
 
@@ -66,7 +70,7 @@ void GameplayData::ResetGameData(sf::RectangleShape& characterBody)
 void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime slimeTemplate, ElementalSlime elemSlimeTemplate, Spartan spartanTemplate, Reaper reaperTemplate, Dirubin dirubinTemplate)
 {
 
-    gameTime += deltaTime*20;
+    gameTime += deltaTime*10;
     int minutesPassed = int(gameTime / 60);
     
     spawnCd -= deltaTime;
@@ -210,9 +214,15 @@ void GameplayData::randomSpawn(sf::Vector2f playerPos, float deltaTime, Slime sl
 
 bool GameplayData::isGameBeaten()
 {
-    timesLeveledUp = levelingSystem.getLevel();
-    gameBeatedCounter = 1;
-    return bossBeaten;
+    timesLeveledUp = levelingSystem.getLevel() - 1;
+
+    if (bossBeaten) {
+        gameBeatedCounter = 1;
+        return true;
+    }
+    else {
+        return false;
+    }
 }
 
 
@@ -466,9 +476,9 @@ void GameplayData::dyingEnemies()
     {
         if (spawnedDirubin[i].getHealth() <= 0)
         {
-            bossBeaten = true;
             spawnedDirubin.erase(spawnedDirubin.begin() + i);
             levelingSystem.obtainExp(15);
+            bossBeaten = true;
 
             
         }
@@ -684,45 +694,45 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             for (auto& enemy : getSlimes())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.75 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                    dmgDealt += skill.getDmg() + int(0.75 * playerDmg);
                 }
 
             }
             for (auto& enemy : getElemSlimes())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + 0.8*playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.75 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                    dmgDealt += skill.getDmg() + int(0.75 * playerDmg);
                 }
 
             }
             for (auto& enemy : getSpartans())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.75 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                    dmgDealt += skill.getDmg() + int(0.75 * playerDmg);
                 }
 
             }
             for (auto& enemy : getReapers())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.75 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                    dmgDealt += skill.getDmg() + int(0.75 * playerDmg);
                 }
 
             }
             for (auto& enemy : getDirubin())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.75 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                    dmgDealt += skill.getDmg() + int(0.75 * playerDmg);
                 }
 
             }
@@ -773,9 +783,9 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
             for (auto& enemy : getDirubin())
             {
                 if (skill.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(skill.getDmg() + playerDmg);
+                    enemy.takeDmg(skill.getDmg() + int(0.25 * playerDmg));
                     ///statistics
-                    dmgDealt += skill.getDmg() + 0.8 * playerDmg;
+                    dmgDealt += skill.getDmg() + int(0.25 * playerDmg);
                 }
 
             }
@@ -787,43 +797,43 @@ void GameplayData::checkDmgCollision(float deltaTime, int playerDmg)
         for (auto& ball : spawnedBalls) {
             for (auto& enemy : getSlimes()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + 0.5 * playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.4 * playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg() + 0.5 * playerDmg;
+                    dmgDealt += ball.getDmg() + 0.4 * playerDmg;
                 }
             }
             for (auto& enemy : getElemSlimes()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + 0.5*playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.4*playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg() + 0.5 * playerDmg;
+                    dmgDealt += ball.getDmg() + 0.4 * playerDmg;
                 }
             }
             for (auto& enemy : getSpartans()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + 0.5 * playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.4 * playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg() + 0.5 * playerDmg;
+                    dmgDealt += ball.getDmg() + 0.4 * playerDmg;
                 }
             }
             for (auto& enemy : getReapers()) {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + 0.5 * playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.4 * playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg() * 0.5 + playerDmg;
+                    dmgDealt += ball.getDmg() * 0.4 + playerDmg;
                 }
             }
             for (auto& enemy : getDirubin())
             {
                 if (ball.getCollider().checkCollision(enemy.GetCollider())) {
-                    enemy.takeDmg(ball.getDmg() + playerDmg);
+                    enemy.takeDmg(ball.getDmg() + 0.4 * playerDmg);
                     ///statistics
-                    dmgDealt += ball.getDmg() + 0.8 * playerDmg;
+                    dmgDealt += ball.getDmg() + 0.4 * playerDmg;
                 }
 
             }
         }
-        ballDmgCd = 0.5f; // Resetear el tiempo de cooldown para la bola
+        ballDmgCd = 0.75f; // Resetear el tiempo de cooldown para la bola
     }
 }
 

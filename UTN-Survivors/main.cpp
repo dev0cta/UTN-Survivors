@@ -1,5 +1,6 @@
 #include <iostream>
 #include <SFML/Graphics.hpp>
+#include <SFML/Audio.hpp>
 #include "clsCamera.h"
 #include "gameFunctions.h"
 #include "clsAnimation.h"
@@ -125,15 +126,18 @@ int main()
     BulletAttack tornadoTemplate (&blueTornadoTexture, sf::Vector2u(5,1), 0.3f);
     AreaAttack areaTemplate (&purpleAreaTexture, sf::Vector2u(6,1), 0.3f);
 
-    MagicBall magicBallTemplate(15.0f, 60.0f, 100.0f, 75, sf::Vector2u(6, 1), 0.1f, &magicBallTexture);   //radio, radioOrbita, velocidad, daño,----  lo demas no se toca
+    MagicBall magicBallTemplate(15.0f, 60.0f, 100.0f, 50, sf::Vector2u(6, 1), 0.1f, &magicBallTexture);   //radio, radioOrbita, velocidad, daño,----  lo demas no se toca
+
+    ///----------------------- MUSIC TEXTURES ---------------------------
+
+    sf::Music backgroundMusic;
+    sf::Music playingMusic;
+    sf::Music winMusic;
+    sf::Music endMusic;
+
+    bool isMusicPlaying = false;
 
     //debug counter
-
-    
-    
-
-    
-    
     
     sf::RectangleShape cursor(sf::Vector2f(20.0f, 20.0f));
     cursor.setOrigin(20.0f / 2.0f, 20.0f / 2.0f);
@@ -190,6 +194,11 @@ int main()
         case MENU:              //----------------------------------------------------MENU STATE------------------------------
             //window.setSize();
             
+            if (!isMusicPlaying) {
+                setMusic(backgroundMusic, "./Assets/Sounds/backgroundMusic/aboard-a-aurora-game-menu-pulse-203549.ogg", 60, true);
+                isMusicPlaying = true;
+            }
+
             //UPDATE MENU
 
             currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f,0.0f));
@@ -208,6 +217,8 @@ int main()
             {
                 chadster.Reset();
                 gameData.ResetGameData(chadster.getBody());
+                backgroundMusic.stop();
+                isMusicPlaying = false;
                 gameState = PLAYING;
             }
             if (mainMenu.getOptionPressed() == STATS) 
@@ -234,6 +245,11 @@ int main()
 
             //aca van los updates
 
+            if (!isMusicPlaying) {
+                setMusic(playingMusic, "./Assets/Sounds/backgroundMusic/2-03 Skyway Octane (Mirage Saloon Zone - Act 1 ST Mix).ogg", 60, true);
+                isMusicPlaying = true;
+            }
+
             if (chadster.getHealth() <= 0.0f) {
                 //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
                 gameData.saveSomeData();
@@ -241,8 +257,12 @@ int main()
 
                 chadster.Reset();
                 gameData.ResetGameData(chadster.getBody());
+
+                playingMusic.stop();
+                isMusicPlaying = false;
                 gameState = GAMEOVER;
             }
+
             if (gameData.isGameBeaten()) {
                 //GUARDAR DATOS DE LA PARTIDA EN UN OBJ TODO:
                 gameData.saveSomeData();
@@ -250,6 +270,8 @@ int main()
 
                 chadster.Reset();
                 gameData.ResetGameData(chadster.getBody());
+
+                
                 gameState = MENU;
             }
             //std::cout << chadster.getHealth()<<std::endl;
@@ -278,6 +300,9 @@ int main()
                     chadster.Reset();
                     gameData.ResetGameData(chadster.getBody());
                     paused = false;
+
+                    playingMusic.stop();
+                    isMusicPlaying = false;
                     gameState = MENU;
                 }
             }
@@ -381,6 +406,11 @@ int main()
 
         case GAMEOVER:
 
+            if (!isMusicPlaying) {
+                setMusic(endMusic, "./Assets/Sounds/backgroundMusic/2-26 Game Over.ogg", 60, false);
+                isMusicPlaying = true;
+            }
+
             currentView = camara.getView(window.getSize(), sf::Vector2f(0.0f, 0.0f));
 
             window.setView(currentView);
@@ -395,12 +425,17 @@ int main()
 
                 chadster.Reset();
                 gameData.ResetGameData(chadster.getBody());
+
+                endMusic.stop();
+                isMusicPlaying = false;
                 gameState = PLAYING;
             }
 
             /////--------SAVE STATISTICS ACA NO TESTEADO
             if (gameOver.getOptionPressed() == MENU) {
-                
+                endMusic.stop();
+                isMusicPlaying = false;
+
                 gameState = MENU;
             }
 

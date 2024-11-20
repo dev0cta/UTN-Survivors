@@ -21,7 +21,7 @@ public:
 
 private:
 
-	Statistics statistics;
+	Statistics globalStats;
 
 	bool mouseOnPlay;
 	bool mouseOnExit;

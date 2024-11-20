@@ -2,7 +2,7 @@
 #include <iostream>
 
 StatisticsMenu::StatisticsMenu(Statistics statistics, sf::Texture* exitTexture) :
-	statistics(statistics), MenuAnimation(exitTexture)
+	globalStats(statistics), MenuAnimation(exitTexture)
 {
 	this->mouseOnPlay = false;
 	this->mouseOnExit = false;
@@ -104,7 +104,8 @@ StatisticsMenu::StatisticsMenu(Statistics statistics, sf::Texture* exitTexture) 
 
 void StatisticsMenu::setStatistics(Statistics statistics)
 {
-	this->statistics = statistics;
+	statistics.coutStatistics(statistics);
+	this->globalStats = statistics;
 }
 
 void StatisticsMenu::Update(sf::Vector2f mousePos)
@@ -134,15 +135,15 @@ void StatisticsMenu::Update(sf::Vector2f mousePos)
 	this->mouseOnExit = mouseOverExit;
 
 
-	timeSurvived.setString("Time Survived: " + std::to_string(int(statistics.getTimeSurvived())));
-	dmgTaken.setString("Total dmg Taken: " + std::to_string(statistics.getDmgTaken()));
-	dmgDealt.setString("Total dmg Dealt " + std::to_string(statistics.getDmgDealt()));
-	slimeText.setString("Total Slimes Defeated: " + std::to_string(statistics.getSlimesDefeated()));
-	elemSlimeText.setString("Total Slimes Defeated: " + std::to_string(statistics.getElementalSlimesDefeated()));
-	spartanText.setString("Total Slimes Defeated: " + std::to_string(statistics.getSpartansDefeated()));
-	reaperText.setString("Total Slimes Defeated: " + std::to_string(statistics.getReapersDefeated()));
-	timesLeveledUpText.setString("Times leveled up: " + std::to_string(statistics.getTimesLeveledUp()));
-	gamesBeatedCountText.setString("Game Beated Counter: " + std::to_string(statistics.getGameBeatedCounter()));
+	timeSurvived.setString("Time Survived: " + std::to_string(int(globalStats.getTimeSurvived())));
+	dmgTaken.setString("Total dmg Taken: " + std::to_string(globalStats.getDmgTaken()));
+	dmgDealt.setString("Total dmg Dealt " + std::to_string(globalStats.getDmgDealt()));
+	slimeText.setString("Total Slimes Defeated: " + std::to_string(globalStats.getSlimesDefeated()));
+	elemSlimeText.setString("Total Elemental Slime Defeated: " + std::to_string(globalStats.getElementalSlimesDefeated()));
+	spartanText.setString("Total Spartan Defeated: " + std::to_string(globalStats.getSpartansDefeated()));
+	reaperText.setString("Total Reaper Defeated: " + std::to_string(globalStats.getReapersDefeated()));
+	timesLeveledUpText.setString("Times leveled up: " + std::to_string(globalStats.getTimesLeveledUp()));
+	gamesBeatedCountText.setString("Game Beated Counter: " + std::to_string(globalStats.getGameBeatedCounter()));
 
 
 	MenuAnimation.Update(mouseOverExit);

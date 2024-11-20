@@ -10,10 +10,10 @@ Dirubin::Dirubin(sf::Texture* texture, sf::Vector2u imageCount, float switchTime
 
 	this->level = level;
 	this->speed = speed;
-	this->health = 100;
-	this->healthScaling = 55;
-	this->dmg = 10;
-	this->dmgScaling = 10;
+	this->health = 40000;
+	this->healthScaling = 1;
+	this->dmg = 50;
+	this->dmgScaling = 1;
 
 
 	body.setSize(sf::Vector2f(75.0f, 75.0f));

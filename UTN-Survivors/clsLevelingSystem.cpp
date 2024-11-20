@@ -33,7 +33,7 @@ void LevelingSystem::checkLevelUp()
             currentExperience = 0;
         }
     }
-    else if(currentLevel > 5)
+    else if(currentLevel <= 10)
     {
         if (currentExperience >= 150)
         {
@@ -41,7 +41,7 @@ void LevelingSystem::checkLevelUp()
             currentExperience = 0;
         }
     }
-    else if (currentLevel > 10)
+    else if (currentLevel <= 15)
     {
         if (currentExperience >= 200)
         {
@@ -49,7 +49,7 @@ void LevelingSystem::checkLevelUp()
             currentExperience = 0;
         }
     }
-    else if (currentLevel > 15)
+    else if (currentLevel <= 19)
     {
         if (currentExperience >= 250)
         {
@@ -57,6 +57,11 @@ void LevelingSystem::checkLevelUp()
             currentExperience = 0;
         }
     }
+    else
+    {
+        currentExperience = 0;
+    }
+    
     
 }
 
@@ -76,15 +81,15 @@ int LevelingSystem::getExpNeeded()
 
         return 100;
     }
-    else if (currentLevel > 5)
+    else if (currentLevel <= 10)
     {
         return 150;
     }
-    else if (currentLevel > 10)
+    else if (currentLevel <= 15)
     {
         return 200;
     }
-    else if (currentLevel > 15)
+    else if (currentLevel <=20)
     {
         return 250;
     }

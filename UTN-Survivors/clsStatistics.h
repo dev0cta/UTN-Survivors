@@ -9,7 +9,7 @@ public:
 	Statistics();
 
 	Statistics(float timeSurvived, int dmgTaken, int dmgDealt, int slimesDefeated, int elementalSlimesDefeated,
-		int spartansDefeated, int reapersDefeated, int timesLeveledUp, bool gameBeatedCounter);
+		int spartansDefeated, int reapersDefeated, int timesLeveledUp, int gameBeatedCounter);
 
 	Statistics operator+=(Statistics& other);
 

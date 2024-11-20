@@ -57,3 +57,14 @@ Statistics getLastRecordedStatistics()
 
     return obj;
 }
+
+void setMusic(sf::Music& music, const std::string& filePath, float volume, bool loop)
+{
+    if (!music.openFromFile(filePath)) {
+        std::cout << "MAL";
+    }
+
+    music.setVolume(volume);
+    music.setLoop(loop);
+    music.play();
+}
